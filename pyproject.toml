@@ -7,7 +7,7 @@ name = "liualgotrader"
 version = "0.4.35"
 description = "a Pythonic all-batteries-included framework for effective algorithmic trading. The framework is intended to simplify development, testing, deployment and evaluating algo trading strategies."
 readme = "README.md"
-requires-python = "==3.13.*"
+requires-python = ">=3.13"
 license = {text = "MIT"}
 authors = [
   {name = "AMOR71", email = "amor71@sgeltd.com"},
@@ -26,7 +26,7 @@ dependencies = [
   "iso8601>=2.1.0",
   "requests>=2.32.5",
   "deprecated>=1.2.15",
-  "urllib3>=2.3.0",
+  # "urllib3>=2.3.0",  # Temporarily removed: conflicts with alpaca-trade-api (<2); pulled transitively via requests
   "numpy>=2.3.4",
   "pandas>=2.3.3",
   "asyncpg>=0.30.0",
@@ -47,9 +47,9 @@ dependencies = [
   "psutil>=6.1.1",
   "aiohttp>=3.13.2",
 ]
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "pytest>=8.3.4",
+    "pytest>=9.0",
     "pytest-asyncio>=0.25.2",
     "hypothesis>=6.125.6",
     "mypy>=1.15.0",
@@ -58,6 +58,11 @@ dev = [
     "sphinx>=8.1.3",
     "coverage>=7.6.10",
 ]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[project.optional-dependencies]
 alpaca = [
     "alpaca-trade-api>=3.2.0",
 ]
@@ -82,11 +87,11 @@ portfolio = "liualgotrader.scripts.portfolio:main_cli"
 trader = "liualgotrader.scripts.trader:main_cli"
 
 [tool.hatch.build.targets.wheel]
-packages = ["liualgotrader"]
+packages = ["src/liualgotrader"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "liualgotrader/**",
+    "src/liualgotrader/**",
     "README.md",
     "LICENSE",
     "database/**",
@@ -99,5 +104,37 @@ exclude = [
     "design/**",
 ]
 
-[tool.uv.sources]
-quantstats = { workspace = true }
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "C4", "RUF", "PERF", "TC", "PTH"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["liualgotrader"]
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "basic"
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = ["-ra", "-q", "--strict-markers", "--import-mode=importlib"]
+testpaths = ["tests"]
+pythonpath = ["src"]
+xfail_strict = true
+filterwarnings = ["error"]
+asyncio_mode = "auto"
+log_cli = true
+norecursedirs = ["tests/legacy"]
+markers = [
+    "devtest: marks a test to run during dev validation, and not deployment (deselect with '-m \"not devtest\"')",
+    "serial",
+]
