@@ -58,7 +58,7 @@ All owned test processes are terminal. The owned DB password was rotated; connec
 | Reconciliation of identical 195 original nodes | **97 pass / 93 fail / 5 error**, composite only |
 | Current strict compile | `python -Werror -m compileall -f -q src tests`: exit 0 |
 | Current wheel and sdist | `uv build --python .venv/bin/python`: exit 0 |
-| Current whitespace validation | `git diff --check`: exit 0 |
+| Edited source/test/config/report whitespace validation | `git diff --check d7442026 HEAD` scoped to these edited files: exit 0 |
 
 The remaining 98 outcomes are **73 Alpaca missing-credential outcomes (68 failures and five setup errors), 20 real Tradier HTTP 401 failures, and five Gemini missing-key/secret assertions**. The original PostgreSQL refusal and Wikipedia 403 are not included as unavoidable external blockers. No real exchange credentials were invented or requested offline. Exact node-level results are in [case reconciliation](liu-case-reconciliation.json), with the initial snapshot and supplemental flags preserved per node.
 
@@ -67,3 +67,5 @@ The full run preceded two factory return corrections and the Wikipedia repair; t
 All 195 original case IDs and order are unchanged. Original assertion, raise, and condition ASTs remain unchanged except the explicitly approved positional accessor `s[-1]` to `s.iloc[-1]` in the anchored VWAP condition/message; its original exact `25.0` comparison and production Series index/type remain unchanged. Existing tests gained awaited resource ownership and current-library syntax, not additional cases, weakened assertions, skips, or changed expected returns. [Case/AST preservation proof](liu-original-case-preservation.json), [retained assertion ASTs](liu-original-assertion-ast.json).
 
 Authentic raw logs were never rewritten. They remain private with mode 0600; published `.sanitized.log` files are separate copies with explicit credential redaction and distinct raw/published SHA-256 fields in [redaction provenance](liu-evidence-redaction.json). Equal hashes indicate no redaction was needed for that particular log. Database logging no longer prints full DSNs.
+
+Whole-range whitespace checking flags trailing whitespace in exact publisher HTML responses and authentic pytest/psql terminal evidence. Those response/log bytes are intentionally preserved, with recorded hashes; they were not reformatted to manufacture a clean artifact check. Source, tests, config, edited Markdown/JSON, and the generated review HTML pass the scoped check. The earlier pre-staging working-diff check in the build record covered tracked edits at that time.

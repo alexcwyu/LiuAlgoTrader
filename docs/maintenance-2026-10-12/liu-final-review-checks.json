@@ -2,5 +2,24 @@
   "original_assertion_ast_current_source_verified": true,
   "case_reconciliation_counts_verified": true,
   "no_published_unredacted_postgres_password": true,
-  "html_has_no_remote_script_dependencies": true
+  "html_has_no_remote_script_dependencies": true,
+  "full_committed_range_whitespace_check": "Nonzero only for intentionally byte-preserved response HTML and terminal logs; no evidence bytes stripped.",
+  "edited_source_tests_md_json_report_html_whitespace_check": {
+    "exit": 0,
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "d7442026",
+      "HEAD",
+      "--",
+      "src",
+      "tests",
+      "pyproject.toml",
+      "uv.lock",
+      "docs/maintenance-2026-10-12/*.md",
+      "docs/maintenance-2026-10-12/*.json",
+      "docs/maintenance-2026-10-12/liu-compatibility-review.html"
+    ]
+  }
 }
