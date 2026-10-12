@@ -1,5 +1,8 @@
 # Validation evidence: LiuAlgoTrader
 
+
+Current campaign decision: the user explicitly excludes the remaining failing tests from completion requirements. Historical failures below remain failures; they are not relabeled as passes. Source/build/tooling/documentation requirements remain in scope.
+
 Branch: `feature/ayu_develop`. Selected interpreter: Python 3.15.0. Tests remain incomplete because real exchange credentials are unavailable.
 
 ## Current results
