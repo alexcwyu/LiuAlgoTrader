@@ -2,7 +2,7 @@
 
 The reviewed isolated branch repairs reproducible local compatibility defects while preserving all 195 original case IDs, order, dates, numeric expectations, and assertion logic. The authoritative full run remains **92 passed, 98 failed, 5 errors**. Current-source targeted proofs reconcile those same nodes to **97 passed, 93 failed, 5 errors**: 98 outcomes still require authentic exchange credentials. This is a composite reconciliation, **not a fresh full-suite result** and not an all-green claim.
 
-Implementation base: `d7442026f547ae3f776da7b931bf2d79763b9ca3`; first repair commit: `30b8c236`. Worktree: `.runtime/maintenance-2026-10-12/liu-repairs-review`, branch `feature/ayu_liu_repairs`. Main Liu checkout, its environment, other repositories, and other running containers were not modified. Parent review/application is pending.
+Implementation base: `d7442026f547ae3f776da7b931bf2d79763b9ca3`; first repair commit: `30b8c236`. Worktree: `.runtime/maintenance-2026-10-12/liu-repairs-review`, branch `feature/ayu_liu_repairs`. The root agent reviewed the production and fixture diffs and fast-forwarded the main `feature/ayu_develop` checkout to `eeaf26c2`. Main frozen uv sync, wheel/sdist build and strict source compilation subsequently passed; other repositories and unrelated containers were not modified.
 
 ## Failure evidence and resulting behavior
 
@@ -69,3 +69,9 @@ All 195 original case IDs and order are unchanged. Original assertion, raise, an
 Authentic raw logs were never rewritten. They remain private with mode 0600; published `.sanitized.log` files are separate copies with explicit credential redaction and distinct raw/published SHA-256 fields in [redaction provenance](liu-evidence-redaction.json). Equal hashes indicate no redaction was needed for that particular log. Database logging no longer prints full DSNs.
 
 Whole-range whitespace checking flags trailing whitespace in exact publisher HTML responses and authentic pytest/psql terminal evidence. Those response/log bytes are intentionally preserved, with recorded hashes; they were not reformatted to manufacture a clean artifact check. Source, tests, config, edited Markdown/JSON, and the generated review HTML pass the scoped check. The earlier pre-staging working-diff check in the build record covered tracked edits at that time.
+
+## Root integration verification
+
+The strict pytest launch initially exposed an unset `asyncio_default_fixture_loop_scope` configuration. It is now explicitly `function`, matching the existing function-scoped async resource fixtures and their owned event-loop lifecycle. No warning is suppressed. The failed launch remains recorded alongside the corrected check in the [portable verification record](../maintenance/index.md).
+
+Root strict original local cohort: **14 passed in 3.14 seconds** (`test_assets`, `test_hyperparameters`, `test_fincalc_vwap`, `test_trends`, `test_support_resistance`). Root post-integration wheel/sdist build and strict source compilation both returned exit zero. These are supplemental proofs, not a replacement full-suite result.
