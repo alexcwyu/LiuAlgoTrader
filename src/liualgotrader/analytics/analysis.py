@@ -96,19 +96,19 @@ async def load_trades(day: date, end_date: date = None) -> pd.DataFrame:
 
 
 async def load_trades_by_batch_id(batch_id: str) -> pd.DataFrame:
-    query = f"""
+    query = """
         SELECT 
             t.*, a.batch_id, a.start_time, a.algo_name
         FROM 
             new_trades as t, algo_run as a
         WHERE 
             t.algo_run_id = a.algo_run_id AND 
-            a.batch_id = '{batch_id}' AND
+            a.batch_id = $1 AND
             t.expire_tstamp is null AND 
             price != 0.0 
         ORDER BY symbol, tstamp
     """
-    df: pd.DataFrame = await fetch_as_dataframe(query)
+    df: pd.DataFrame = await fetch_as_dataframe(query, batch_id)
     try:
         if not df.empty:
             df["client_time"] = pd.to_datetime(df["client_time"])

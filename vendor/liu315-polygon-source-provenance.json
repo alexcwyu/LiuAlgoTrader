@@ -1,0 +1,6 @@
+{
+  "source_url": "https://files.pythonhosted.org/packages/2c/39/8f2423b65926d7f815370e83acf9b8c09d0965c7cb5b55a78eee52e679f1/polygon_api_client-1.15.4.tar.gz",
+  "source_sha256": "2adb920dac5788732fc95a25dc8650cc843591552c8969c40f5eaaf22aaf7072",
+  "source_change": "modelclass.py: cls.__dict__[\"__annotations__\"].keys() -> cls.__annotations__.keys()",
+  "scope": "temporary diagnostic only; no algorithm or request API changes"
+}

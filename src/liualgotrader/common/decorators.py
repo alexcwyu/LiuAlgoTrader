@@ -1,4 +1,4 @@
-import asyncio
+import inspect
 import time
 
 from liualgotrader.common import config
@@ -7,7 +7,7 @@ from liualgotrader.common.tlog import tlog
 
 def timeit(func):
     async def process(func, *args, **params):
-        if asyncio.iscoroutinefunction(func):
+        if inspect.iscoroutinefunction(func):
             return await func(*args, **params)
         else:
             return func(*args, **params)

@@ -1,0 +1,61 @@
+{
+  "build_prefixes_temporarily_unavailable": [
+    "liu315-libgit2",
+    "liu315-libgit2-macos11",
+    "liu315-libgit2-macos11-ssh",
+    "liu315-libssh2",
+    "liu315-libssh2-macos11",
+    "liu315-openssl"
+  ],
+  "import_exit": 0,
+  "features_equal_published313": 1791,
+  "libraries": {
+    ".venv/lib/python3.15/site-packages/pygit2/_libgit2.abi3-darwin.so": {
+      "dependencies": [
+        "\t@loader_path/.dylibs/libgit2.1.9.7.dylib (compatibility version 1.9.0, current version 1.9.7)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ],
+      "minimum_macos": "11.0",
+      "sha256": "bb88269416fd82d932248980a647cf9ff774f848cd77154652c9d0115affd7cd"
+    },
+    ".venv/lib/python3.15/site-packages/pygit2/_pygit2.cpython-315-darwin.so": {
+      "dependencies": [
+        "\t@loader_path/.dylibs/libgit2.1.9.7.dylib (compatibility version 1.9.0, current version 1.9.7)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ],
+      "minimum_macos": "11.0",
+      "sha256": "8dbd6a00b0c5d96b385d3bcfdf612568445574315de6d043899f3e18c323cfda"
+    },
+    ".venv/lib/python3.15/site-packages/pygit2/.dylibs/libssh2.1.0.1.dylib": {
+      "dependencies": [
+        "\t/DLC/pygit2/.dylibs/libssh2.1.0.1.dylib (compatibility version 1.0.0, current version 1.0.1)",
+        "\t@loader_path/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ],
+      "minimum_macos": "11.0",
+      "sha256": "5731333f62c99625b684e69cdaec21d269cc27c6b4e38607b2087df3df879781"
+    },
+    ".venv/lib/python3.15/site-packages/pygit2/.dylibs/libcrypto.3.dylib": {
+      "dependencies": [
+        "\t/DLC/pygit2/.dylibs/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ],
+      "minimum_macos": "11.0",
+      "sha256": "a84fdd0f040b5731c576cb28c414b3054e92e276f56ad31c23a29bdcf53f29d9"
+    },
+    ".venv/lib/python3.15/site-packages/pygit2/.dylibs/libgit2.1.9.7.dylib": {
+      "dependencies": [
+        "\t/DLC/pygit2/.dylibs/libgit2.1.9.7.dylib (compatibility version 1.9.0, current version 1.9.7)",
+        "\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 5027.0.69)",
+        "\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 62460.1.2)",
+        "\t@loader_path/libssh2.1.0.1.dylib (compatibility version 1.0.0, current version 1.0.1)",
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ],
+      "minimum_macos": "11.0",
+      "sha256": "582c55690f4ff222f44e86fbebf5aec088a9fd5faf912fec2f7c6c9ebffbf855"
+    }
+  }
+}

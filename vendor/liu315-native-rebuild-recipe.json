@@ -1,0 +1,20 @@
+{
+  "platform": "macOS arm64",
+  "python": "CPython3.15.0 manageduv",
+  "target_minimum_macos": "11.0",
+  "source_provenance": "liu315-native-source-provenance.json + liu315-pygit2-source-provenance.json",
+  "build_order": [
+    "OfficialOpenSSL3.6.5 source: Configure darwin64-arm64-cc shared no-apps no-docs no-tests -mmacosx-version-min=11.0 --prefix=<ownedopenssl> --libdir=lib; make -j1; make install",
+    "Officiallibssh2-1.11.1 source: cmake with CMAKE_OSX_DEPLOYMENT_TARGET=11.0, OPENSSL_ROOT_DIR=<ownedopenssl>, BUILD_TESTING=OFF, BUILD_EXAMPLES=OFF; cmake --build --target install --parallel1",
+    "Officiallibgit2-v1.9.7 source: cmake with CMAKE_OSX_DEPLOYMENT_TARGET=11.0, CMAKE_PREFIX_PATH=<ownedlibssh2>, CMAKE_INSTALL_RPATH=<ownedlibssh2>/lib, USE_SSH=ON, BUILD_TESTS=OFF; cmake --build --target install --parallel1",
+    "Officialpygit2-1.20.1 SHA-verified sdist: uv build --wheel --python=<managed315> with LIBGIT2=<ownedlibgit2>, MACOSX_DEPLOYMENT_TARGET=11.0 and build-time LDFLAGS rpaths to ownedlibraryprefixes",
+    "delocate-wheel --require-target-macos-version=11.0 copies linkedlibgit2/libssh2/libcrypto and sanitizes all build rpaths",
+    "Append exact original native COPYING/LICENSE files to wheel dist-info/licenses and regenerate proper SHA256/size RECORD entries",
+    "Use uv platform-marked wheel source for macOSarm64 and unchanged registry fallback elsewhere, then uv lock + uv sync --frozen --all-groups --all-extras without native runtime flags"
+  ],
+  "runtime_no_build_prefix_control": "liu315-bundled-native-portability.json",
+  "shipping_recommendation": "Checked-in vendored officialPolygon release with one disclosed annotation-access repair; platform-marked source-built/native-repairedpygit2 wheel + source archives/provenance/rebuild recipe; do not ship absolute runtime buildprefixes",
+  "scope_limit": "Only macOSarm64 cp315 built and tested here; otherplatform/Python native source builds need their own real platform evidence",
+  "no_source_or_test_algorithm_modifications": true,
+  "native_recipe_no_fake_or_ignored_dependency": "Delocation passed after explicit CMake-installedrpath; failedattempt1/2 logs retained; no ignore-missing option"
+}

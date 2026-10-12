@@ -7,7 +7,7 @@ name = "liualgotrader"
 version = "0.4.35"
 description = "a Pythonic all-batteries-included framework for effective algorithmic trading. The framework is intended to simplify development, testing, deployment and evaluating algo trading strategies."
 readme = "README.md"
-requires-python = ">=3.13,<3.14"
+requires-python = ">=3.15,<3.16"
 license = {text = "MIT"}
 authors = [
   {name = "AMOR71", email = "amor71@sgeltd.com"},
@@ -97,6 +97,7 @@ include = [
     "LICENSE",
     "database/**",
     "static/**",
+    "vendor/**",
 ]
 exclude = [
     "tests/**",
@@ -108,7 +109,7 @@ exclude = [
 
 [tool.ruff]
 line-length = 88
-target-version = "py313"
+target-version = "py315"
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "I", "UP", "B", "SIM", "C4", "RUF", "PERF", "TC", "PTH"]
@@ -122,7 +123,7 @@ ignore = ["E501"]
 known-first-party = ["liualgotrader"]
 
 [tool.pyright]
-pythonVersion = "3.13"
+pythonVersion = "3.15"
 typeCheckingMode = "basic"
 
 [tool.pytest.ini_options]
@@ -140,3 +141,7 @@ markers = [
     "devtest: marks a test to run during dev validation, and not deployment (deselect with '-m \"not devtest\"')",
     "serial",
 ]
+
+[tool.uv.sources]
+polygon-api-client = { path = "vendor/polygon-api-client" }
+pygit2 = { path = "vendor/native-wheels/pygit2-1.20.1-cp315-cp315-macosx_11_0_arm64.whl", marker = "sys_platform == 'darwin' and platform_machine == 'arm64'" }

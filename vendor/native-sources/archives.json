@@ -1,0 +1,26 @@
+[
+  {
+    "component": "openssl",
+    "file": "liu315-openssl-official-source.tar.gz",
+    "sha256": "84af0ce70add3a4880379de17aef6ee084f1ec109b166817be3f0a6feb4e6240",
+    "bytes": 55271835
+  },
+  {
+    "component": "libssh2",
+    "file": "liu315-libssh2-official-source.tar.gz",
+    "sha256": "40eab1872718e58670cf24596810160a3e3c2372030cb085e4d2f7ec876bacb2",
+    "bytes": 572151
+  },
+  {
+    "component": "libgit2",
+    "file": "liu315-libgit2-official-source.tar.gz",
+    "sha256": "08fe5bc4a9561da53ff700f7ce22a0f068882a037dd253c988be397419d60e5a",
+    "bytes": 7775960
+  },
+  {
+    "component": "pygit2",
+    "file": "liu315-pygit2-original.tar.gz",
+    "sha256": "36dff84d237f2b8f18b0b146d6e7c3f99a7bce2da98cc4103a14387f53319f95",
+    "bytes": 888235
+  }
+]
