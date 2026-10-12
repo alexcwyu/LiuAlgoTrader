@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LiuAlgoTrader compatibility evidence</title><style>body{font:16px/1.6 system-ui,sans-serif;max-width:1120px;margin:32px auto;padding:0 20px;color:#172235}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{padding:9px;border:1px solid #cbd5e1;text-align:left}th{background:#eef3f8}code{overflow-wrap:anywhere;background:#f0f3f8}a{color:#145ab3}h1,h2{line-height:1.25}p{overflow-wrap:anywhere}</style><body><h1>LiuAlgoTrader original-case compatibility review — 2026-10-12</h1>
+<p>The reviewed isolated branch repairs reproducible local compatibility defects while preserving all 195 original case IDs, order, dates, numeric expectations, and assertion logic. The authoritative full run remains <strong>92 passed, 98 failed, 5 errors</strong>. Current-source targeted proofs reconcile those same nodes to <strong>97 passed, 93 failed, 5 errors</strong>: 98 outcomes still require authentic exchange credentials. This is a composite reconciliation, <strong>not a fresh full-suite result</strong> and not an all-green claim.</p>
+<p>Implementation base: <code>d7442026f547ae3f776da7b931bf2d79763b9ca3</code>; first repair commit: <code>30b8c236</code>. Worktree: <code>.runtime/maintenance-2026-10-12/liu-repairs-review</code>, branch <code>feature/ayu_liu_repairs</code>. Main Liu checkout, its environment, other repositories, and other running containers were not modified. Parent review/application is pending.</p>
+<h2>Failure evidence and resulting behavior</h2>
+<table>
+<thead>
+<tr>
+<th>Original defect</th>
+<th>Production repair</th>
+<th>Existing proof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini <code>date_range</code> received floating <code>periods</code> in 25 cases</td>
+<td>Round interval count upward and use an integer boundary count; replace removed minute alias <code>T</code> with <code>min</code></td>
+<td>All 25 original public-provider cases passed in the full run; actual retained two-day bounds yield 58 intervals, maximum 49.655 minutes under the 50-minute budget</td>
+</tr>
+<tr>
+<td>Automatic worker calculation returned zero under host load</td>
+<td>Preserve explicit override; automatic result has minimum one</td>
+<td>Original 20-iteration CPU-load case passed</td>
+</tr>
+<tr>
+<td>Alpaca SDK was given <code>URL(None)</code></td>
+<td>Omit optional <code>base_url</code> when unset, retaining SDK defaults</td>
+<td>Original constructor cases now reach authentic missing-key errors</td>
+</tr>
+<tr>
+<td>Pandas removed <code>get_loc(method=...)</code></td>
+<td>Use <code>get_indexer</code>, reject <code>-1</code> with <code>KeyError</code>; preserve exact/ffill/nearest locations</td>
+<td>Actual original PostgreSQL <code>stock_ohlc</code> rows execute original method ASTs: four TypeErrors before, four positions equal 3 after, missing match raises <code>KeyError</code></td>
+</tr>
+<tr>
+<td>Strategy exception handler converted the original cause into <code>SystemExit(0)</code></td>
+<td>Re-raise after recording traceback</td>
+<td>Existing strategy case reaches its actual underlying missing-key cause</td>
+</tr>
+<tr>
+<td>Unrequested legacy <code>event_loop</code> setup left globals/pools undefined</td>
+<td>Await autouse resource fixtures in the running test loop; close owned pools/streams even on failed broker setup</td>
+<td>Original DB/account/keystore/strategy/consolidation cases execute against original schema and dump</td>
+</tr>
+<tr>
+<td>Warning-as-error failures from test returns, UTC construction, invalid escape</td>
+<td>Preserve evaluated constructor/bool expressions then return <code>None</code>; use aware UTC instants and equivalent raw print string</td>
+<td>Current-source targeted cases and strict compile succeed</td>
+</tr>
+<tr>
+<td>Historical table parser dependency was undeclared</td>
+<td>Declare and lock current <code>lxml</code></td>
+<td>Real Wikipedia HTML parses with lxml 6.1.3</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="../../src/liualgotrader/data/gemini.py">Gemini</a>, <a href="../../src/liualgotrader/common/concurrency.py">workers</a>, <a href="../../src/liualgotrader/data/alpaca.py">Alpaca data</a>, <a href="../../src/liualgotrader/trading/alpaca.py">Alpaca broker</a>, <a href="../../src/liualgotrader/common/data_loader.py">indexing</a>, <a href="../../src/liualgotrader/fincalcs/support_resistance.py">support/resistance</a>, <a href="../../src/liualgotrader/strategies/base.py">strategy exception</a>, <a href="../../src/liualgotrader/common/database.py">database logging</a>.</p>
+<h2>Wikipedia transport and moved historical continuation</h2>
+<p>The original implicit <code>read_html(URL)</code> request failed with HTTP 403. A transparent project User-Agent and bounded <code>requests.get</code> succeeds against the <strong>same</strong> <a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies">Wikipedia company article</a>; official <a href="https://www.mediawiki.org/wiki/API:REST_API/Reference/Sample_code:Get_HTML">MediaWiki REST HTML</a> also returned 200. Both real responses parsed to identical tables: 503 current rows and an 11-row navigation table. The second table is no longer the historical-change table.</p>
+<p>The actual company article explicitly links <a href="https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_500">Historical components of the S&amp;P 500</a>. The same-publisher linked article returns the actual 412-row Added/Removed history, with <code>Effective Date</code>, <code>Added/Ticker</code>, and <code>Removed/Ticker</code> columns and dates 1976-07-01 through 2026-10-06. The source follows this real link only when the original article lacks the semantic history columns and rejects links outside its original HTTPS publisher. No alternative vendor, cached invented roster, browser impersonation, or placeholder ticker data is used.</p>
+<p>The original <code>2019-01-11</code> case has 164 published later changes. Repeating the complete rewind table never converges on these real add/remove cycles: three diagnostic iterations all report a change and 506 members. The repair visits every later event <strong>once, latest first</strong>, removes its added ticker, restores its removed ticker, then applies the unchanged original ticker-rename input in reverse date order. The diagnostic 506 count is not a new expected value or golden. Current 503 membership is not returned as a 2019 roster.</p>
+<p><strong>Coverage limit:</strong> Wikipedia presents selected changes. Date-span coverage does not independently prove a complete historical membership ledger. This repair restores the original publisher-based reconstruction intent and logs the real scope; it does not certify complete 2019 membership. The existing historical test has no complete-roster assertion. Its pass demonstrates execution of the unchanged original case, not a new claim about membership completeness.</p>
+<p><a href="../../src/liualgotrader/common/market_data.py">Source reconstruction</a> · <a href="liu-wikipedia-official-transport.json">actual response/transport metadata</a> · <a href="liu-wikipedia-moved-history.json">moved article provenance</a> · <a href="liu-wikipedia-table-contract.json">table identity</a> · <a href="liu-wikipedia-history-rewind-control.json">finite rewind diagnostic</a>. Exact attributed publisher response bodies are retained beside these records with their SHA-256 values.</p>
+<table>
+<thead>
+<tr>
+<th>Five unchanged original Wikipedia-dependent cases</th>
+<th>Current result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tests/test_market_data.py::test_sp500_historical_constituents</code></td>
+<td>PASS</td>
+</tr>
+<tr>
+<td><code>tests/test_market_data.py::test_load_basic_sp500</code></td>
+<td>PASS</td>
+</tr>
+<tr>
+<td><code>tests/test_market_data.py::test_load_sp500_data_w_adjustments</code> (2019-01-11)</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td><code>tests/test_market_data.py::test_load_sp500_data</code></td>
+<td>FAIL: Alpaca key missing after successful real roster fetch</td>
+</tr>
+<tr>
+<td><code>tests/test_market_data.py::test_load_sp500_data_minute</code></td>
+<td>FAIL: Alpaca key missing after successful real roster fetch</td>
+</tr>
+</tbody>
+</table>
+<h2>Authentic PostgreSQL fixture ownership</h2>
+<p>The separate owned PostgreSQL 18.6 container <code>liu-maintenance-postgres-d744</code> listens only on <code>127.0.0.1:15432</code> with volume <code>liu-maintenance-postgres-d744-data</code>. Other containers remain untouched. The original <code>database/schema.sql</code> was applied with error-stop, then the original dump's actual COPY rows and all six original sequence <code>setval</code> statements. No market data was fabricated. Loaded row counts: 12 <code>algo_run</code>, 206 <code>new_trades</code>, 66,869 <code>stock_ohlc</code>, 7,312 <code>ticker_data</code>, zero original <code>trades</code> and <code>trending</code> rows.</p>
+<p>Original schema SHA-256: <code>ae7b723a5553557172a31871ab2731d1087b6135bfe8b510a63923136922d3af</code>. Original dump SHA-256: <code>ccffa2a898d8522c578639d1a633c6625dd115d40ab62da00bc723f3375da28c</code>. The initial missing sequence restoration was corrected from the genuine original dump, not by altering expected test results.</p>
+<p>All owned test processes are terminal. The owned DB password was rotated; connection with the new private DSN succeeded and the old password was rejected. The mode-0600 DSN and mode-0700 raw-evidence directory remain private under <code>.runtime/maintenance-2026-10-12/</code>. The owned container is retained for parent independent verification; it has not been represented as removed. <a href="liu-owned-postgres.json">Owned-resource record</a>, <a href="liu-original-postgres-inputs.json">original inputs</a>, <a href="liu-original-db-index-control.py">actual row index control</a>, <a href="liu-db-index-control-before.json">before</a>, <a href="liu-db-index-control-after.json">after</a>.</p>
+<h2>Validation and remaining credentials</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Result and scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original inherited discovery log</td>
+<td>195 nodes: 8 pass / 187 fail; exact failure taxonomy separates local setup/API defects from auth/database failures</td>
+</tr>
+<tr>
+<td>Authoritative full isolated run</td>
+<td><strong>92 pass / 98 fail / 5 error</strong>, 1130.12 seconds; retained unchanged</td>
+</tr>
+<tr>
+<td>Current-source targeted original cases</td>
+<td>16 pass / 7 missing-Alpaca failures; includes all four constructor/bool factory cases</td>
+</tr>
+<tr>
+<td>Current-source five Wikipedia cases</td>
+<td>3 pass / 2 missing-Alpaca failures, 1.96 seconds</td>
+</tr>
+<tr>
+<td>Reconciliation of identical 195 original nodes</td>
+<td><strong>97 pass / 93 fail / 5 error</strong>, composite only</td>
+</tr>
+<tr>
+<td>Current strict compile</td>
+<td><code>python -Werror -m compileall -f -q src tests</code>: exit 0</td>
+</tr>
+<tr>
+<td>Current wheel and sdist</td>
+<td><code>uv build --python .venv/bin/python</code>: exit 0</td>
+</tr>
+<tr>
+<td>Current whitespace validation</td>
+<td><code>git diff --check</code>: exit 0</td>
+</tr>
+</tbody>
+</table>
+<p>The remaining 98 outcomes are <strong>73 Alpaca missing-credential outcomes (68 failures and five setup errors), 20 real Tradier HTTP 401 failures, and five Gemini missing-key/secret assertions</strong>. The original PostgreSQL refusal and Wikipedia 403 are not included as unavoidable external blockers. No real exchange credentials were invented or requested offline. Exact node-level results are in <a href="liu-case-reconciliation.json">case reconciliation</a>, with the initial snapshot and supplemental flags preserved per node.</p>
+<p>The full run preceded two factory return corrections and the Wikipedia repair; their original cases were rerun on current source. The unchanged broad suite was not repeated. Current Pandas indexing is additionally proven with authentic original dump rows, because missing authenticated provider data prevents the original full-suite paths from reaching those indexing branches. <a href="liu-full-existing-tests.sanitized.log">Full log</a>, <a href="liu-current-source-targeted-tests.sanitized.log">targeted log</a>, <a href="liu-wikipedia-original-tests.sanitized.log">Wikipedia log</a>, <a href="liu-final-build-checks.json">final build/source hashes</a>, <a href="liu-original-failure-taxonomy.json">original failure taxonomy</a>, <a href="liu-runtime-versions.json">runtime versions</a>.</p>
+<p>All 195 original case IDs and order are unchanged. Original assertion, raise, and condition ASTs remain unchanged except the explicitly approved positional accessor <code>s[-1]</code> to <code>s.iloc[-1]</code> in the anchored VWAP condition/message; its original exact <code>25.0</code> comparison and production Series index/type remain unchanged. Existing tests gained awaited resource ownership and current-library syntax, not additional cases, weakened assertions, skips, or changed expected returns. <a href="liu-original-case-preservation.json">Case/AST preservation proof</a>, <a href="liu-original-assertion-ast.json">retained assertion ASTs</a>.</p>
+<p>Authentic raw logs were never rewritten. They remain private with mode 0600; published <code>.sanitized.log</code> files are separate copies with explicit credential redaction and distinct raw/published SHA-256 fields in <a href="liu-evidence-redaction.json">redaction provenance</a>. Equal hashes indicate no redaction was needed for that particular log. Database logging no longer prints full DSNs.</p>
+</body></html>

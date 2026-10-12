@@ -1,0 +1,28 @@
+{
+  "same_provider_linked_history": true,
+  "date_column": "('Effective Date', 'Effective Date')",
+  "history_rows": 412,
+  "earliest_published_change": "1976-07-01T00:00:00",
+  "latest_published_change": "2026-10-06T00:00:00",
+  "requested_original_date": "2019-01-11",
+  "changes_after_requested_date": 164,
+  "old_repeated_rewind_trace": [
+    {
+      "iteration": 1,
+      "changed": true,
+      "members": 506
+    },
+    {
+      "iteration": 2,
+      "changed": true,
+      "members": 506
+    },
+    {
+      "iteration": 3,
+      "changed": true,
+      "members": 506
+    }
+  ],
+  "finite_reverse_chronological_members_before_original_MA": 506,
+  "notes": "Counts are diagnostic, not new goldens; original published history may be selected rather than complete."
+}

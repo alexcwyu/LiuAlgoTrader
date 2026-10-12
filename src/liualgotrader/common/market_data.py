@@ -1,11 +1,14 @@
+from io import StringIO
+from urllib.parse import urljoin, urlparse
 from datetime import date, datetime
-from typing import Dict, List, Set
+from typing import Dict, List
 
 import numpy as np
 import pandas as pd
+import requests
+from lxml import html
 import pandas_market_calendars
 import pytz
-import requests
 from pandas import DataFrame as df
 
 from liualgotrader.common import config
@@ -93,80 +96,110 @@ async def get_industries_tickers(industries: List[str]) -> List[str]:
 
 async def get_market_sectors() -> List[str]:
     async with config.db_conn_pool.acquire() as conn:
-        records = await conn.fetch(
-            """
+        records = await conn.fetch("""
                 SELECT DISTINCT sector
                 FROM ticker_data
-            """
-        )
+            """)
         return [record[0] for record in records if record[0]]
 
 
 async def get_market_industries() -> List[str]:
     async with config.db_conn_pool.acquire() as conn:
-        records = await conn.fetch(
-            """
+        records = await conn.fetch("""
                 SELECT DISTINCT industry
                 FROM ticker_data
-            """
-        )
+            """)
 
         return [record[0] for record in records if record[0]]
 
 
+_WIKIPEDIA_CONSTITUENTS = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+_WIKIPEDIA_USER_AGENT = (
+    "LiuAlgoTrader/0.4.35 "
+    "(https://github.com/amor71/LiuAlgoTrader; public market-data research)"
+)
+
+
+def _wikipedia_html(url: str) -> str:
+    response = requests.get(
+        url, headers={"User-Agent": _WIKIPEDIA_USER_AGENT}, timeout=(5, 20)
+    )
+    response.raise_for_status()
+    return response.text
+
+
+def _history_table(tables):
+    for table in tables:
+        if isinstance(table.columns, pd.MultiIndex) and {
+            ("Added", "Ticker"),
+            ("Removed", "Ticker"),
+        }.issubset(table.columns):
+            return table
+    return None
+
+
 async def sp500_historical_constituents(date: str):
-    tlog(f"loading sp500 constituents for {date}")
-    table = pd.read_html(
-        "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    """Rewind Wikipedia's published changes and the original ticker rename map.
+
+    The publisher supplies selected history, not an independently certified full
+    membership ledger. The current article explicitly links the moved history.
+    """
+    as_of = pd.Timestamp(date).tz_localize(None)
+    tlog(f"loading sp500 constituents for {as_of}")
+    article = _wikipedia_html(_WIKIPEDIA_CONSTITUENTS)
+    tables = pd.read_html(StringIO(article))
+    current = next(table for table in tables if "Symbol" in table.columns)
+    symbols = set(current.Symbol.to_list())
+    changes = _history_table(tables)
+    if changes is None:
+        links = html.fromstring(article).xpath(
+            '//a[@href and normalize-space(.)="Historical components of the S&P 500"]/@href'
+        )
+        if not links:
+            raise ValueError(
+                "Wikipedia article no longer identifies its change history"
+            )
+        history_url = urljoin(_WIKIPEDIA_CONSTITUENTS, links[0])
+        if (
+            urlparse(history_url).scheme != "https"
+            or urlparse(history_url).netloc != "en.wikipedia.org"
+        ):
+            raise ValueError("Wikipedia history link leaves the original publisher")
+        changes = _history_table(pd.read_html(StringIO(_wikipedia_html(history_url))))
+        if changes is None:
+            raise ValueError(
+                "Linked Wikipedia article has no Added/Removed ticker history"
+            )
+    date_column = next(
+        column for column in changes.columns if column[0] in ("Date", "Effective Date")
     )
-    symbols: List = table[0].Symbol.to_list()
-    changes = table[1]
-
-    changes["date"] = changes.Date.apply(
-        lambda x: datetime.strptime(x[0], "%B %d, %Y"), axis=1
+    changes = changes.copy()
+    changes["date"] = pd.to_datetime(changes[date_column], format="%B %d, %Y")
+    tlog(
+        f"Wikipedia published history spans {changes['date'].min()} to "
+        f"{changes['date'].max()}; reconstructing from its selected changes"
     )
-    m_and_a_data.index = m_and_a_data.index.astype("datetime64[ns]", copy=True)
+    # Every event is rewound once, latest first. Repeating the entire table can
+    # oscillate forever when a company was both added and removed after as_of.
+    later = changes.loc[changes["date"] > as_of].sort_values(
+        "date", ascending=False, kind="stable"
+    )
+    for _, row in later.iterrows():
+        added, removed = row[("Added", "Ticker")], row[("Removed", "Ticker")]
+        if pd.notna(added):
+            symbols.discard(added)
+        if pd.notna(removed):
+            symbols.add(removed)
 
-    adjusted_symbols = m_and_a_data.loc[date < m_and_a_data.index, "to_symbol"]
-    print("adjusted_symbols", adjusted_symbols)
-    changes = changes.loc[changes.date > date]
-
-    unadusted: Set = set(symbols)
-
-    print(f"changes:{changes}")
-    print(unadusted)
-    while True:
-        no_changes = True
-        for _, row in changes.iterrows():
-            if not row.Added.dropna().empty and row.Added.Ticker in unadusted:
-                unadusted.remove(row.Added.Ticker)
-                no_changes = False
-            if (
-                not row.Removed.dropna().empty
-                and row.Removed.Ticker in unadusted
-            ):
-                unadusted.add(row.Removed.Ticker)
-                no_changes = False
-
-        if no_changes:
-            break
-
-    while True:
-        no_changes = True
-        for symbol in adjusted_symbols:
-            if symbol in unadusted:
-                unadusted.add(
-                    m_and_a_data.loc[
-                        m_and_a_data.to_symbol == symbol, "from_symbol"
-                    ].item()
-                )
-                unadusted.remove(symbol)
-                no_changes = False
-
-        if no_changes:
-            break
-
-    return list(unadusted)
+    actions = m_and_a_data.copy()
+    actions.index = pd.to_datetime(actions.index)
+    for _, row in (
+        actions.loc[actions.index > as_of].sort_index(ascending=False).iterrows()
+    ):
+        if row.to_symbol in symbols:
+            symbols.remove(row.to_symbol)
+            symbols.add(row.from_symbol)
+    return list(symbols)
 
 
 async def get_trading_holidays() -> List[str]:

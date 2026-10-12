@@ -1,0 +1,19 @@
+
+tests/test_assets.py::test_round_asset PASSED                            [  6%]
+tests/test_hyperparameters.py::test_hyper_param_1 PASSED                 [ 12%]
+tests/test_hyperparameters.py::test_hyper_param_single PASSED            [ 18%]
+tests/test_hyperparameters.py::test_hyper_param_1_ex PASSED              [ 25%]
+tests/test_hyperparameters.py::test_hyper_params_int PASSED              [ 31%]
+tests/test_hyperparameters.py::test_hyper_params_two_int PASSED          [ 37%]
+tests/test_hyperparameters.py::test_hyper_params_int_float PASSED        [ 43%]
+tests/test_hyperparameters.py::test_hyper_params_float_missing PASSED    [ 50%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_single_line PASSED       [ 56%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_two_line PASSED          [ 62%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_three_line PASSED        [ 68%]
+tests/test_fincalc_vwap.py::test_anchored_vwap_three_line PASSED         [ 75%]
+tests/test_trends.py::test_get_series_trend PASSED                       [ 81%]
+tests/test_db.py::test_db_connectivity PASSED                            [ 87%]
+tests/test_gemini_data_loader.py::test_create_data_loader_default PASSED [ 93%]
+tests/test_tradier_data_loader.py::test_create_data_loader_default PASSED [100%]
+
+============================== 16 passed in 1.48s ==============================

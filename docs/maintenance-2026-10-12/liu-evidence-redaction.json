@@ -165,6 +165,46 @@
       "sanitized_sha256": "b43da9e790f7a1417432aac783e55dfbbde7fd3b104aa1ef3862731e881817df",
       "raw_retained_private_mode": "0600",
       "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-wikipedia-original-tests.raw.log",
+      "private_raw_sha256": "2e4bcc5766b30bb8f047e782034131c1a762a368d05a9b8685c2ed8656dbfcb7",
+      "sanitized_filename": "liu-wikipedia-original-tests.sanitized.log",
+      "sanitized_sha256": "2e4bcc5766b30bb8f047e782034131c1a762a368d05a9b8685c2ed8656dbfcb7",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-final-compile.raw.log",
+      "private_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sanitized_filename": "liu-final-compile.sanitized.log",
+      "sanitized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-final-build.raw.log",
+      "private_raw_sha256": "2be0332c194b7bd066ed1c301391f964845c54bc97e6ae113414d297cdb77f9e",
+      "sanitized_filename": "liu-final-build.sanitized.log",
+      "sanitized_sha256": "2be0332c194b7bd066ed1c301391f964845c54bc97e6ae113414d297cdb77f9e",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-final-diff-check.raw.log",
+      "private_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sanitized_filename": "liu-final-diff-check.sanitized.log",
+      "sanitized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-db-index-final.raw.log",
+      "private_raw_sha256": "7a403cfdd57a8ccb49c939e165f3070b3b85d5efb1acf70f42625c31aaee36fa",
+      "sanitized_filename": "liu-db-index-final.sanitized.log",
+      "sanitized_sha256": "7a403cfdd57a8ccb49c939e165f3070b3b85d5efb1acf70f42625c31aaee36fa",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
     }
   ]
 }

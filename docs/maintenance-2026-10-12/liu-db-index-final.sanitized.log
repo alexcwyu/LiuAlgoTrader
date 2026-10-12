@@ -1,0 +1,25 @@
+{
+  "genuine_source": "original database/liu_dump.sql stock_ohlc COPY rows",
+  "symbol": "A",
+  "rows": 11,
+  "checks": {
+    "symbol_exact": {
+      "pass": true,
+      "position": 3
+    },
+    "column_exact": {
+      "pass": true,
+      "position": 3
+    },
+    "symbol_ffill": {
+      "pass": true,
+      "position": 3
+    },
+    "column_nearest": {
+      "pass": true,
+      "position": 3
+    }
+  },
+  "missing_match_preserves_KeyError": true,
+  "original_baseline_source_executed": false
+}

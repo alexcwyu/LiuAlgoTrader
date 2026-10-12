@@ -1,0 +1,101 @@
+
+tests/test_market_data.py::test_sp500_historical_constituents PASSED     [ 20%]
+tests/test_market_data.py::test_load_basic_sp500 PASSED                  [ 40%]
+tests/test_market_data.py::test_load_sp500_data_w_adjustments PASSED     [ 60%]
+tests/test_market_data.py::test_load_sp500_data FAILED                   [ 80%]
+tests/test_market_data.py::test_load_sp500_data_minute FAILED            [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_load_sp500_data _____________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_load_sp500_data():
+    
+        today = datetime.today()
+        sp500_symbols = await sp500_historical_constituents(today)
+        print(sp500_symbols)
+>       dl = DataLoader(scale=TimeScale.day)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_market_data.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/common/data_loader.py:630: in __init__
+    self.data_api = data_loader_factory(connector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/data/data_factory.py:16: in data_loader_factory
+    return AlpacaData()
+           ^^^^^^^^^^^^
+src/liualgotrader/data/alpaca.py:36: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][89057]2026-10-12 13:35:02.291027:db connection pool initialized
+----------------------------- Captured stdout call -----------------------------
+[sp500_historical_constituents()][89057]2026-10-12 13:35:02.291451:loading sp500 constituents for 2026-10-12 13:35:02.291422
+[sp500_historical_constituents()][89057]2026-10-12 13:35:02.434783:Wikipedia published history spans 1976-07-01 00:00:00 to 2026-10-06 00:00:00; reconstructing from its selected changes
+['ABT', 'BNY', 'CPRT', 'EXC', 'HWM', 'HOOD', 'PNW', 'TKO', 'TSLA', 'APA', 'NSC', 'CRH', 'BE', 'AXP', 'PODD', 'APTV', 'ORCL', 'PTC', 'RL', 'DOV', 'PYPL', 'GEN', 'EQIX', 'UNH', 'XYZ', 'FTV', 'CASY', 'EOG', 'FITB', 'LEN', 'MNST', 'FRT', 'CPT', 'TMUS', 'CTAS', 'BAC', 'GL', 'HAS', 'LULU', 'APO', 'BLK', 'HUBB', 'CSX', 'KEY', 'IP', 'ROL', 'ALL', 'PSA', 'EMR', 'WM', 'DVA', 'ZBH', 'MDLZ', 'ODFL', 'TPL', 'HLT', 'AMD', 'TEL', 'GIS', 'PKG', 'CNC', 'LOW', 'WFC', 'TDY', 'C', 'PHM', 'LYB', 'DUK', 'EVRG', 'BDX', 'BXP', 'SJM', 'MRVL', 'CSCO', 'ABBV', 'GEV', 'COST', 'HSY', 'GWW', 'JNJ', 'PRU', 'LUV', 'HII', 'DLR', 'AOS', 'PPL', 'EBAY', 'V', 'DECK', 'PH', 'STT', 'PFG', 'ADM', 'INTU', 'MSI', 'AIZ', 'UBER', 'MPC', 'DG', 'TJX', 'EFX', 'TPR', 'VYLR', 'SNDK', 'NI', 'ADP', 'DRI', 'TSCO', 'NWSA', 'SWKS', 'HRL', 'ZBRA', 'TRMB', 'MU', 'CEG', 'MET', 'RTX', 'TER', 'IBM', 'OTIS', 'GNRC', 'DPZ', 'BEN', 'KO', 'SHW', 'AAPL', 'CVS', 'MDT', 'AZO', 'PCG', 'ELV', 'ACN', 'IBKR', 'DTE', 'VRTX', 'CMS', 'VLTO', 'BG', 'SPG', 'AEE', 'CPAY', 'WMB', 'VST', 'ISRG', 'STE', 'DOC', 'DHR', 'FOXA', 'COIN', 'ANET', 'KLAC', 'ZTS', 'ETN', 'KDP', 'TECH', 'WTW', 'RF', 'AMGN', 'ALLE', 'RSG', 'AMT', 'WMT', 'ES', 'MRSH', 'TXT', 'CBOE', 'PG', 'COHR', 'WELL', 'EQT', 'CTSH', 'MLM', 'ULTA', 'WDAY', 'KIM', 'SOLV', 'IFF', 'PEG', 'COR', 'LH', 'DHI', 'OXY', 'CHRW', 'NRG', 'BSX', 'FAST', 'EXE', 'FIX', 'GDDY', 'TT', 'APH', 'RMD', 'CME', 'FANG', 'HONA', 'GOOGL', 'PEP', 'JBHT', 'COP', 'VLO', 'PLD', 'WRB', 'SBUX', 'AEP', 'KMI', 'ECHO', 'CHD', 'LMT', 'DVN', 'MAA', 'CVNA', 'EW', 'ARE', 'ROST', 'ON', 'MMM', 'AVY', 'TMO', 'MKC', 'TROW', 'IDXX', 'ROP', 'BIIB', 'PCAR', 'INCY', 'UPS', 'CLX', 'EXPE', 'SYY', 'CAH', 'EG', 'HAL', 'CCI', 'FISV', 'AON', 'SCHW', 'TFC', 'APP', 'J', 'JKHY', 'FIS', 'WAT', 'SO', 'O', 'FSLR', 'NTAP', 'SYK', 'CB', 'FTNT', 'BAX', 'DLTR', 'NDSN', 'CAT', 'LRCX', 'DE', 'IEX', 'GOOG', 'BBY', 'UDR', 'ADSK', 'HCA', 'BKR', 'NOW', 'ESS', 'ITW', 'QCOM', 'CDW', 'TYL', 'GRMN', 'MA', 'KEYS', 'AXON', 'ROK', 'MRK', 'TWLO', 'WY', 'REG', 'ABNB', 'DDOG', 'PM', 'BALL', 'SWK', 'EME', 'TSN', 'ORLY', 'GS', 'FDXF', 'EL', 'EIX', 'DIS', 'PPG', 'GE', 'WYNN', 'SBAC', 'CARR', 'CBRE', 'FERG', 'CMI', 'SNA', 'CRL', 'WSM', 'CINF', 'MOS', 'ALGN', 'CMCSA', 'T', 'AVGO', 'ARES', 'CHTR', 'SKYD', 'META', 'HPE', 'MSCI', 'NCLH', 'GLW', 'MGM', 'MO', 'ILMN', 'AWK', 'LYV', 'STLD', 'GD', 'SLB', 'HON', 'LITE', 'RVTY', 'STX', 'VRSN', 'NEE', 'HUM', 'ETR', 'AKAM', 'D', 'VICI', 'LLY', 'DASH', 'SRE', 'VTR', 'MRNA', 'P', 'DELL', 'FCX', 'VZ', 'NEM', 'PNC', 'KKR', 'CIEN', 'PLTR', 'JCI', 'AJG', 'CNP', 'A', 'XYL', 'FOX', 'GEHC', 'TRGP', 'APD', 'KHC', 'IVZ', 'PNR', 'TRV', 'NDAQ', 'BRK.B', 'STZ', 'CRWD', 'REGN', 'MS', 'TDG', 'BA', 'ATO', 'ADBE', 'IT', 'Q', 'SW', 'SPGI', 'USB', 'IRM', 'CRM', 'TXN', 'NXPI', 'CDNS', 'GPN', 'AES', 'EXR', 'HPQ', 'RCL', 'WDC', 'GPC', 'OKE', 'BRO', 'PWR', 'BX', 'SNPS', 'ECL', 'OMC', 'UHS', 'NUE', 'JBL', 'MTD', 'AMCR', 'LVS', 'BMY', 'NWS', 'LNT', 'ICE', 'CMG', 'HBAN', 'PANW', 'EXPD', 'MCO', 'FE', 'MAS', 'NFLX', 'MCHP', 'PGR', 'TTWO', 'DGX', 'AME', 'PSX', 'CFG', 'FDX', 'KR', 'SMCI', 'VRSK', 'FFIV', 'LIN', 'DD', 'NVR', 'MPWR', 'MTB', 'XEL', 'COO', 'RDDT', 'LDOS', 'UAL', 'L', 'VEEV', 'PFE', 'RJF', 'INTC', 'GILD', 'MCK', 'ED', 'JPM', 'VTRS', 'DAL', 'AIG', 'VMRK', 'FICO', 'NOC', 'CI', 'PAYX', 'YUM', 'GM', 'IR', 'CVX', 'MAR', 'COF', 'ALB', 'INVH', 'ADI', 'AMP', 'LII', 'XOM', 'DOW', 'ERIE', 'DXCM', 'WST', 'FDS', 'IQV', 'LHX', 'NVDA', 'VRT', 'NKE', 'CF', 'BKNG', 'AMAT', 'F', 'KMB', 'VMC', 'AMZN', 'HST', 'HSIC', 'UNP', 'AFL', 'HD', 'CSGP', 'WAB', 'KVUE', 'NTRS', 'CCL', 'CL', 'HIG', 'SYF', 'BF.B', 'TGT', 'URI', 'WEC', 'BR', 'FLEX', 'MSFT', 'MCD', 'ACGL']
+_________________________ test_load_sp500_data_minute __________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_load_sp500_data_minute():
+        today = datetime.today()
+        sp500_symbols = await sp500_historical_constituents(today)
+>       dl = DataLoader(scale=TimeScale.minute)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_market_data.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/common/data_loader.py:630: in __init__
+    self.data_api = data_loader_factory(connector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/data/data_factory.py:16: in data_loader_factory
+    return AlpacaData()
+           ^^^^^^^^^^^^
+src/liualgotrader/data/alpaca.py:36: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][89057]2026-10-12 13:35:02.495026:db connection pool initialized
+----------------------------- Captured stdout call -----------------------------
+[sp500_historical_constituents()][89057]2026-10-12 13:35:02.495422:loading sp500 constituents for 2026-10-12 13:35:02.495393
+[sp500_historical_constituents()][89057]2026-10-12 13:35:02.644135:Wikipedia published history spans 1976-07-01 00:00:00 to 2026-10-06 00:00:00; reconstructing from its selected changes
+=========================== short test summary info ============================
+FAILED tests/test_market_data.py::test_load_sp500_data - ValueError: ('Key ID...
+FAILED tests/test_market_data.py::test_load_sp500_data_minute - ValueError: (...
+========================= 2 failed, 3 passed in 1.96s ==========================

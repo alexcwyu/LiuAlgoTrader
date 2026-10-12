@@ -1,0 +1,14 @@
+{
+  "rest_and_article_tables_exactly_equal": [
+    true,
+    true
+  ],
+  "actual_roster_rows": 503,
+  "actual_table_count": 2,
+  "history_change_table_present": false,
+  "actual_second_table_columns": [
+    "vteS&P 500 companies",
+    "vteS&P 500 companies.1"
+  ],
+  "hidden_tables_also_checked": true
+}

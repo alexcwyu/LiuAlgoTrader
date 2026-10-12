@@ -1,0 +1,9 @@
+{
+  "container": "liu-maintenance-postgres-d744",
+  "volume": "liu-maintenance-postgres-d744-data",
+  "port": 15432,
+  "bind": "127.0.0.1",
+  "image_manifest": "sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336",
+  "credential_record": "private runtime file mode0600; not in documentation",
+  "existing_neo4j_untouched": true
+}

@@ -1,0 +1,49 @@
+
+tests/test_analysis.py::test_returns FAILED                              [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_returns _________________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_returns() -> None:
+>       td = await analysis.calc_batch_returns(
+            "0664dc2c-f126-4c7f-a069-c5dc246e2df4"
+        )
+
+tests/test_analysis.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/analytics/analysis.py:357: in calc_batch_returns
+    data_loader = DataLoader()
+                  ^^^^^^^^^^^^
+src/liualgotrader/common/data_loader.py:621: in __init__
+    self.data_api = data_loader_factory(connector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/data/data_factory.py:16: in data_loader_factory
+    return AlpacaData()
+           ^^^^^^^^^^^^
+src/liualgotrader/data/alpaca.py:36: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][13472]2026-10-12 13:00:48.531961:db connection pool initialized w postgresql://liu:<redacted>@127.0.0.1:15432/liu
+=========================== short test summary info ============================
+FAILED tests/test_analysis.py::test_returns - ValueError: ('Key ID must be gi...
+============================== 1 failed in 0.90s ===============================

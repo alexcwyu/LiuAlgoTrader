@@ -1,0 +1,21 @@
+{
+  "link_text": "Historical components of the S&P 500",
+  "actual_link": "./Historical_components_of_the_S&P_500",
+  "resolved_url": "https://en.wikipedia.org/wiki/Historical_components_of_the_S&P_500",
+  "final_url": "https://en.wikipedia.org/wiki/Historical_components_of_the_S&P_500",
+  "user_agent": "LiuAlgoTrader/0.4.35 (https://github.com/amor71/LiuAlgoTrader; public market-data research)",
+  "time_utc": "2026-10-12T05:26:55.034312+00:00",
+  "status": 200,
+  "body_bytes": 1128604,
+  "body_sha256": "5b06c7c8da17ab70a5bffacd2aa4180832c96adbae8d44c39fb3fa7b36f600e8",
+  "tables": [
+    {
+      "rows": 412,
+      "columns": "[('Effective Date', 'Effective Date'), ('Added', 'Ticker'), ('Added', 'Security'), ('Removed', 'Ticker'), ('Removed', 'Security'), ('Reason', 'Reason'), ('Refs', 'Refs')]"
+    },
+    {
+      "rows": 11,
+      "columns": "['vteS&P 500 companies', 'vteS&P 500 companies.1']"
+    }
+  ]
+}

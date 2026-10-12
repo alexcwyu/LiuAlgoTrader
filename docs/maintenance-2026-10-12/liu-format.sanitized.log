@@ -1,0 +1,8 @@
+reformatted src/liualgotrader/common/concurrency.py
+reformatted src/liualgotrader/strategies/base.py
+reformatted src/liualgotrader/data/gemini.py
+reformatted src/liualgotrader/trading/alpaca.py
+reformatted src/liualgotrader/data/alpaca.py
+
+All done! ✨ 🍰 ✨
+5 files reformatted.

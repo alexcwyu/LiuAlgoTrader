@@ -1,0 +1,43 @@
+{
+  "liu-final-compile": {
+    "command": [
+      ".venv/bin/python",
+      "-Werror",
+      "-m",
+      "compileall",
+      "-f",
+      "-q",
+      "src",
+      "tests"
+    ],
+    "exit": 0
+  },
+  "liu-final-build": {
+    "command": [
+      "uv",
+      "build",
+      "--python",
+      ".venv/bin/python"
+    ],
+    "exit": 0
+  },
+  "liu-final-diff-check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0
+  },
+  "artifacts": {
+    "liualgotrader-0.4.35-py3-none-any.whl": "a827fa9ef10966010f04d97b84b85b593536bc58b637881da2f9c6c17a3dc769",
+    "liualgotrader-0.4.35.tar.gz": "54fa194c814dcad89f5ef5845e3f867178178f4ec244516eeb0439f011b8b3ff"
+  },
+  "source_sha256": {
+    "src/liualgotrader/common/market_data.py": "8cfa279af22dec6b1dd1b27ccab64a98bf9dcc888ac05e15a4d0510332cfdad3",
+    "src/liualgotrader/common/data_loader.py": "9fb2933edec1a9a9801afb471df787af624dfdded782607dbc2e25346c774493",
+    "pyproject.toml": "b36a2b897f5d739f18590905c4eb165a0744e4019d451c9d36dfd9b562e39d00",
+    "uv.lock": "562cf77fec730eb797425e0d3d7604a27534552ba185854ff4d3f805991c50e5"
+  },
+  "fresh_full_run": false
+}

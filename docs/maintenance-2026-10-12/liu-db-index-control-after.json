@@ -20,5 +20,6 @@
       "position": 3
     }
   },
-  "missing_match_preserves_KeyError": true
+  "missing_match_preserves_KeyError": true,
+  "original_baseline_source_executed": false
 }

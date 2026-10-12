@@ -1,0 +1,159 @@
+
+tests/test_accounts.py::test_create PASSED                               [  3%]
+tests/test_accounts.py::test_negative_create PASSED                      [  7%]
+tests/test_accounts.py::test_balance PASSED                              [ 10%]
+tests/test_accounts.py::test_add_transaction PASSED                      [ 14%]
+tests/test_accounts.py::test_add_transaction2 PASSED                     [ 17%]
+tests/test_accounts.py::test_add_transaction3 PASSED                     [ 21%]
+tests/test_accounts.py::test_add_transaction5 PASSED                     [ 25%]
+tests/test_accounts.py::test_clear_balance PASSED                        [ 28%]
+tests/test_accounts.py::test_clear_transactions PASSED                   [ 32%]
+tests/test_accounts.py::test_check_if_enough_balance_positive_1 PASSED   [ 35%]
+tests/test_accounts.py::test_check_if_enough_balance_positive_2 PASSED   [ 39%]
+tests/test_accounts.py::test_check_if_enough_balance_positive_3 PASSED   [ 42%]
+tests/test_accounts.py::test_check_if_enough_balance_positive_4 PASSED   [ 46%]
+tests/test_accounts.py::test_check_if_enough_balance_negative_1 PASSED   [ 50%]
+tests/test_keystore.py::test_load_empty PASSED                           [ 53%]
+tests/test_keystore.py::test_insert PASSED                               [ 57%]
+tests/test_keystore.py::test_update PASSED                               [ 60%]
+tests/test_tradeplan.py::test_load_trade_plan_from_db PASSED             [ 64%]
+tests/test_tradeplan.py::test_load_testplan_from_db FAILED               [ 67%]
+tests/test_tradeplan.py::test_get_new_entries PASSED                     [ 71%]
+tests/test_portfolio.py::test_exists_negative PASSED                     [ 75%]
+tests/test_portfolio.py::test_exists_positive PASSED                     [ 78%]
+tests/test_portfolio.py::test_balance_positive PASSED                    [ 82%]
+tests/test_portfolio.py::test_get_get_external_account_id_positive PASSED [ 85%]
+tests/test_portfolio.py::test_get_get_external_account_id_positive2 PASSED [ 89%]
+tests/test_portfolio.py::test_crypto_1 PASSED                            [ 92%]
+tests/test_portfolio.py::test_crypto_2 PASSED                            [ 96%]
+tests/test_load_strategy.py::test_get_strategy FAILED                    [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_load_testplan_from_db __________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_load_testplan_from_db():
+    
+        try:
+            strategy_list = await create_strategies_from_db(
+                batch_id=str(uuid.uuid4()),
+>               trader=trader_factory(),
+                       ^^^^^^^^^^^^^^^^
+                data_loader=DataLoader(),
+            )
+
+tests/test_tradeplan.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/trading/trader_factory.py:18: in trader_factory
+    traders["ALPACA"] = AlpacaTrader(*args, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/trading/alpaca.py:37: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][85690]2026-10-12 12:54:40.639620:db connection pool initialized w postgresql://liu:<redacted>@127.0.0.1:15432/liu
+______________________________ test_get_strategy _______________________________
+
+    @pytest.mark.asyncio
+    async def test_get_strategy():
+>       s = await Strategy.get_strategy(
+            batch_id=str(uuid.uuid4()),
+            strategy_name="MyStrategy",
+            strategy_details={
+                "filename": "./examples/skeleton-strategy/my_strategy.py",
+                "schedule": [],
+            },
+        )
+
+tests/test_load_strategy.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/strategies/base.py:220: in get_strategy
+    success = await s.create()
+              ^^^^^^^^^^^^^^^^
+examples/skeleton-strategy/my_strategy.py:77: in create
+    await super().create()
+src/liualgotrader/strategies/base.py:80: in create
+    await self.algo_run.save(
+src/liualgotrader/models/algo_run.py:35: in save
+    self.run_id = await con.fetchval(
+.venv/lib/python3.13/site-packages/asyncpg/connection.py:741: in fetchval
+    data = await self._execute(query, args, 1, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/asyncpg/connection.py:1904: in _execute
+    result, _ = await self.__execute(
+.venv/lib/python3.13/site-packages/asyncpg/connection.py:2003: in __execute
+    result, stmt = await self._do_execute(
+.venv/lib/python3.13/site-packages/asyncpg/connection.py:2066: in _do_execute
+    result = await executor(stmt, None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   asyncpg.exceptions.UniqueViolationError: duplicate key value violates unique constraint "algo_run_pkey"
+E   DETAIL:  Key (algo_run_id)=(1) already exists.
+
+asyncpg/protocol/protocol.pyx:197: UniqueViolationError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][85690]2026-10-12 12:54:40.852722:db connection pool initialized w postgresql://liu:<redacted>@127.0.0.1:15432/liu
+----------------------------- Captured stdout call -----------------------------
+[get_strategy()][85690]2026-10-12 12:54:40.856453:[Error]exception of type UniqueViolationError with args ('duplicate key value violates unique constraint "algo_run_pkey"',)
+----------------------------- Captured stderr call -----------------------------
+Traceback (most recent call last):
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/src/liualgotrader/strategies/base.py", line 220, in get_strategy
+    success = await s.create()
+              ^^^^^^^^^^^^^^^^
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/examples/skeleton-strategy/my_strategy.py", line 77, in create
+    await super().create()
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/src/liualgotrader/strategies/base.py", line 80, in create
+    await self.algo_run.save(
+        pool=config.db_conn_pool, ref_algo_run_id=self.ref_run_id
+    )
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/src/liualgotrader/models/algo_run.py", line 35, in save
+    self.run_id = await con.fetchval(
+                  ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/.venv/lib/python3.13/site-packages/asyncpg/connection.py", line 741, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/.venv/lib/python3.13/site-packages/asyncpg/connection.py", line 1904, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/.venv/lib/python3.13/site-packages/asyncpg/connection.py", line 2003, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-repairs-review/.venv/lib/python3.13/site-packages/asyncpg/connection.py", line 2066, in _do_execute
+    result = await executor(stmt, None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 197, in bind_execute
+asyncpg.exceptions.UniqueViolationError: duplicate key value violates unique constraint "algo_run_pkey"
+DETAIL:  Key (algo_run_id)=(1) already exists.
+=========================== short test summary info ============================
+FAILED tests/test_tradeplan.py::test_load_testplan_from_db - ValueError: ('Ke...
+FAILED tests/test_load_strategy.py::test_get_strategy - asyncpg.exceptions.Un...
+========================= 2 failed, 26 passed in 1.01s =========================

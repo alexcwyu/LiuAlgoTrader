@@ -1,0 +1,956 @@
+{
+  "original_failed": 187,
+  "original_passed": 8,
+  "source_log": "parent workspace docs/maintenance-2026-10-12/LiuAlgoTrader-tests-default-discovery.log",
+  "categories": {
+    "legacy fixture pool missing": 22,
+    "missing Alpaca credentials": 60,
+    "legacy fixture global missing": 26,
+    "URL(None)": 5,
+    "PostgreSQL refused": 9,
+    "test return value": 15,
+    "zero automatic workers": 1,
+    "test UTC construction": 5,
+    "Gemini float periods": 25,
+    "masked strategy error": 1,
+    "undeclared lxml": 5,
+    "Tradier unauthorized": 13
+  },
+  "cases": [
+    {
+      "node": "tests/test_accounts.py::test_create",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_balance",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction2",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction3",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction5",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_clear_balance",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_clear_transactions",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_1",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_2",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_3",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_4",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_negative_1",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_aapl_data_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_aapl_data_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_get_symbols",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_get_market_snapshot",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min_negative",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_brokerage.py::test_sell_apple",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'alpaca_trader' is not defined"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_crypto_get_symbol",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_minute_offset",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length2",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day_offset",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_create_data_loader_default",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_test1",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_latest_price",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_minute",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_day_num_data_points",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_day_num_data_points_w_date",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_negative_current_price",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute_int",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_minute",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min_open",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_int_min_open",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_open",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_open",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_mixed",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day_mixed",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_mixed",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_str",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_date",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_get_symbols_alpaca",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_update",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_concurrency.py::test_stock_price_range_date_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_multi.py::test_multi_date_performance",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_create_data_loader_default",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range2",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range3",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range4",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_alpaca_stream.py::test_crypto_stream",
+      "category": "URL(None)",
+      "terminal_exception": "TypeError: Unexpected type for URL: \"<class 'NoneType'>\""
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_get_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'alpaca_trader' is not defined"
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_get_shortable_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'alpaca_trader' is not defined"
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_is_fractionable",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'alpaca_trader' is not defined"
+    },
+    {
+      "node": "tests/test_alpacadata.py::test_get_trading_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_analysis.py::test_returns",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_analysis.py::test_load_trades_by_portfolio",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_assets.py::test_round_asset",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_assets.py::test_round_asset returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_backtest.py::test_backtest_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_backtest.py::test_backtest_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_consolidate.py::test_trades",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_cpu_load_avg.py::test_calc_num_consumer_processes",
+      "category": "zero automatic workers",
+      "terminal_exception": "AssertionError: calc_num_consumer_processes() - 0 unexpected"
+    },
+    {
+      "node": "tests/test_create_scanner.py::test_get_scanner",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_alpaca_num_trading_day",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_alpaca_concurrency_ranges_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_hpy_alpaca_concurrency_ranges_min",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_db.py::test_db_connectivity",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_db.py::test_db_connectivity returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_decorators.py::test_trader_calendar",
+      "category": "URL(None)",
+      "terminal_exception": "TypeError: Unexpected type for URL: \"<class 'NoneType'>\""
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_single_line",
+      "category": "test UTC construction",
+      "terminal_exception": "DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC)."
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_two_line",
+      "category": "test UTC construction",
+      "terminal_exception": "DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC)."
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_three_line",
+      "category": "test UTC construction",
+      "terminal_exception": "DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC)."
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_anchored_vwap_three_line",
+      "category": "test UTC construction",
+      "terminal_exception": "DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC)."
+    },
+    {
+      "node": "tests/test_gemini_basic.py::test_gemini_data_day",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_basic.py::test_gemini_data_min",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_create_data_loader_default",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_gemini_data_loader.py::test_create_data_loader_default returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_ethusd_stock_daily_price",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 86.39999999966668"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_btc_current_price",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_current_price_range_int_minute",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_negative_current_price",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_day",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 345.5999999996667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_apple_close_price_range_str_minute",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_minute_int",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 86.39999999966668"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_int_minute",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_int_day",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 172.79999999966665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_day",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 345.5999999996667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_day",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 316.7999999996666"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 115.19999999966667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min_open",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 316.7999999996666"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_int_min_open",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 316.7999999996666"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_open",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_open",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 86.39999999966668"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_mixed",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 345.5999999996667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_day_mixed",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 633.5999999996667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_mixed",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 345.5999999996667"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_str",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_date",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_get_symbols_alpaca",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_gemini_data_loader.py::test_get_symbols_alpaca returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_str2",
+      "category": "Gemini float periods",
+      "terminal_exception": "TypeError: periods must be an integer, got 57.599999999666665"
+    },
+    {
+      "node": "tests/test_gemini_stream.py::test_apple_sec_agg",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_stream' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_shortable_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_market_buy_order",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_limit_buy_order",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_order_negative",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_order_completed",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_buy_websocket1",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_position",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'gemini_trader' is not defined"
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_1",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_param_1 returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_single",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_param_single returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_1_ex",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_param_1_ex returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_int",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_params_int returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_two_int",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_params_two_int returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_int_float",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_params_int_float returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_float_missing",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_hyperparameters.py::test_hyper_params_float_missing returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_keystore.py::test_load_empty",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_keystore.py::test_insert",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_keystore.py::test_update",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_load_scanner.py::test_get_scanner",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_load_strategy.py::test_get_strategy",
+      "category": "masked strategy error",
+      "terminal_exception": "SystemExit: 0"
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_industries",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_sectors",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_sectors_symbols",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_industries_symbols",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_market_data.py::test_sp500_historical_constituents",
+      "category": "undeclared lxml",
+      "terminal_exception": "ImportError: `Import lxml` failed.  Use pip or conda to install the lxml package."
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_trading_day",
+      "category": "URL(None)",
+      "terminal_exception": "TypeError: Unexpected type for URL: \"<class 'NoneType'>\""
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_basic_sp500",
+      "category": "undeclared lxml",
+      "terminal_exception": "ImportError: `Import lxml` failed.  Use pip or conda to install the lxml package."
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data_w_adjustments",
+      "category": "undeclared lxml",
+      "terminal_exception": "ImportError: `Import lxml` failed.  Use pip or conda to install the lxml package."
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data",
+      "category": "undeclared lxml",
+      "terminal_exception": "ImportError: `Import lxml` failed.  Use pip or conda to install the lxml package."
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data_minute",
+      "category": "undeclared lxml",
+      "terminal_exception": "ImportError: `Import lxml` failed.  Use pip or conda to install the lxml package."
+    },
+    {
+      "node": "tests/test_momentum_scanner.py::test_scanner_alpaca",
+      "category": "missing Alpaca credentials",
+      "terminal_exception": "ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_exists_negative",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_exists_positive",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_balance_positive",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_get_get_external_account_id_positive",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_get_get_external_account_id_positive2",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_crypto_1",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_portfolio.py::test_crypto_2",
+      "category": "PostgreSQL refused",
+      "terminal_exception": "OSError: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)"
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_load_trade_plan_from_db",
+      "category": "legacy fixture pool missing",
+      "terminal_exception": "AttributeError: module 'liualgotrader.common.config' has no attribute 'db_conn_pool'"
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_load_testplan_from_db",
+      "category": "URL(None)",
+      "terminal_exception": "TypeError: Unexpected type for URL: \"<class 'NoneType'>\""
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_get_new_entries",
+      "category": "test UTC construction",
+      "terminal_exception": "DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC)."
+    },
+    {
+      "node": "tests/test_trader_calendar.py::test_trader_calendar",
+      "category": "URL(None)",
+      "terminal_exception": "TypeError: Unexpected type for URL: \"<class 'NoneType'>\""
+    },
+    {
+      "node": "tests/test_tradier_basics.py::test_tradier_aapl_data_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_basics.py::test_tradier_aapl_data_min",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_create_data_loader_default",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_tradier_data_loader.py::test_create_data_loader_default returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_latest_price",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_minute",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_day_num_data_points",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_day_num_data_points_w_date",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_negative_current_price",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_tradier_data_loader.py::test_negative_current_price returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_close_price_range_str_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_minute",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_int_day",
+      "category": "Tradier unauthorized",
+      "terminal_exception": "ValueError: HTTP ERROR 401 Invalid Access Token"
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_open",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_min_open returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_open",
+      "category": "test return value",
+      "terminal_exception": "pytest.PytestReturnNotNoneWarning: Test functions should return None, but tests/test_tradier_data_loader.py::test_apple_stock_price_open_range_date_min_open returned <class 'bool'>."
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_shortable_symbols",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_aapl_shortable",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_fractionable",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_market_schedule",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_market_open_today",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_time_market_close",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_trading_days",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_market_long",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_limit_long",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_tsla_order_market_short",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_tsla_cancel_order",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_limit_long_websocket",
+      "category": "legacy fixture global missing",
+      "terminal_exception": "NameError: name 'tradier_trader' is not defined"
+    }
+  ]
+}

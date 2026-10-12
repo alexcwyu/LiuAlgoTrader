@@ -1,0 +1,14 @@
+{
+  "actual_retained_case_dates": [
+    "2026-09-17",
+    "2026-09-18"
+  ],
+  "boundary_count": 59,
+  "interval_count": 58,
+  "largest_interval_minutes": 49.655172416666666,
+  "request_budget_minutes": 50.0,
+  "bounds_preserved": [
+    "2026-09-17T00:00:00+00:00",
+    "2026-09-18T23:59:59.999999+00:00"
+  ]
+}

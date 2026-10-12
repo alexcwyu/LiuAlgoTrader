@@ -1,0 +1,2 @@
+Resolved 123 packages in 14ms
+warning: `soupsieve==3.0.1` is yanked (reason: "Python < 3.11.5 has broken possessive quantifiers in re, which are required for Soup Sieve 3.0. Yank to prevent users on older Python 3.11 versions from getting boken functionality. We will release a new 3.0+ release that requires at least Python 3.11.5.")
