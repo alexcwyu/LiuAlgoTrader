@@ -133,6 +133,7 @@ pythonpath = ["src"]
 xfail_strict = true
 filterwarnings = ["error"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 log_cli = true
 norecursedirs = ["*.egg", ".*", "_darcs", "build", "CVS", "dist", "node_modules", "venv", "tests/legacy"]
 markers = [
