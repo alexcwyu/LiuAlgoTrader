@@ -1,0 +1,42 @@
+{
+  "base_commit": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+  "fresh_full": {
+    "PASSED": 96,
+    "FAILED": 94,
+    "ERROR": 5
+  },
+  "current_composite_not_second_fresh_full": {
+    "PASSED": 97,
+    "FAILED": 93,
+    "ERROR": 5
+  },
+  "final_selected_original_cases": {
+    "PASSED": 15,
+    "FAILED": 1,
+    "ERROR": 0,
+    "remaining_failure": "missing Alpaca key",
+    "original_cases": 16
+  },
+  "source_sha256": {
+    "src/liualgotrader/analytics/analysis.py": "6804588942558082868c7afd81ab05f00cbc545c4678743056e8e8cdbd574251",
+    "src/liualgotrader/common/decorators.py": "40aad212e683707b0cf406f01e72a66e1b57e56d61200891452c26a10250c935",
+    "src/liualgotrader/consumer.py": "79d7dfd4808f5b2f185af63d832aa06782816a36ccd59501e0344c6d1344fddf",
+    "src/liualgotrader/enhanced_backtest.py": "b5b96065b83560c7185d33d93e74aa1a4bbaf318519bef8d88448df5131f97d7",
+    "tests/test_consolidate.py": "7c8f79a85537f5152510c849b5632584d2b12c00c039b54e6dbb239f3a4b84c4",
+    "pyproject.toml": "a2a1c8eac942e47606833100ae8b5ef14d8cc004ae272b046562eb5a8e1cc805",
+    "uv.lock": "6f2138d286f12723717c5268c5f5d44b52eb17977cc4f3d1d92e6f920a5a4bf9"
+  },
+  "dist_sha256": {
+    "liualgotrader-0.4.35-py3-none-any.whl": "f903eeaf54a164dd82d10127fcfa32b02b329c94b55c6457a706f80e7d8cb517",
+    "liualgotrader-0.4.35.tar.gz": "c9e6389aa400792675fff3ffc3324568924c7c6566c812d23797ecd7c1de7cc9"
+  },
+  "sdist_contains_vendor_source_native_wheel_and_rebuild_helper": true,
+  "runtime_native_wheel_sha256": "b08df6cdef0ad22416af4b4934d2e97e37b9850e9bf0b5f34dba72244b075271",
+  "main_source_and_installed_graph_not_changed": true,
+  "no_main_commit_or_push": true,
+  "known_financial_limit": "Original empty/nonexistent-batch property coverage does not validate numeric consolidation; independent actual206-row audit confirms existing Pandas append/floatSeries local defects, owned separately by bots/root.",
+  "final_original_nodes": 195,
+  "native_rebuild_script_sha256": "208b29ff2fdfe2831674cecb1af02308dc3a7f58c5e36b802065423f87a4dbe6",
+  "secret_rotation_verified": true,
+  "tool_target_config_current": "Ruff0.15.14 targetpy315 / Pyright1.1.414 pythonVersion3.15 parserchecksPASS"
+}

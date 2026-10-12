@@ -12,9 +12,23 @@ Original logs remain in the workspace maintenance evidence. Tracked source hashe
 | LiuAlgoTrader-build.log | 0 | 2.67s | `uv build --python 3.14` |
 | LiuAlgoTrader-compile-final.log | 0 | 0.13s | `uv run --no-sync python -m compileall -q src` |
 | LiuAlgoTrader-compile.log | 0 | 0.24s | `/Users/alex/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14 -m compileall -q src` |
+| authentic-financial-consolidation-control | 0 | Nones | `<workspace>/.runtime/maintenance-2026-10-12/liu315-feasibility-3544/.venv/bin/python control-evidence/run_finance_control.py` |
 | LiuAlgoTrader-lock-3.14.log | 0 | 0.58s | `uv lock --upgrade --python 3.14` |
 | LiuAlgoTrader-lock-3.15.log | 0 | 5.49s | `uv lock --upgrade --python 3.15` |
 | LiuAlgoTrader-lock-runtime-fallback.log | 0 | 0.34s | `uv lock --upgrade --python 3.13` |
+| main315-default-frozen-sync | 0 | 0.04s | `uv sync --frozen --all-groups --all-extras` |
+| main315-finance-authentic-control | 0 | 2.15s | `uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_finance_main.py` |
+| main315-finance-build | 0 | 1.53s | `uv build` |
+| main315-finance-compile | 0 | 0.13s | `uv run --no-sync python -Werror -m compileall -q -f src tests` |
+| main315-finance-original-owned-db-cases | 1 | 0.88s | `uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_private_finance_cases.py` |
+| main315-frozen-full-sync | 0 | 1.17s | `uv sync --frozen --all-groups --all-extras --python 3.15.0` |
+| main315-local-original-cases | 0 | 6.5s | `uv run --no-sync python -W error -m pytest tests/test_assets.py tests/test_hyperparameters.py tests/test_fincalc_vwap.py tests/test_trends.py tests/test_support_resistance.py -q` |
+| main315-native-runtime | 0 | 0.5s | `uv run --no-sync python -W error -c import sys,json,pygit2,polygon,numpy,pandas,scipy,asyncpg; print(json.dumps({"python":sys.version,"pygit2":pygit2.__version__,"libgit2":pygit2.LIBGIT2_VERSION,"features":pygit2.features,"numpy":numpy.__version__,"pandas":pandas.__version__,"scipy":scipy.__version__})); assert sys.version_info[:2]==(3,15); assert pygit2.features==1791` |
+| main315-owned-db-original-cases | 1 | 1.32s | `uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_private_cases.py` |
+| main315-retained-sources-build | 0 | 1.64s | `uv build` |
+| main315-retained-sources-compile | 0 | 0.18s | `uv run --no-sync python -Werror -m compileall -q -f src tests vendor/native-wheels/rebuild_native.py` |
+| main315-source-test-compile | 0 | 0.19s | `uv run --no-sync python -W error -m compileall -q -f src tests` |
+| main315-wheel-sdist | 0 | 1.54s | `uv build` |
 | LiuAlgoTrader-python315-source-probe.log | 1 | 3.24s | `uv sync --directory /tmp/trading-python315-probes/LiuAlgoTrader --all-extras --all-groups --python 3.15` |
 | reviewed-local-cases-function-loop | 0 | 3.48s | `uv run --no-sync python -W error -m pytest tests/test_assets.py tests/test_hyperparameters.py tests/test_fincalc_vwap.py tests/test_trends.py tests/test_support_resistance.py -q` |
 | reviewed-local-cases | 3 | 0.21s | `uv run --no-sync python -W error -m pytest tests/test_fincalc_vwap.py tests/test_support_resistance.py tests/test_data_date_ranges.py -q` |

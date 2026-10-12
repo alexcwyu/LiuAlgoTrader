@@ -225,9 +225,9 @@ Installable packages live under `src/`. `pyproject.toml` defines package metadat
 
 ## Maintenance compatibility and evidence
 
-- Python 3.14 exposes the Polygon 1.15.4 dataclass decorator assumption that __annotations__ is already materialized; existing full suite was therefore executed with managed 3.13.16.
+- Python 3.15 is now maintained with the reviewed public annotation access repair and genuine source-built native wheel. All rebuild source archives are included; [provenance](../vendor/PYTHON315-PROVENANCE.md) records exact identities.
 - Polygon is constrained below 1.16 and Streamlit below 1.57 because the retained Alpaca trade SDK requires websockets<11. These are resolver-backed compatibility constraints.
-- Reviewed repairs and the authentic original PostgreSQL dump reconcile all 195 original nodes to **97 passed, 93 failed, 5 errors**. This is a composite of the retained full run (92 passed / 98 failed / 5 errors) and current-source targeted cases, not a fresh full-suite pass. The remaining 98 outcomes need Alpaca (73), Tradier (20) or Gemini (5) credentials. See the [detailed compatibility review](maintenance-2026-10-12/liu-compatibility-review.md); no cases or assertions were weakened.
+- Reviewed repairs and the authentic original PostgreSQL dump reconcile all 195 original nodes to **97 passed, 93 failed, 5 errors**. This is a composite of the Python 3.15 full run (96 passed / 94 failed / 5 errors) and current-source targeted cases, not a fresh full-suite pass. The remaining 98 outcomes need Alpaca (73), Tradier (20) or Gemini (5) credentials. See the [detailed compatibility review](maintenance-2026-10-12/liu-compatibility-review.md); no cases or assertions were weakened.
 
 ## Development and verification workflow
 
@@ -244,3 +244,7 @@ flowchart TD
 ```
 
 See [development commands](development.md) and [validation evidence](validation.md) for interpreter selection, dependency exceptions, full-suite results and remaining blockers. No additional test cases were introduced by this maintenance.
+
+## Maintained Python 3.15 source workflow
+
+Use the [current uv development workflow](development.md), [validation evidence](validation.md), [native dependency provenance](../vendor/PYTHON315-PROVENANCE.md), and [financial consolidation design and diagnostic](consolidation-pandas3.md). The maintained source uses Python 3.15.0, with reviewed genuine source builds and unchanged existing test assertions. Earlier interpreter references describe historical attempts.

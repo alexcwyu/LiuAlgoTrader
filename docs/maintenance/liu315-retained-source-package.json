@@ -1,0 +1,274 @@
+{
+  "source_archive": "liualgotrader-0.4.35.tar.gz",
+  "verified_packaged_official_archives": [
+    {
+      "component": "openssl",
+      "file": "liu315-openssl-official-source.tar.gz",
+      "sha256": "84af0ce70add3a4880379de17aef6ee084f1ec109b166817be3f0a6feb4e6240",
+      "bytes": 55271835
+    },
+    {
+      "component": "libssh2",
+      "file": "liu315-libssh2-official-source.tar.gz",
+      "sha256": "40eab1872718e58670cf24596810160a3e3c2372030cb085e4d2f7ec876bacb2",
+      "bytes": 572151
+    },
+    {
+      "component": "libgit2",
+      "file": "liu315-libgit2-official-source.tar.gz",
+      "sha256": "08fe5bc4a9561da53ff700f7ce22a0f068882a037dd253c988be397419d60e5a",
+      "bytes": 7775960
+    },
+    {
+      "component": "pygit2",
+      "file": "liu315-pygit2-original.tar.gz",
+      "sha256": "36dff84d237f2b8f18b0b146d6e7c3f99a7bce2da98cc4103a14387f53319f95",
+      "bytes": 888235
+    }
+  ],
+  "vendor_files": [
+    {
+      "file": "vendor/PYTHON315-PROVENANCE.md",
+      "sha256": "f66e7362e9ff93fc741053ac5e0a715d7676839dbbe26ec8bc1ac4c5ae062642"
+    },
+    {
+      "file": "vendor/liu315-bundled-native-portability.json",
+      "sha256": "98f49405329cb2efa92d07b9575ef9c505fb82bc45686ea1518434a0bcd11e00"
+    },
+    {
+      "file": "vendor/liu315-native-rebuild-recipe.json",
+      "sha256": "e6c2ef9ed18ccac7e7ec92d6693b710b4f13827bb0148a96449bdce8e25b9fd3"
+    },
+    {
+      "file": "vendor/liu315-native-source-provenance.json",
+      "sha256": "ec648843159545957e64c73a0830d7f84c19d3709cad91a1b416ddfd546d25d3"
+    },
+    {
+      "file": "vendor/liu315-polygon-real-model-shape-parity.json",
+      "sha256": "3862d7d930c5c8f0a2d9d7045e1929c9200f494bce5e2e626544ffc63a0e463f"
+    },
+    {
+      "file": "vendor/liu315-polygon-source-provenance.json",
+      "sha256": "646f746d2cfd56bf6674b82eaa3e583c25643738a8d1af7ccba62c5a9b8dcb3b"
+    },
+    {
+      "file": "vendor/liu315-pygit2-source-provenance.json",
+      "sha256": "ee5d5c4cb0b9c407018f741b262f269e9256b46eba3b733b227e569ff79548a8"
+    },
+    {
+      "file": "vendor/native-sources/archives.json",
+      "sha256": "3e7e52dc6514930bccb813e76eab2d53516556e43509dc14500e6feb91612bfd"
+    },
+    {
+      "file": "vendor/native-sources/liu315-libgit2-official-source.tar.gz",
+      "sha256": "08fe5bc4a9561da53ff700f7ce22a0f068882a037dd253c988be397419d60e5a"
+    },
+    {
+      "file": "vendor/native-sources/liu315-libssh2-official-source.tar.gz",
+      "sha256": "40eab1872718e58670cf24596810160a3e3c2372030cb085e4d2f7ec876bacb2"
+    },
+    {
+      "file": "vendor/native-sources/liu315-openssl-official-source.tar.gz",
+      "sha256": "84af0ce70add3a4880379de17aef6ee084f1ec109b166817be3f0a6feb4e6240"
+    },
+    {
+      "file": "vendor/native-sources/liu315-pygit2-original.tar.gz",
+      "sha256": "36dff84d237f2b8f18b0b146d6e7c3f99a7bce2da98cc4103a14387f53319f95"
+    },
+    {
+      "file": "vendor/native-wheels/pygit2-1.20.1-cp315-cp315-macosx_11_0_arm64.whl",
+      "sha256": "b08df6cdef0ad22416af4b4934d2e97e37b9850e9bf0b5f34dba72244b075271"
+    },
+    {
+      "file": "vendor/native-wheels/rebuild_native.py",
+      "sha256": "8e5ab20c3b1347eda7dcba67e6d0e320a62721befcac7c3b4361c1e19d44bedc"
+    },
+    {
+      "file": "vendor/polygon-api-client/LICENSE",
+      "sha256": "ec423cc5506eea1ffbfc9955c3ec8f86139996963d84ff306a5ee41eda8a4ff1"
+    },
+    {
+      "file": "vendor/polygon-api-client/PKG-INFO",
+      "sha256": "d3b063efc310edceaa6b49c48a9b567e7dc657eee0d69c37d4169709e1c37a8e"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/__init__.py",
+      "sha256": "a45793fe9f1d37d72859a44f4ff31e23afa92150f940331dfca7d8dc1c165d44"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/exceptions.py",
+      "sha256": "fbd311dddcf319cae76b6c1c3c536d2de4713ca92f6c1455ae7f40832418e29d"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/logging.py",
+      "sha256": "7b979716dbf0636ba4568481fe723c9f59f612c21dcfcc69db95d8102937fba3"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/modelclass.py",
+      "sha256": "a33785dee7e9c762d73c0b50d1cf65af16c646a80e9147022983825d5c8ef352"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/__init__.py",
+      "sha256": "8581c656f933d1e5baafca7355dbf5ffc5ed9b5a1a96188b3642f0fc5210cb2b"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/aggs.py",
+      "sha256": "72567063b9513eeebdf43f0bc36d83187359941eddd6cf9ca56abab76dc0b421"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/base.py",
+      "sha256": "9bb6287a16f2c9c1fa51ce447725b7c8abf35b4e0f061161a56a9827f403fa54"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/benzinga.py",
+      "sha256": "d419377d0b17ac51acc34479420394e60c82d5c23e9b69688b265b6c5de4e0c8"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/economy.py",
+      "sha256": "89e578a59e388e1a2fef8c77050fc57717eee7fa64eb9e7cb90f18ba0218d13f"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/futures.py",
+      "sha256": "8d13af29a1ec3a8d8054d4a354b09188aa8fe7b9bb34cb9a0185f312458e657f"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/indicators.py",
+      "sha256": "f3fd8fea763c2001ea1eb36537e083717c8784fdaa1567a4bfdafff0339734cf"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/__init__.py",
+      "sha256": "76360d5ba1cff4745eba73efe574ed7c52f0ba647b0a9ba299c334f81a28eab6"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/aggs.py",
+      "sha256": "5abdf5d6cf4bbe0774538c92b796649986fd705b4a08baf53d1f0c8881488be8"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/benzinga.py",
+      "sha256": "e09f2267d76cef095f38e5e97740522032628465c48e78703bc653c7e3056012"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/common.py",
+      "sha256": "37ef6648ed53e29e04860d87652b4335095f2371b1eddc0d3cd57ef9efe2dbe6"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/conditions.py",
+      "sha256": "d1884c7f4a99990995c8d22bc5340a14c99f293366bbf29d7d27c606c32cdea1"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/contracts.py",
+      "sha256": "6c0e32e8279ea3a4fece16605c48f2ee5427519797ebc604f78ee9e65666ac56"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/dividends.py",
+      "sha256": "9763ddc38de93c2c595e58539723b2dd2c4d36c32b6e10b527c7e95104416f72"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/economy.py",
+      "sha256": "2e9120a3b88d6592a395680bf425b5ca554c103a270834f1c0ad37fbd680ecb3"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/exchanges.py",
+      "sha256": "4c15599618eeff25dd6d5008dfee0363caf314f09b236b5d67b95962367b94ca"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/financials.py",
+      "sha256": "73adaaa93f22b4d5d31e6b4743dae5f5f41a7dc70dd45239567fb73b982c948d"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/futures.py",
+      "sha256": "12b43f19d64bc5df0cbf06ad0b378eb3beca4d5604c7b207fa764221df5e0c02"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/indicators.py",
+      "sha256": "df336f03c39ac842e1a31464952439f371b6f99008f67db0376b6361392a4ba0"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/markets.py",
+      "sha256": "5fb7eafc0fd057b1668935b84c1d3c2c095a2ee9ae0fb9e4262043949b18186b"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/quotes.py",
+      "sha256": "c03d3c511f1ba353b7c7bfdb1557beb16815a3939f9000ff23752ca3d47eb77c"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/request.py",
+      "sha256": "537aa1af8f2188c8869a82ab83a2c28059464846c95fc8e0005b7150d05c7546"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/snapshot.py",
+      "sha256": "fd0c4eb7b8ae76fa9d229798096c5562e5982cbf11ee024c56b1d67a4b84daf6"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/splits.py",
+      "sha256": "709fcc5b82b46d136b80d40e4ad02cc5f17aaafb4badd11dab7b0472e5a6d062"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/summaries.py",
+      "sha256": "673825e56dddea7832d2a0c5dbe6edbd55f139136692c3e7342ed55382f05935"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/tickers.py",
+      "sha256": "933308a5e4581c91e62f104ed40264882cf2071b272bdd8f6a0a08be872cdbda"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/tmx.py",
+      "sha256": "b914ec71fd703e1adfd9fb81773a6d8693341476eb9552da6d32a88380432903"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/models/trades.py",
+      "sha256": "9dadb621a96c253340613235e758fb747674d75d7b25f400cbd65bb4e2049592"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/quotes.py",
+      "sha256": "1b87809fdf80f946afd88d2da8a361cf5502673f1c6018424ba8d6c8db9da70c"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/reference.py",
+      "sha256": "f64fad545b542033ea173e75a239b31462967df7b5e2016b6d5ebdecc30606c3"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/snapshot.py",
+      "sha256": "437f89c545c10cf000c3029aa444f8604f6504857c853cb55c61f6017c0208a8"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/summaries.py",
+      "sha256": "a48c25634f2e740f226bb7b7bd591ea02ffb9e6bc967d7c0e83e24bf5da385b8"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/tmx.py",
+      "sha256": "3169224a4a03f2a95d4ebd4a20e0987ac6e9d097ab2ec67960b6806847f438b4"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/trades.py",
+      "sha256": "760cb8b27f19e1bd61d7f39aca9e336216e62b371a0ed01c8ad56fae9f4237cf"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/rest/vX.py",
+      "sha256": "b936ad6c2f108d65e6afd873ffc35370161cfe7cb4927399d789f8b51034e4e0"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/websocket/__init__.py",
+      "sha256": "772cf0ed1e44a9b40cee7793d030265bf884459c9dd64b2703ff839ce0736964"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/websocket/models/__init__.py",
+      "sha256": "1e10ecdc461da7cd5f890e60db2260b42a9e12db30c1c1fc04c2b246be29a787"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/websocket/models/common.py",
+      "sha256": "a56e7f9b9bd98f4df89af25a77d60b180581944099e8aab62f1b499a69200ea6"
+    },
+    {
+      "file": "vendor/polygon-api-client/polygon/websocket/models/models.py",
+      "sha256": "b77f220fc59b3857537033f9fc247118dd59d8d3ccf2f9a803b3c9b93218b25c"
+    },
+    {
+      "file": "vendor/polygon-api-client/pyproject.toml",
+      "sha256": "28ad98e149b52f6cc978da65267bb14dbafa1e40f806a28a9526f61857a40b59"
+    }
+  ],
+  "vendor_inventory_sha256": "56ead901449b913f5b9adbdc97ca84152e746a27d3bf8a06f220ef2e31ad0f3b",
+  "build_worktree_original_entries_checked": 18460,
+  "changed_original_entries": 0
+}

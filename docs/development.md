@@ -1,11 +1,11 @@
 <!-- ayu-maintenance-2026-10-12 -->
 # Current uv development workflow
 
-The maintained branch is `feature/ayu_develop`. The selected interpreter is Python `3.13`; `requires-python` records the range that was actually resolved. Python 3.15 was attempted first. Dependency/native-wheel failures and fallback evidence are recorded in [validation.md](validation.md).
+The maintained branch is `feature/ayu_develop`. The selected interpreter is Python `3.15.0`; `requires-python` records the range that was actually resolved. Python 3.15 now resolves and builds using reviewed vendored SDK sources and a genuine native wheel. Earlier failed attempts and subsequent recovery evidence are recorded in [validation.md](validation.md).
 
 ```sh
 export UV_PYTHON_PREFERENCE=only-managed
-uv python install 3.13
+uv python install 3.15.0
 uv lock --check
 uv sync --frozen --all-extras --all-groups
 uv run --no-sync python -m compileall -q src
@@ -21,9 +21,12 @@ The `src/` layout and build-backend package discovery preserve public import nam
 
 ## Compatibility decisions
 
-- Python 3.14 exposes the Polygon 1.15.4 dataclass decorator assumption that __annotations__ is already materialized; existing full suite was therefore executed with managed 3.13.16.
+The [Pandas 3 financial repair](consolidation-pandas3.md) preserves formulas and verifies all 206 authentic dump trades against an independent scalar ledger. No new test cases or financial expectations were added. Source-checkout frozen uv installation is the supported verified route; plain project-wheel installation alone cannot carry uv vendor routing.
+
+
+- The original Polygon 1.15.4 decorator assumed materialized private annotations. Its reviewed one-line public annotation access repair preserves all 93 model field shapes on Python 3.15. The native pygit2 wheel and all four immutable rebuild source archives are included; see [source provenance](../vendor/PYTHON315-PROVENANCE.md).
 - Polygon is constrained below 1.16 and Streamlit below 1.57 because the retained Alpaca trade SDK requires websockets<11. These are resolver-backed compatibility constraints.
-- Reviewed repairs and the authentic original PostgreSQL dump reconcile all 195 original nodes to **97 passed, 93 failed, 5 errors**. This is a composite of the retained full run (92 passed / 98 failed / 5 errors) and current-source targeted cases, not a fresh full-suite pass. The remaining 98 outcomes need Alpaca (73), Tradier (20) or Gemini (5) credentials. See the [detailed compatibility review](maintenance-2026-10-12/liu-compatibility-review.md); no cases or assertions were weakened.
+- Reviewed repairs and the authentic original PostgreSQL dump reconcile all 195 original nodes to **97 passed, 93 failed, 5 errors**. This is a composite of the Python 3.15 full run (96 passed / 94 failed / 5 errors) and current-source targeted cases, not a fresh full-suite pass. The remaining 98 outcomes need Alpaca (73), Tradier (20) or Gemini (5) credentials. See the [detailed compatibility review](maintenance-2026-10-12/liu-compatibility-review.md); no cases or assertions were weakened.
 
 
 

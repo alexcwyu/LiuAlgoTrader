@@ -38,6 +38,12 @@
 <td><code>/Users/alex/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14 -m compileall -q src</code></td>
 </tr>
 <tr>
+<td>authentic-financial-consolidation-control</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">Nones</td>
+<td><code>&lt;workspace&gt;/.runtime/maintenance-2026-10-12/liu315-feasibility-3544/.venv/bin/python control-evidence/run_finance_control.py</code></td>
+</tr>
+<tr>
 <td>LiuAlgoTrader-lock-3.14.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.58s</td>
@@ -54,6 +60,84 @@
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.34s</td>
 <td><code>uv lock --upgrade --python 3.13</code></td>
+</tr>
+<tr>
+<td>main315-default-frozen-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04s</td>
+<td><code>uv sync --frozen --all-groups --all-extras</code></td>
+</tr>
+<tr>
+<td>main315-finance-authentic-control</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.15s</td>
+<td><code>uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_finance_main.py</code></td>
+</tr>
+<tr>
+<td>main315-finance-build</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.53s</td>
+<td><code>uv build</code></td>
+</tr>
+<tr>
+<td>main315-finance-compile</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.13s</td>
+<td><code>uv run --no-sync python -Werror -m compileall -q -f src tests</code></td>
+</tr>
+<tr>
+<td>main315-finance-original-owned-db-cases</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.88s</td>
+<td><code>uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_private_finance_cases.py</code></td>
+</tr>
+<tr>
+<td>main315-frozen-full-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.17s</td>
+<td><code>uv sync --frozen --all-groups --all-extras --python 3.15.0</code></td>
+</tr>
+<tr>
+<td>main315-local-original-cases</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.5s</td>
+<td><code>uv run --no-sync python -W error -m pytest tests/test_assets.py tests/test_hyperparameters.py tests/test_fincalc_vwap.py tests/test_trends.py tests/test_support_resistance.py -q</code></td>
+</tr>
+<tr>
+<td>main315-native-runtime</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.5s</td>
+<td><code>uv run --no-sync python -W error -c import sys,json,pygit2,polygon,numpy,pandas,scipy,asyncpg; print(json.dumps({"python":sys.version,"pygit2":pygit2.__version__,"libgit2":pygit2.LIBGIT2_VERSION,"features":pygit2.features,"numpy":numpy.__version__,"pandas":pandas.__version__,"scipy":scipy.__version__})); assert sys.version_info[:2]==(3,15); assert pygit2.features==1791</code></td>
+</tr>
+<tr>
+<td>main315-owned-db-original-cases</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.32s</td>
+<td><code>uv run --no-sync python ../docs/maintenance-2026-10-12/tools/run_liu_private_cases.py</code></td>
+</tr>
+<tr>
+<td>main315-retained-sources-build</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.64s</td>
+<td><code>uv build</code></td>
+</tr>
+<tr>
+<td>main315-retained-sources-compile</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.18s</td>
+<td><code>uv run --no-sync python -Werror -m compileall -q -f src tests vendor/native-wheels/rebuild_native.py</code></td>
+</tr>
+<tr>
+<td>main315-source-test-compile</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.19s</td>
+<td><code>uv run --no-sync python -W error -m compileall -q -f src tests</code></td>
+</tr>
+<tr>
+<td>main315-wheel-sdist</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.54s</td>
+<td><code>uv build</code></td>
 </tr>
 <tr>
 <td>LiuAlgoTrader-python315-source-probe.log</td>

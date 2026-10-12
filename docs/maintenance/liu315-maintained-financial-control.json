@@ -1,0 +1,36 @@
+{
+  "scope": "Exact production consolidator source with authentic loader frames and output sinks",
+  "source_path": "<workspace>/LiuAlgoTrader/src/liualgotrader/analytics/consolidate.py",
+  "source_sha256": "94ae31cfcfcdda6b780964ba6b476a0d8ee907a57494067a105e92b1ee95cb4a",
+  "pandas": "3.0.6",
+  "database_writes": false,
+  "invented_market_rows": false,
+  "pytest_cases_added": 0,
+  "oracle": "Separate pure-Python per-symbol/run cash and quantity ledger; original first notional, risk and built-in round formula",
+  "batches": [
+    {
+      "batch": "a5f36d9c-7a84-48c7-aa2f-df092dcaea88",
+      "input_rows": 14,
+      "gain_loss_rows": 7,
+      "closed_position_rows": 7,
+      "open_positions": 0,
+      "cash_quantity_risk_timestamp_and_percentage_exact_match": true
+    },
+    {
+      "batch": "9111c17f-6200-4aeb-a5eb-779999956721",
+      "input_rows": 96,
+      "gain_loss_rows": 46,
+      "closed_position_rows": 47,
+      "open_positions": 0,
+      "cash_quantity_risk_timestamp_and_percentage_exact_match": true
+    },
+    {
+      "batch": "2398380c-5146-4b58-843a-a50c458c8071",
+      "input_rows": 96,
+      "gain_loss_rows": 46,
+      "closed_position_rows": 47,
+      "open_positions": 0,
+      "cash_quantity_risk_timestamp_and_percentage_exact_match": true
+    }
+  ]
+}

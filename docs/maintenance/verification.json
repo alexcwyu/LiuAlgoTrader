@@ -40,6 +40,22 @@
     "outcome_lines": []
   },
   {
+    "command": [
+      "<workspace>/.runtime/maintenance-2026-10-12/liu315-feasibility-3544/.venv/bin/python",
+      "control-evidence/run_finance_control.py"
+    ],
+    "cwd": "<workspace>/.runtime/maintenance-2026-10-12/liu-finance-pandas3-control",
+    "exit_code": 0,
+    "elapsed_seconds": null,
+    "step": "authentic-financial-consolidation-control",
+    "seconds": null,
+    "evidence_record": "LiuAlgoTrader-finance-check.json",
+    "original_log": "LiuAlgoTrader-finance-finance-control.log",
+    "log_sha256": "1183ea9c491a9bd67c57dd70816ae003dc34f1cc196c57249d4dead3ba31c503",
+    "log_bytes": 1921,
+    "outcome_lines": []
+  },
+  {
     "command": "uv lock --upgrade --python 3.14",
     "exit_code": 0,
     "seconds": 0.58,
@@ -67,6 +83,336 @@
     "original_log": "LiuAlgoTrader-lock-runtime-fallback.log",
     "log_sha256": "5f2ee3ce8f000886cc8842350999369e13ade92e03bdf290accc16829b974917",
     "log_bytes": 87,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--all-groups",
+      "--all-extras"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 0.04,
+    "check": "main315-default-frozen-sync",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "cd439133dd42d1e55261e0af70040c08231d0faaf2ca1f36b6e3598bbb146973",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-default-frozen-sync.json",
+    "original_log": "LiuAlgoTrader-main315-default-frozen-sync.log",
+    "log_sha256": "c7f6cd42d61b069f06fa0ba2f47f7cd92b398fcea4dea15c42b854976682fd62",
+    "log_bytes": 147,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "../docs/maintenance-2026-10-12/tools/run_liu_finance_main.py"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 2.15,
+    "check": "main315-finance-authentic-control",
+    "source_snapshot": {
+      "head": "add37f3286ba375b9dcba957cec8d8933e8fad4f",
+      "tracked_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-finance-authentic-control.json",
+    "original_log": "LiuAlgoTrader-main315-finance-authentic-control.log",
+    "log_sha256": "a10c5bd885ceef491311c8a275d43bf576007b5eef87e4aeb709dc6fd2fee9ca",
+    "log_bytes": 2035,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "build"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 1.53,
+    "check": "main315-finance-build",
+    "source_snapshot": {
+      "head": "add37f3286ba375b9dcba957cec8d8933e8fad4f",
+      "tracked_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-finance-build.json",
+    "original_log": "LiuAlgoTrader-main315-finance-build.log",
+    "log_sha256": "2aaa6de149d5060b2d46aeb4fbcf31f9e5e36d1e0da003542a31108f7778d975",
+    "log_bytes": 264,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "-Werror",
+      "-m",
+      "compileall",
+      "-q",
+      "-f",
+      "src",
+      "tests"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 0.13,
+    "check": "main315-finance-compile",
+    "source_snapshot": {
+      "head": "add37f3286ba375b9dcba957cec8d8933e8fad4f",
+      "tracked_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-finance-compile.json",
+    "original_log": "LiuAlgoTrader-main315-finance-compile.log",
+    "log_sha256": "5fc46cad592e4eda6351bf4e85708ae07aeb325346efcd7d9508b87cc5a9b432",
+    "log_bytes": 155,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "../docs/maintenance-2026-10-12/tools/run_liu_private_finance_cases.py"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 1,
+    "seconds": 0.88,
+    "check": "main315-finance-original-owned-db-cases",
+    "source_snapshot": {
+      "head": "add37f3286ba375b9dcba957cec8d8933e8fad4f",
+      "tracked_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-finance-original-owned-db-cases.json",
+    "original_log": "LiuAlgoTrader-main315-finance-original-owned-db-cases.log",
+    "log_sha256": "85a93efe03c131912f93dd57535d83d643d1a072fb7927dd7ffb523aabe1bdc0",
+    "log_bytes": 772,
+    "outcome_lines": [
+      "{\"command\": [\"<workspace>/LiuAlgoTrader/.venv/bin/python\", \"-m\", \"pytest\", \"-q\", \"tests/test_consolidate.py\", \"tests/test_decorators.py\"], \"exit_code\": 1, \"private_log\": \"<workspace>/.runtime/maintenance-2026-10-12/liu-root-main315/original-consolidation-decorator-attempt2-finance.log\", \"raw_sha256\": \"c716f903b6a7e5a021bd2f2eb37deed7db4456b26f725d9d5a2e987d96ce7d53\", \"summaries\": [\"========================= 1 failed, 1 passed in 0.58s ==========================\"], \"scope\": \"Two unchanged original cases; authentic owned PostgreSQL DSN; no credential output.\"}"
+    ]
+  },
+  {
+    "command": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--all-groups",
+      "--all-extras",
+      "--python",
+      "3.15.0"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 1.17,
+    "check": "main315-frozen-full-sync",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "dc1886f5cd806b7f5495e3d3a401261a7e9b13c0c677702585a9bf3cc2f1b7d4",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-frozen-full-sync.json",
+    "original_log": "LiuAlgoTrader-main315-frozen-full-sync.log",
+    "log_sha256": "c6e0c66c94cb748da1a33e1469e31e63d4453e8b633cfeac69fd20e1a898ff46",
+    "log_bytes": 3492,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "-W",
+      "error",
+      "-m",
+      "pytest",
+      "tests/test_assets.py",
+      "tests/test_hyperparameters.py",
+      "tests/test_fincalc_vwap.py",
+      "tests/test_trends.py",
+      "tests/test_support_resistance.py",
+      "-q"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 6.5,
+    "check": "main315-local-original-cases",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "dc1886f5cd806b7f5495e3d3a401261a7e9b13c0c677702585a9bf3cc2f1b7d4",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-local-original-cases.json",
+    "original_log": "LiuAlgoTrader-main315-local-original-cases.log",
+    "log_sha256": "37c32c1632c759dbbdb6b9ee8c39756c7c6c67706713d40fd3344ead01fc45bd",
+    "log_bytes": 1639,
+    "outcome_lines": [
+      "============================== 14 passed in 5.74s =============================="
+    ]
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "-W",
+      "error",
+      "-c",
+      "import sys,json,pygit2,polygon,numpy,pandas,scipy,asyncpg; print(json.dumps({\"python\":sys.version,\"pygit2\":pygit2.__version__,\"libgit2\":pygit2.LIBGIT2_VERSION,\"features\":pygit2.features,\"numpy\":numpy.__version__,\"pandas\":pandas.__version__,\"scipy\":scipy.__version__})); assert sys.version_info[:2]==(3,15); assert pygit2.features==1791"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 0.5,
+    "check": "main315-native-runtime",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "cd439133dd42d1e55261e0af70040c08231d0faaf2ca1f36b6e3598bbb146973",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-native-runtime.json",
+    "original_log": "LiuAlgoTrader-main315-native-runtime.log",
+    "log_sha256": "62d0f45ccdb36762fc468c6fc1346dab719f5dab20aa1f07287c89d868a613e5",
+    "log_bytes": 651,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "../docs/maintenance-2026-10-12/tools/run_liu_private_cases.py"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 1,
+    "seconds": 1.32,
+    "check": "main315-owned-db-original-cases",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "dc1886f5cd806b7f5495e3d3a401261a7e9b13c0c677702585a9bf3cc2f1b7d4",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-owned-db-original-cases.json",
+    "original_log": "LiuAlgoTrader-main315-owned-db-original-cases.log",
+    "log_sha256": "e4a00dcda67923c581be9b6b72d0b03d5730317e5cbe9b493d5a38352fdf36f9",
+    "log_bytes": 912,
+    "outcome_lines": [
+      "{\"command\": [\"<workspace>/LiuAlgoTrader/.venv/bin/python\", \"-m\", \"pytest\", \"-q\", \"tests/test_consolidate.py\", \"tests/test_decorators.py\"], \"exit_code\": 1, \"private_log\": \"<workspace>/.runtime/maintenance-2026-10-12/liu-root-main315/original-consolidation-decorator-attempt1.log\", \"raw_sha256\": \"4943462edbca90ecdb79f9cc868a4de2b9af107704c16b150a4b1238a87d9667\", \"summaries\": [\"========================= 1 failed, 1 passed in 1.03s ==========================\"], \"scope\": \"Two unchanged original cases; authentic owned PostgreSQL DSN; no credential output.\"}"
+    ]
+  },
+  {
+    "command": [
+      "uv",
+      "build"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 1.64,
+    "check": "main315-retained-sources-build",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "a496b3b62a2d0c62ef075f85c334487971eaa77c6ffa3bd5f1b0c4c77409635d",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-retained-sources-build.json",
+    "original_log": "LiuAlgoTrader-main315-retained-sources-build.log",
+    "log_sha256": "2aaa6de149d5060b2d46aeb4fbcf31f9e5e36d1e0da003542a31108f7778d975",
+    "log_bytes": 264,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "-Werror",
+      "-m",
+      "compileall",
+      "-q",
+      "-f",
+      "src",
+      "tests",
+      "vendor/native-wheels/rebuild_native.py"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 0.18,
+    "check": "main315-retained-sources-compile",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "a496b3b62a2d0c62ef075f85c334487971eaa77c6ffa3bd5f1b0c4c77409635d",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-retained-sources-compile.json",
+    "original_log": "LiuAlgoTrader-main315-retained-sources-compile.log",
+    "log_sha256": "2bbad76f39abe621fe22260f0de480bbad41994377fd382cba65ca4fe226c9eb",
+    "log_bytes": 197,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--no-sync",
+      "python",
+      "-W",
+      "error",
+      "-m",
+      "compileall",
+      "-q",
+      "-f",
+      "src",
+      "tests"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 0.19,
+    "check": "main315-source-test-compile",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "dc1886f5cd806b7f5495e3d3a401261a7e9b13c0c677702585a9bf3cc2f1b7d4",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-source-test-compile.json",
+    "original_log": "LiuAlgoTrader-main315-source-test-compile.log",
+    "log_sha256": "2d1e2199dd38181bd9e9ecfa5a60b6463ab4c9978df9334ef7aa6e0b7f001848",
+    "log_bytes": 315,
+    "outcome_lines": []
+  },
+  {
+    "command": [
+      "uv",
+      "build"
+    ],
+    "cwd": "<workspace>/LiuAlgoTrader",
+    "exit_code": 0,
+    "seconds": 1.54,
+    "check": "main315-wheel-sdist",
+    "source_snapshot": {
+      "head": "3544e433d545b8c1a602c6a474e7c6aca0431556",
+      "tracked_source_diff_sha256": "dc1886f5cd806b7f5495e3d3a401261a7e9b13c0c677702585a9bf3cc2f1b7d4",
+      "note": "Tracked source snapshot at command start; untracked additions and later edits are not covered by this hash."
+    },
+    "evidence_record": "LiuAlgoTrader-main315-wheel-sdist.json",
+    "original_log": "LiuAlgoTrader-main315-wheel-sdist.log",
+    "log_sha256": "2aaa6de149d5060b2d46aeb4fbcf31f9e5e36d1e0da003542a31108f7778d975",
+    "log_bytes": 264,
     "outcome_lines": []
   },
   {
