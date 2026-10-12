@@ -1,23 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LiuAlgoTrader: portable verification records</title><style>
-:root{color-scheme:light dark;--bg:#f6f8fa;--paper:#fff;--fg:#182332;--muted:#526274;--line:#d9e0e7;--accent:#1769aa}
-@media(prefers-color-scheme:dark){:root{--bg:#111820;--paper:#192330;--fg:#e6edf3;--muted:#a0b3c5;--line:#344354;--accent:#71b7ee}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,sans-serif}
-header{border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 1120px)/2));background:var(--paper);font-size:14px}
-main{max-width:1120px;margin:32px auto;padding:40px 48px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
-h1,h2,h3,h4{line-height:1.3;scroll-margin-top:24px}h1{font-size:2.1rem}h2{margin-top:2.5em;border-bottom:1px solid var(--line);padding-bottom:.35em}h3{margin-top:1.8em}
-a{color:var(--accent);text-underline-offset:3px}code{font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border-radius:4px;padding:2px 5px}pre{overflow:auto;border:1px solid var(--line);background:var(--bg);padding:16px;border-radius:7px}pre code{padding:0;background:none}
-table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:14px}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}th{background:var(--bg)}blockquote{border-left:4px solid var(--accent);margin:16px 0;padding:4px 20px;color:var(--muted)}
-.diagram{overflow-x:auto;margin:24px 0;padding:20px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#182332}.mermaid{border:0;background:none;text-align:center}.mermaid svg{height:auto;max-width:100%}details{font-size:13px;color:#526274}.headerlink{margin-left:.4em;font-size:.7em;text-decoration:none;color:var(--muted)}
-main{min-width:0;overflow-wrap:anywhere}table,pre{max-width:100%}.diagram svg{display:block}
-th,td{min-width:120px;overflow-wrap:normal}
-@media(max-width:740px){main{margin:0;padding:24px 18px;border:0;border-radius:0}h1{font-size:1.7rem}.diagram{padding:8px}}
-@media print{header,details,.headerlink{display:none}body,main{background:#fff;color:#000;border:0;margin:0;padding:0}a{color:#000}.diagram,pre{break-inside:avoid}}
-</style></head><body><header>Engineering documentation · <a href="index.md">Markdown source</a></header><main><h1 id="liualgotrader-portable-verification-records">LiuAlgoTrader: portable verification records<a class="headerlink" href="#liualgotrader-portable-verification-records" title="Permanent link">&para;</a></h1>
-<p>Full raw logs are retained in the workspace maintenance evidence, not distributed here. Hashes identify those original logs. A successful build or selected test subset does not imply a full test-suite pass. Commands containing <workspace> describe the original execution environment.</p>
-<p><a href="verification.json">Machine-readable records</a> · <a href="../validation.md">Repository validation summary</a></p>
-<h2 id="executed-commands">Executed commands<a class="headerlink" href="#executed-commands" title="Permanent link">&para;</a></h2>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LiuAlgoTrader: portable verification records</title><style>html{color-scheme:light dark}body{margin:0;background:#f5f7fa;color:#172333;font:16px/1.7 system-ui,sans-serif}main{max-width:1120px;margin:28px auto;background:white;padding:40px;border:1px solid #dbe2ea;border-radius:10px}h1,h2,h3{line-height:1.25}h2{margin-top:2em;border-bottom:1px solid #dbe2ea;padding-bottom:.4em}a{color:#1769aa}pre{overflow:auto;padding:16px;background:#f5f7fa;border:1px solid #dbe2ea;border-radius:6px}code{font:14px/1.6 ui-monospace,monospace}table{border-collapse:collapse;display:block;overflow:auto}th,td{border:1px solid #dbe2ea;padding:8px 12px;text-align:left;vertical-align:top}blockquote{margin-left:0;border-left:4px solid #1769aa;padding-left:18px}@media(max-width:700px){main{margin:8px;padding:18px}body{font-size:15px}}@media(prefers-color-scheme:dark){body{background:#111820;color:#e7edf5}main{background:#192330;border-color:#344354}pre{background:#111820}a{color:#78b9ef}th,td,h2,pre{border-color:#344354}}@media print{main{margin:0;border:0;padding:0}a{color:inherit}pre,table{overflow:visible}}</style></head><body><main><h1 id="liualgotrader-portable-verification-records">LiuAlgoTrader: portable verification records</h1>
+<p>These records retain exact commands, outcomes, original-log hashes and available source snapshots. Failed, interrupted and earlier exploratory commands remain visible. A later focused pass proves only its own scope.</p>
+<p><a href="verification.json">Machine-readable records</a> · <a href="../validation.md">Validation</a> · <a href="../ayu-develop.md">Engineering guide</a></p>
+<p>Original logs remain in the workspace maintenance evidence. Tracked source hashes exclude untracked additions and later edits, as stated in each captured snapshot.</p>
 <table>
 <thead>
 <tr>
@@ -25,121 +10,128 @@ th,td{min-width:120px;overflow-wrap:normal}
 <th style="text-align: right;">Exit</th>
 <th style="text-align: right;">Duration</th>
 <th>Command</th>
-<th>Outcomes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>build</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2.67s</td>
-<td><code>uv build --python 3.14</code></td>
-<td>Successfully built dist/liualgotrader-0.4.35.tar.gz<br>Successfully built dist/liualgotrader-0.4.35-py3-none-any.whl</td>
-</tr>
-<tr>
-<td>build-final</td>
+<td>LiuAlgoTrader-build-final.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1.46s</td>
 <td><code>uv build --python 3.13</code></td>
-<td>Successfully built dist/liualgotrader-0.4.35.tar.gz<br>Successfully built dist/liualgotrader-0.4.35-py3-none-any.whl</td>
 </tr>
 <tr>
-<td>compile</td>
+<td>LiuAlgoTrader-build.log</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.24s</td>
-<td><code>/Users/alex/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14 -m compileall -q src</code></td>
-<td>See exit status; no test-count assertion.</td>
+<td style="text-align: right;">2.67s</td>
+<td><code>uv build --python 3.14</code></td>
 </tr>
 <tr>
-<td>compile-final</td>
+<td>LiuAlgoTrader-compile-final.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.13s</td>
 <td><code>uv run --no-sync python -m compileall -q src</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>lock-3.14</td>
+<td>LiuAlgoTrader-compile.log</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.24s</td>
+<td><code>/Users/alex/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14 -m compileall -q src</code></td>
+</tr>
+<tr>
+<td>LiuAlgoTrader-lock-3.14.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.58s</td>
 <td><code>uv lock --upgrade --python 3.14</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>lock-3.15</td>
+<td>LiuAlgoTrader-lock-3.15.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">5.49s</td>
 <td><code>uv lock --upgrade --python 3.15</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>lock-runtime-fallback</td>
+<td>LiuAlgoTrader-lock-runtime-fallback.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.34s</td>
 <td><code>uv lock --upgrade --python 3.13</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>python315-source-probe</td>
+<td>LiuAlgoTrader-python315-source-probe.log</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">3.24s</td>
 <td><code>uv sync --directory /tmp/trading-python315-probes/LiuAlgoTrader --all-extras --all-groups --python 3.15</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>sync-3.14</td>
+<td>reviewed-local-cases-function-loop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.48s</td>
+<td><code>uv run --no-sync python -W error -m pytest tests/test_assets.py tests/test_hyperparameters.py tests/test_fincalc_vwap.py tests/test_trends.py tests/test_support_resistance.py -q</code></td>
+</tr>
+<tr>
+<td>reviewed-local-cases</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.21s</td>
+<td><code>uv run --no-sync python -W error -m pytest tests/test_fincalc_vwap.py tests/test_support_resistance.py tests/test_data_date_ranges.py -q</code></td>
+</tr>
+<tr>
+<td>reviewed-source-compile</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.14s</td>
+<td><code>uv run --no-sync python -W error -m compileall -q -f src</code></td>
+</tr>
+<tr>
+<td>reviewed-wheel-sdist</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.75s</td>
+<td><code>uv build</code></td>
+</tr>
+<tr>
+<td>LiuAlgoTrader-sync-3.14.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">5.5s</td>
 <td><code>uv sync --all-extras --all-groups --python 3.14</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>sync-runtime-fallback</td>
+<td>LiuAlgoTrader-sync-runtime-fallback.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">5.84s</td>
 <td><code>uv sync --all-extras --all-groups --python 3.13</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>tests</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">17.15s</td>
-<td><code>uv run --no-sync python -m pytest</code></td>
-<td>See exit status; no test-count assertion.</td>
-</tr>
-<tr>
-<td>tests-default-discovery</td>
+<td>LiuAlgoTrader-tests-default-discovery.log</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">unrecordeds</td>
+<td style="text-align: right;">unknowns</td>
 <td><code>uv run --no-sync python -m pytest</code></td>
-<td>=================== 187 failed, 8 passed in 88.32s (0:01:28) ===================</td>
 </tr>
 <tr>
-<td>tests-runtime-fallback</td>
+<td>LiuAlgoTrader-tests-runtime-fallback.log</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2.71s</td>
 <td><code>uv run --no-sync python -m pytest</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>versions-final</td>
+<td>LiuAlgoTrader-tests.log</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">17.15s</td>
+<td><code>uv run --no-sync python -m pytest</code></td>
+</tr>
+<tr>
+<td>LiuAlgoTrader-versions-final.log</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.24s</td>
 <td><code>uv run --no-sync python -c import sys,importlib.metadata,json; print(sys.version); print(json.dumps({d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},indent=2,sort_keys=True))</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>wheel-probe-3.14</td>
+<td>LiuAlgoTrader-wheel-probe-3.14.log</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.05s</td>
 <td><code>uv sync --all-extras --all-groups --python 3.14 --no-build --no-install-project</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 <tr>
-<td>wheel-probe-3.15</td>
+<td>LiuAlgoTrader-wheel-probe-3.15.log</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.04s</td>
 <td><code>uv sync --all-extras --all-groups --python 3.15 --no-build --no-install-project</code></td>
-<td>See exit status; no test-count assertion.</td>
 </tr>
 </tbody>
 </table></main>

@@ -23,7 +23,7 @@ The `src/` layout and build-backend package discovery preserve public import nam
 
 - Python 3.14 exposes the Polygon 1.15.4 dataclass decorator assumption that __annotations__ is already materialized; existing full suite was therefore executed with managed 3.13.16.
 - Polygon is constrained below 1.16 and Streamlit below 1.57 because the retained Alpaca trade SDK requires websockets<11. These are resolver-backed compatibility constraints.
-- The full existing integration suite needs a configured PostgreSQL connection pool and Alpaca, Polygon, Tradier and other venue credentials. Missing setup produces 187 failures; no cases were disabled.
+- Reviewed repairs and the authentic original PostgreSQL dump reconcile all 195 original nodes to **97 passed, 93 failed, 5 errors**. This is a composite of the retained full run (92 passed / 98 failed / 5 errors) and current-source targeted cases, not a fresh full-suite pass. The remaining 98 outcomes need Alpaca (73), Tradier (20) or Gemini (5) credentials. See the [detailed compatibility review](maintenance-2026-10-12/liu-compatibility-review.md); no cases or assertions were weakened.
 
 
 

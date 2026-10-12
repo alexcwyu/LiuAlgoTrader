@@ -1,56 +1,26 @@
 # Validation evidence: LiuAlgoTrader
 
-Run date: 2026-10-12. Branch: `feature/ayu_develop`. Interpreter: `3.13.16 (main, Oct  9 2026, 15:11:24) [Clang 22.1.3 ]`.
+Branch: `feature/ayu_develop`. Selected interpreter: Python 3.13.16. Tests remain incomplete because real exchange credentials are unavailable.
 
-| Check | Result |
-|---|---|
-| lock | passed |
-| sync | passed |
-| compile | passed |
-| build | passed |
-| tests | failed |
+## Current results
 
-## Current result and compatibility decisions
+| Check | Verified result |
+| --- | --- |
+| Frozen full uv environment | Pass after root integration |
+| Strict source compilation | Pass after root integration |
+| Wheel and source distribution | Pass after root integration |
+| Retained full original suite | 92 passed, 98 failed, 5 errors; 195 original nodes, 1130.12 seconds |
+| Current-source reconciliation | 97 passed, 93 failed, 5 errors across the same 195 nodes; composite, not a fresh full run |
+| Original case/assertion preservation | All original nodes/order preserved; exact VWAP expectation remains 25.0 |
 
-- Python 3.14 exposes the Polygon 1.15.4 dataclass decorator assumption that __annotations__ is already materialized; existing full suite was therefore executed with managed 3.13.16.
-- Polygon is constrained below 1.16 and Streamlit below 1.57 because the retained Alpaca trade SDK requires websockets<11. These are resolver-backed compatibility constraints.
-- The full existing integration suite needs a configured PostgreSQL connection pool and Alpaca, Polygon, Tradier and other venue credentials. Missing setup produces 187 failures; no cases were disabled.
+The remaining 98 outcomes require Alpaca credentials (73 outcomes), Tradier authorization (20), or Gemini key/secret (5). Authentic original PostgreSQL schema, dump and sequence state were loaded into a separately owned database. Genuine Wikipedia history now loads from its publisher's moved article. Neither issue is classified as an unavoidable external failure.
 
-Current unresolved checks:
+See the [detailed source and compatibility review](maintenance-2026-10-12/liu-compatibility-review.md), [node-level reconciliation](maintenance-2026-10-12/liu-case-reconciliation.json), [raw/published evidence hash provenance](maintenance-2026-10-12/liu-evidence-redaction.json), and [portable command records](maintenance/index.md).
 
-- tests: exit 1; see [check record](maintenance/index.html)
+## Interpreter and dependency decisions
 
-## Latest full-suite output
+Python 3.15 was attempted in an isolated environment; the failed command remains in the portable records. Python 3.14 installs the dependency graph but the retained Polygon 1.15.4 dataclass decorator assumes already-materialized annotations, which is incompatible with its lazy annotation behavior. Python 3.13.16 is the currently validated interpreter. Polygon remains below 1.16 and Streamlit below 1.57 because the retained Alpaca SDK requires websockets below 11. These are actual resolver/API constraints; they do not establish that every possible future source migration is impossible.
 
-```text
-range4 - Value...
-FAILED tests/test_alpaca_stream.py::test_crypto_stream - TypeError: Unexpecte...
-FAILED tests/test_alpaca_trader.py::test_get_symbols - NameError: name 'alpac...
-FAILED tests/test_alpaca_trader.py::test_get_shortable_symbols - NameError: n...
-FAILED tests/test_alpaca_trader.py::test_is_fractionable - NameError: name 'a...
-FAILED tests/test_alpacadata.py::test_get_trading_day - ValueError: ('Key ID ...
-FAILED tests/test_analysis.py::test_returns - OSError: Multiple exceptions: [check record](maintenance/index.html) |
-| `uv sync --all-extras --all-groups --python 3.15 --no-build --no-install-project` | 2 | 0.04 | [check record](maintenance/index.html) |
-| `uv lock --upgrade --python 3.14` | 0 | 0.58 | [check record](maintenance/index.html) |
-| `uv sync --all-extras --all-groups --python 3.14 --no-build --no-install-project` | 2 | 0.05 | [check record](maintenance/index.html) |
-| `uv sync --all-extras --all-groups --python 3.14` | 0 | 5.5 | [check record](maintenance/index.html) |
-| `uv build --python 3.14` | 0 | 2.67 | [check record](maintenance/index.html) |
-| `/Users/alex/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14 -m compileall -q src` | 0 | 0.24 | [check record](maintenance/index.html) |
-| `uv run --no-sync python -m pytest` | 2 | 17.15 | [check record](maintenance/index.html) |
-| `uv lock --upgrade --python 3.13` | 0 | 0.34 | [check record](maintenance/index.html) |
-| `uv sync --all-extras --all-groups --python 3.13` | 0 | 5.84 | [check record](maintenance/index.html) |
-| `uv run --no-sync python -m pytest` | 4 | 2.71 | [check record](maintenance/index.html) |
-| `uv run --no-sync python -m pytest` | 1 | 90.71 | [check record](maintenance/index.html) |
-| `uv run --no-sync python -m compileall -q src` | 0 | 0.13 | [check record](maintenance/index.html) |
-| `uv build --python 3.13` | 0 | 1.46 | [check record](maintenance/index.html) |
-| `uv run --no-sync python -c import sys,importlib.metadata,json; print(sys.version); print(json.dumps({d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},indent=2,sort_keys=True))` | 0 | 0.24 | [check record](maintenance/index.html) |
-| `uv sync --directory /tmp/trading-python315-probes/LiuAlgoTrader --all-extras --all-groups --python 3.15` | 1 | 3.24 | [check record](maintenance/index.html) |
+The latest locked lxml parser is declared explicitly for genuine publisher HTML. The current authoritative metadata is [pyproject.toml](../pyproject.toml) and [uv.lock](../uv.lock). The older 8-pass/187-failure discovery snapshot is historical; it is superseded by the full and targeted evidence above.
 
-The versions-final log records the exact interpreter patch release and every installed dependency version. The machine-readable [verification record](maintenance/verification.json) includes branch/default ancestry, status, artifacts and unresolved checks.
-
-## Dependency floor refresh
-
-| Before | After |
-|---|---|
-
-The table records the initial metadata refresh. Later compatibility constraints and vendor sources are explained above and the final authoritative requirements are in [pyproject.toml](../pyproject.toml) and [uv.lock](../uv.lock). No test cases were added, removed or disabled. Existing deprecated-API cases retain their assertions while explicitly checking the documented warning.
+Function-scoped async fixtures own their pools and streams. The pytest loop scope is explicitly `function`, preserving that lifecycle while resolving the current plugin's unset-scope deprecation without suppressing warnings. No additional test cases were added.
