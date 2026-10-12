@@ -105,7 +105,7 @@ def setup_db(
         print("> ", to_run)
         os.system(to_run)
     print()
-    print("check deployment using `\psql -h localhost -p 5400 -U liu`")
+    print(r"check deployment using `\psql -h localhost -p 5400 -U liu`")
 
 
 def setup_samples(

@@ -228,6 +228,6 @@ class Strategy(object):
                 f"[Error]exception of type {type(e).__name__} with args {e.args}"
             )
             traceback.print_exc()
-            exit(0)
+            raise
         else:
             return s if success else None

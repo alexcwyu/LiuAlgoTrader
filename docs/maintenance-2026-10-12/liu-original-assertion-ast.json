@@ -1,0 +1,1282 @@
+{
+  "tests/test_alpaca_data_loader_concurrency.py::test_stock_price_range_date_min": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='found issue loading data, please investigate')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Compare(left=Constant(value=0), ops=[LtE(), LtE()], comparators=[BinOp(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='price_range_con', ctx=Load())]), op=Sub(), right=Call(func=Name(id='len', ctx=Load()), args=[Name(id='price_range', ctx=Load())])), Constant(value=1)]))"
+    ]
+  },
+  "tests/test_alpaca_data_loader_multi.py::test_multi_date_performance": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_trader_calendar.py::test_trader_calendar": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_trader.py::test_get_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_trader.py::test_get_shortable_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_trader.py::test_market_buy_order": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Expected exception')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_gemini_trader.py::test_limit_buy_order": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_gemini_trader.py::test_order_negative": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_order_negative() exe')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_gemini_trader.py::test_order_completed": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_gemini_trader.py::test_buy_websocket1": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_gemini_trader.py::test_get_position": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Can only run test in sandbox')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Name(id='gemini_trader', ctx=Load()), attr='base_url', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='https://api.sandbox.gemini.com')])"
+    ]
+  },
+  "tests/test_decorators.py::test_trader_calendar": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_assets.py::test_round_asset": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_data_date_ranges.py::test_alpaca_num_trading_day": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 2')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 2')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 5')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 9')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 4')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='BTCUSD - expected 7')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 0')]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2022-01-06')), keyword(arg='end', value=Constant(value='2022-01-07'))]), ops=[NotEq()], comparators=[Constant(value=2)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='aapl')), keyword(arg='start', value=Constant(value='2022-01-06')), keyword(arg='end', value=Constant(value='2022-01-07'))]), ops=[NotEq()], comparators=[Constant(value=2)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2022-01-01')), keyword(arg='end', value=Constant(value='2022-01-07'))]), ops=[NotEq()], comparators=[Constant(value=5)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2021-12-28')), keyword(arg='end', value=Constant(value='2022-01-07'))]), ops=[NotEq()], comparators=[Constant(value=9)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2021-07-01')), keyword(arg='end', value=Constant(value='2021-07-07'))]), ops=[NotEq()], comparators=[Constant(value=4)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='BTCUSD')), keyword(arg='start', value=Constant(value='2021-07-01')), keyword(arg='end', value=Constant(value='2021-07-07'))]), ops=[NotEq()], comparators=[Constant(value=7)])",
+      "Compare(left=Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='num_trading_days', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2022-08-06')), keyword(arg='end', value=Constant(value='2022-01-07'))]), ops=[NotEq()], comparators=[Constant(value=0)])"
+    ]
+  },
+  "tests/test_data_date_ranges.py::test_alpaca_concurrency_ranges_min": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 5')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected 2')]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='data_concurrency_ranges', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2021-11-10')), keyword(arg='end', value=Constant(value='2022-01-07')), keyword(arg='scale', value=Attribute(value=Name(id='TimeScale', ctx=Load()), attr='minute', ctx=Load()))])]), ops=[NotEq()], comparators=[Constant(value=5)])",
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Call(func=Attribute(value=Name(id='alpaca_dl', ctx=Load()), attr='data_concurrency_ranges', ctx=Load()), keywords=[keyword(arg='symbol', value=Constant(value='AAPL')), keyword(arg='start', value=Constant(value='2022-01-01')), keyword(arg='end', value=Constant(value='2022-01-07')), keyword(arg='scale', value=Attribute(value=Name(id='TimeScale', ctx=Load()), attr='minute', ctx=Load()))])]), ops=[NotEq()], comparators=[Constant(value=2)])"
+    ]
+  },
+  "tests/test_data_date_ranges.py::test_hpy_alpaca_concurrency_ranges_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader_perf.py::test_create_data_loader_default": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range2": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range3": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range4": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_stream.py::test_crypto_stream": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Failed in alpaca_stream.subscribe w/ '), FormattedValue(value=Name(id='status', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='status', ctx=Load()))",
+      "UnaryOp(op=Not(), operand=Call(func=Attribute(value=Name(id='t', ctx=Load()), attr='done', ctx=Load())))"
+    ]
+  },
+  "tests/test_db.py::test_db_connectivity": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_crypto_get_symbol": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_minute_offset": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Data length '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1), Constant(value=' is not 1500')])]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=1499)])"
+    ]
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length2": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Data length '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1), Constant(value=' is not 1500')])]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=1499)])"
+    ]
+  },
+  "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day_offset": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_trends.py::test_get_series_trend": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_support_resistance.py::test_get_local_maxima": {
+    "assertions": [
+      "Assert(test=Attribute(value=Name(id='r', ctx=Load()), attr='empty', ctx=Load()))",
+      "Assert(test=UnaryOp(op=Not(), operand=Attribute(value=Name(id='r', ctx=Load()), attr='empty', ctx=Load())))"
+    ],
+    "raises": [],
+    "conditions": [
+      "Attribute(value=Name(id='r', ctx=Load()), attr='empty', ctx=Load())"
+    ]
+  },
+  "tests/test_portfolio.py::test_exists_negative": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='result should be False')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[Eq()], comparators=[Constant(value=True)])"
+    ]
+  },
+  "tests/test_portfolio.py::test_exists_positive": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='result should be True for '), FormattedValue(value=Name(id='id', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[Eq()], comparators=[Constant(value=False)])"
+    ]
+  },
+  "tests/test_portfolio.py::test_balance_positive": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='result should be 5000')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[NotEq()], comparators=[Constant(value=5000)])"
+    ]
+  },
+  "tests/test_portfolio.py::test_get_get_external_account_id_positive": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='failed to load external_account_id details')]))"
+    ],
+    "conditions": [
+      "BoolOp(op=Or(), values=[Compare(left=Name(id='external_account_id', ctx=Load()), ops=[NotEq()], comparators=[Name(id='x_id', ctx=Load())]), Compare(left=Name(id='broker', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='ALPACA')])])"
+    ]
+  },
+  "tests/test_portfolio.py::test_get_get_external_account_id_positive2": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='failed to load external_account_id details')]))"
+    ],
+    "conditions": [
+      "BoolOp(op=Or(), values=[Name(id='external_account_id', ctx=Load()), Name(id='broker', ctx=Load())])"
+    ]
+  },
+  "tests/test_portfolio.py::test_crypto_1": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='result should be True for '), FormattedValue(value=Name(id='id', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[Eq()], comparators=[Constant(value=False)])"
+    ]
+  },
+  "tests/test_portfolio.py::test_crypto_2": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='result should be True for '), FormattedValue(value=Name(id='id', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='wrong asset-type')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='wrong size')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[Eq()], comparators=[Constant(value=False)])",
+      "Compare(left=Attribute(value=Name(id='p', ctx=Load()), attr='asset_type', ctx=Load()), ops=[NotEq()], comparators=[Attribute(value=Name(id='AssetType', ctx=Load()), attr='CRYPTO', ctx=Load())])",
+      "Compare(left=Attribute(value=Name(id='p', ctx=Load()), attr='portfolio_size', ctx=Load()), ops=[NotEq()], comparators=[Constant(value=5000)])"
+    ]
+  },
+  "tests/test_tradier_data_loader.py::test_create_data_loader_default": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_latest_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_day_num_data_points": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='expected 90 datapoints, received only '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=90)])"
+    ]
+  },
+  "tests/test_tradier_data_loader.py::test_day_num_data_points_w_date": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='expected 90 datapoints, received only '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=90)])"
+    ]
+  },
+  "tests/test_tradier_data_loader.py::test_negative_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_close_price_range_str_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_data_loader.py::test_apple_stock_price_open_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_consolidate.py::test_trades": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_analysis.py::test_returns": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_analysis.py::test_load_trades_by_portfolio": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_create_data_loader_default": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_test1": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='not enough data')]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=10)])"
+    ]
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_latest_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_day_num_data_points": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='expected 90 datapoints, received only '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Constant(value=90), ops=[GtE(), GtE()], comparators=[Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), Constant(value=89)])"
+    ]
+  },
+  "tests/test_alpaca_data_loader.py::test_day_num_data_points_w_date": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='expected 90 datapoints, received only '), FormattedValue(value=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='data', ctx=Load())]), ops=[NotEq()], comparators=[Constant(value=90)])"
+    ]
+  },
+  "tests/test_alpaca_data_loader.py::test_negative_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute_int": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_int_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_str": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_date": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_get_symbols_alpaca": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_data_loader.py::test_apple_update": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_accounts.py::test_create": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_accounts.py::test_negative_create": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_accounts.py::test_balance": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='get_balance() did not return the expect value')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='balance', ctx=Load()), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])"
+    ]
+  },
+  "tests/test_accounts.py::test_add_transaction": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_add_transaction(): get_balance() did not return the expect value')]))"
+    ],
+    "conditions": [
+      "Compare(left=BinOp(left=Name(id='balance', ctx=Load()), op=Add(), right=Name(id='amount', ctx=Load())), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])"
+    ]
+  },
+  "tests/test_accounts.py::test_add_transaction2": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_add_transaction(): get_balance() did not return the expect value')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='balance', ctx=Load()), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])"
+    ]
+  },
+  "tests/test_accounts.py::test_add_transaction3": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_add_transaction3(): get_balance() did not return the expect value')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='balance', ctx=Load()), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])"
+    ]
+  },
+  "tests/test_accounts.py::test_add_transaction5": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_add_transaction5(): get_balance() did not return the expect value')]))"
+    ],
+    "conditions": [
+      "Compare(left=BinOp(left=Name(id='balance', ctx=Load()), op=Sub(), right=Name(id='amount', ctx=Load())), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])"
+    ]
+  },
+  "tests/test_accounts.py::test_clear_balance": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='get_balance() did not return the expect value')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='clear balance failed')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='balance', ctx=Load()), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])",
+      "Compare(left=Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())])), ops=[NotEq()], comparators=[Constant(value=0.0)])"
+    ]
+  },
+  "tests/test_accounts.py::test_clear_transactions": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_clear_transactions(): get_balance() did not return the expect value')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_clear_transactions(): failed to clear account_transactions')]))"
+    ],
+    "conditions": [
+      "Compare(left=BinOp(left=Name(id='balance', ctx=Load()), op=Sub(), right=Name(id='amount', ctx=Load())), ops=[NotEq()], comparators=[Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='get_balance', ctx=Load()), args=[Name(id='account_id', ctx=Load())]))])",
+      "UnaryOp(op=Not(), operand=Attribute(value=Name(id='_df', ctx=Load()), attr='empty', ctx=Load()))"
+    ]
+  },
+  "tests/test_accounts.py::test_check_if_enough_balance_positive_1": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_check_if_enough_balance_positive_1(): should have had enough balance')]))"
+    ],
+    "conditions": [
+      "Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='check_if_enough_balance_to_withdraw', ctx=Load()), args=[Name(id='account_id', ctx=Load()), Constant(value=500.0)]))"
+    ]
+  },
+  "tests/test_accounts.py::test_check_if_enough_balance_positive_2": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_check_if_enough_balance_positive_2(): should not have had enough balance')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='check_if_enough_balance_to_withdraw', ctx=Load()), args=[Name(id='account_id', ctx=Load()), Constant(value=2000.0)])))"
+    ]
+  },
+  "tests/test_accounts.py::test_check_if_enough_balance_positive_3": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_check_if_enough_balance_positive_3(): should  have had enough balance')]))"
+    ],
+    "conditions": [
+      "Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='check_if_enough_balance_to_withdraw', ctx=Load()), args=[Name(id='account_id', ctx=Load()), Constant(value=200.0)]))"
+    ]
+  },
+  "tests/test_accounts.py::test_check_if_enough_balance_positive_4": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_check_if_enough_balance_positive_4(): should not have had enough balance')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Await(value=Call(func=Attribute(value=Name(id='Accounts', ctx=Load()), attr='check_if_enough_balance_to_withdraw', ctx=Load()), args=[Name(id='account_id', ctx=Load()), Constant(value=600.0)])))"
+    ]
+  },
+  "tests/test_accounts.py::test_check_if_enough_balance_negative_1": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='test_check_if_enough_balance_negative_1(): should have raise exception')]))"
+    ],
+    "conditions": []
+  },
+  "tests/test_resample.py::test_resample": {
+    "assertions": [
+      "Assert(test=Attribute(value=Name(id='r', ctx=Load()), attr='empty', ctx=Load()))",
+      "Assert(test=UnaryOp(op=Not(), operand=Attribute(value=Name(id='r', ctx=Load()), attr='empty', ctx=Load())))"
+    ],
+    "raises": [],
+    "conditions": [
+      "Attribute(value=Name(id='ohlc', ctx=Load()), attr='empty', ctx=Load())"
+    ]
+  },
+  "tests/test_gemini_data_loader.py::test_create_data_loader_default": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_ethusd_stock_daily_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_btc_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_current_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_negative_current_price": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_apple_close_price_range_str_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_minute_int": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_int_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_int_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_open": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_range_date_day_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_mixed": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_str": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_date": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_get_symbols_alpaca": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_data_loader.py::test_stock_price_open_str2": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpacadata.py::test_get_trading_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_get_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_get_shortable_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_is_aapl_shortable": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected AAPL to be shortable')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='shortable', ctx=Load()))"
+    ]
+  },
+  "tests/test_tradier_trader.py::test_is_fractionable": {
+    "assertions": [],
+    "raises": [],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='apa_fractionable', ctx=Load()))",
+      "UnaryOp(op=Not(), operand=Name(id='aapl_fractionable', ctx=Load()))"
+    ]
+  },
+  "tests/test_tradier_trader.py::test_get_market_schedule": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_is_market_open_today": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_get_time_market_close": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_get_trading_days": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_aapl_order_market_long": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='position after buy & sell was supposed to be same as open position')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='position', ctx=Load()), ops=[NotEq()], comparators=[Name(id='open_position', ctx=Load())])",
+      "Compare(left=Attribute(value=Name(id='order', ctx=Load()), attr='remaining_amount', ctx=Load()), ops=[Eq()], comparators=[Constant(value=0.0)])",
+      "Compare(left=Attribute(value=Name(id='order', ctx=Load()), attr='remaining_amount', ctx=Load()), ops=[Eq()], comparators=[Constant(value=0.0)])"
+    ]
+  },
+  "tests/test_tradier_trader.py::test_aapl_order_limit_long": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='position after buy & sell was supposed to be same as open position')]))"
+    ],
+    "conditions": [
+      "Name(id='success', ctx=Load())",
+      "Compare(left=Attribute(value=Name(id='order', ctx=Load()), attr='remaining_amount', ctx=Load()), ops=[Eq()], comparators=[Constant(value=0.0)])",
+      "Compare(left=Name(id='position', ctx=Load()), ops=[NotEq()], comparators=[Name(id='open_position', ctx=Load())])",
+      "Compare(left=Name(id='is_filled', ctx=Load()), ops=[Eq()], comparators=[Attribute(value=Attribute(value=Name(id='Order', ctx=Load()), attr='EventType', ctx=Load()), attr='fill', ctx=Load())])"
+    ]
+  },
+  "tests/test_tradier_trader.py::test_tsla_order_market_short": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='position after buy & sell to be same as open position')]))"
+    ],
+    "conditions": [
+      "Name(id='sold', ctx=Load())",
+      "Compare(left=Name(id='is_filled', ctx=Load()), ops=[Eq()], comparators=[Attribute(value=Attribute(value=Name(id='Order', ctx=Load()), attr='EventType', ctx=Load()), attr='fill', ctx=Load())])",
+      "Compare(left=Name(id='position', ctx=Load()), ops=[NotEq()], comparators=[Name(id='open_position', ctx=Load())])",
+      "Compare(left=Name(id='is_filled', ctx=Load()), ops=[Eq()], comparators=[Attribute(value=Attribute(value=Name(id='Order', ctx=Load()), attr='EventType', ctx=Load()), attr='fill', ctx=Load())])"
+    ]
+  },
+  "tests/test_tradier_trader.py::test_tsla_cancel_order": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_trader.py::test_aapl_order_limit_long_websocket": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_backtest.py::test_backtest_day": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate scanner')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate strategy')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='c', ctx=Load()))",
+      "UnaryOp(op=Not(), operand=Name(id='s', ctx=Load()))"
+    ]
+  },
+  "tests/test_backtest.py::test_backtest_min": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate scanner')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate strategy')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='c', ctx=Load()))",
+      "UnaryOp(op=Not(), operand=Name(id='s', ctx=Load()))"
+    ]
+  },
+  "tests/test_fincalc_vwap.py::test_add_daily_vwap_single_line": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected VWAP '), FormattedValue(value=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=0), ctx=Load()), attr='vwap', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected average '), FormattedValue(value=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=0), ctx=Load()), attr='average', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Why exception?')]))"
+    ],
+    "conditions": [
+      "Compare(left=BinOp(left=Constant(value=50.0), op=Div(), right=Constant(value=3)), ops=[NotEq()], comparators=[Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=0), ctx=Load()), attr='vwap', ctx=Load())])",
+      "Compare(left=BinOp(left=Constant(value=50.0), op=Div(), right=Constant(value=3)), ops=[NotEq()], comparators=[Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=0), ctx=Load()), attr='average', ctx=Load())])",
+      "UnaryOp(op=Not(), operand=Name(id='success', ctx=Load()))"
+    ]
+  },
+  "tests/test_fincalc_vwap.py::test_add_daily_vwap_two_line": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected VWAP '), FormattedValue(value=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=1), ctx=Load()), attr='vwap', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected average '), FormattedValue(value=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=1), ctx=Load()), attr='average', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Why exception?')]))"
+    ],
+    "conditions": [
+      "Compare(left=BinOp(left=Constant(value=50.0), op=Div(), right=Constant(value=3)), ops=[NotEq()], comparators=[Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=1), ctx=Load()), attr='vwap', ctx=Load())])",
+      "Compare(left=BinOp(left=Constant(value=50.0), op=Div(), right=Constant(value=3)), ops=[NotEq()], comparators=[Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=1), ctx=Load()), attr='average', ctx=Load())])",
+      "UnaryOp(op=Not(), operand=Name(id='success', ctx=Load()))"
+    ]
+  },
+  "tests/test_fincalc_vwap.py::test_add_daily_vwap_three_line": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected VWAP '), FormattedValue(value=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=2), ctx=Load()), attr='vwap', ctx=Load()), conversion=-1)])]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Why exception?')]))"
+    ],
+    "conditions": [
+      "Compare(left=Attribute(value=Subscript(value=Attribute(value=Name(id='df', ctx=Load()), attr='iloc', ctx=Load()), slice=Constant(value=2), ctx=Load()), attr='vwap', ctx=Load()), ops=[NotEq()], comparators=[Constant(value=25.0)])",
+      "UnaryOp(op=Not(), operand=Name(id='success', ctx=Load()))"
+    ]
+  },
+  "tests/test_fincalc_vwap.py::test_anchored_vwap_three_line": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected VWAP '), FormattedValue(value=Subscript(value=Name(id='s', ctx=Load()), slice=UnaryOp(op=USub(), operand=Constant(value=1)), ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Subscript(value=Name(id='s', ctx=Load()), slice=UnaryOp(op=USub(), operand=Constant(value=1)), ctx=Load()), ops=[NotEq()], comparators=[Constant(value=25.0)])"
+    ]
+  },
+  "tests/test_load_scanner.py::test_get_scanner": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate scanner')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='s', ctx=Load()))"
+    ]
+  },
+  "tests/test_tradier_basics.py::test_tradier_aapl_data_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradier_basics.py::test_tradier_aapl_data_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_keystore.py::test_load_empty": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='empty field must be None and not '), FormattedValue(value=Name(id='data', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Name(id='data', ctx=Load())"
+    ]
+  },
+  "tests/test_keystore.py::test_insert": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='failed to insert and load key')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='data', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='v1')])"
+    ]
+  },
+  "tests/test_keystore.py::test_update": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='failed to insert and load key')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='failed to update and load key')]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='data', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='v21')])",
+      "Compare(left=Name(id='data', ctx=Load()), ops=[NotEq()], comparators=[Constant(value='v22')])"
+    ]
+  },
+  "tests/test_momentum_scanner.py::test_scanner_alpaca": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_brokerage.py::test_sell_apple": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_brokerage.py::test_buy_apple": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_param_1": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_param_single": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_param_1_ex": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Expected Exception StopIteration, but got '), FormattedValue(value=Name(id='a3', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_params_int": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_params_two_int": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_params_int_float": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_hyperparameters.py::test_hyper_params_float_missing": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Expected AttributeError in test_hyper_params_float_missing')]))"
+    ],
+    "conditions": []
+  },
+  "tests/test_gemini_basic.py::test_gemini_data_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_basic.py::test_gemini_data_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_trader.py::test_get_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_trader.py::test_get_shortable_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_trader.py::test_is_fractionable": {
+    "assertions": [],
+    "raises": [],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='apa_fractionable', ctx=Load()))",
+      "UnaryOp(op=Not(), operand=Name(id='aapl_fractionable', ctx=Load()))"
+    ]
+  },
+  "tests/test_cpu_load_avg.py::test_load_cpu_avg": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Unexpected result')]))"
+    ],
+    "conditions": [
+      "BoolOp(op=Or(), values=[Compare(left=Name(id='cpu_load', ctx=Load()), ops=[LtE()], comparators=[Constant(value=0)]), Compare(left=Name(id='num_cpus', ctx=Load()), ops=[LtE()], comparators=[Constant(value=0)])])"
+    ]
+  },
+  "tests/test_cpu_load_avg.py::test_fix_num_consumer_processes": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='calc_num_consumer_processes() - '), FormattedValue(value=Name(id='result', ctx=Load()), conversion=-1), Constant(value=' returned, while expected '), FormattedValue(value=Name(id='num_consumers', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[NotEq()], comparators=[Name(id='num_consumers', ctx=Load())])"
+    ]
+  },
+  "tests/test_cpu_load_avg.py::test_calc_num_consumer_processes": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='calc_num_consumer_processes() - '), FormattedValue(value=Name(id='result', ctx=Load()), conversion=-1), Constant(value=' unexpected')])]))"
+    ],
+    "conditions": [
+      "Compare(left=Name(id='result', ctx=Load()), ops=[LtE()], comparators=[Constant(value=0)])"
+    ]
+  },
+  "tests/test_create_scanner.py::test_get_scanner": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate scanner')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='s', ctx=Load()))"
+    ]
+  },
+  "tests/test_tradeplan.py::test_load_trade_plan_from_db": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradeplan.py::test_load_testplan_from_db": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_tradeplan.py::test_get_new_entries": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_gemini_stream.py::test_apple_sec_agg": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Failed in gemini_stream.subscribe w/ '), FormattedValue(value=Name(id='status', ctx=Load()), conversion=-1)])]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='status', ctx=Load()))"
+    ]
+  },
+  "tests/test_load_strategy.py::test_get_strategy": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='Failed to instantiate strategy')]))"
+    ],
+    "conditions": [
+      "UnaryOp(op=Not(), operand=Name(id='s', ctx=Load()))"
+    ]
+  },
+  "tests/test_market_data.py::test_get_market_industries": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_get_market_sectors": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_get_market_sectors_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_get_market_industries_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_sp500_historical_constituents": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_get_trading_holidays": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_get_trading_day": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected offset 1')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected offset 40')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected offset 100')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected offset 300')]))",
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='expected offset 1000')]))"
+    ],
+    "conditions": [
+      "BoolOp(op=Or(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Lt()], comparators=[Constant(value=1)]), Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Gt()], comparators=[Constant(value=2)])])",
+      "BoolOp(op=Or(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Lt()], comparators=[Constant(value=40)]), Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Gt()], comparators=[Constant(value=41)])])",
+      "BoolOp(op=Or(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Lt()], comparators=[Constant(value=100)]), Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Gt()], comparators=[Constant(value=101)])])",
+      "BoolOp(op=Or(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Lt()], comparators=[Constant(value=300)]), Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Gt()], comparators=[Constant(value=301)])])",
+      "BoolOp(op=Or(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Lt()], comparators=[Constant(value=1000)]), Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Attribute(value=Name(id='_df', ctx=Load()), attr='index', ctx=Load())]), ops=[Gt()], comparators=[Constant(value=1001)])])"
+    ]
+  },
+  "tests/test_market_data.py::test_load_basic_sp500": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_load_sp500_data_w_adjustments": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_load_sp500_data": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_market_data.py::test_load_sp500_data_minute": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_aapl_data_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_aapl_data_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_get_symbols": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_get_market_snapshot": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_day": {
+    "assertions": [],
+    "raises": [],
+    "conditions": []
+  },
+  "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min_negative": {
+    "assertions": [],
+    "raises": [
+      "Raise(exc=Call(func=Name(id='AssertionError', ctx=Load()), args=[Constant(value='excepted an error')]))"
+    ],
+    "conditions": []
+  }
+}

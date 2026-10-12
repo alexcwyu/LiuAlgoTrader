@@ -429,7 +429,8 @@ class AlpacaData(DataAPI):
 class AlpacaStream(StreamingAPI):
     def __init__(self, queues: QueueMapper):
         self.alpaca_ws_client = Stream(
-            base_url=URL(config.alpaca_base_url),
+            **({"base_url": URL(config.alpaca_base_url)}
+               if config.alpaca_base_url else {}),
             key_id=config.alpaca_api_key,
             secret_key=config.alpaca_api_secret,
             data_feed=config.alpaca_data_feed,

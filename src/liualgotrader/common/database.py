@@ -14,7 +14,7 @@ async def create_db_connection(dsn: str = None) -> None:
         max_size=10,
     )
 
-    tlog(f"db connection pool initialized w {_dsn}")
+    tlog("db connection pool initialized")
 
 
 async def fetch_as_dataframe(query: str, *args) -> pd.DataFrame:

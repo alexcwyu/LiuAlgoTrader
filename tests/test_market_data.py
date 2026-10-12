@@ -3,8 +3,10 @@ import time
 from datetime import date, datetime
 
 import pytest
+import pytest_asyncio
 
 from liualgotrader.common.data_loader import DataLoader  # type: ignore
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.common.market_data import (get_industries_tickers,
                                               get_market_industries,
@@ -17,12 +19,16 @@ from liualgotrader.common.types import TimeScale
 from liualgotrader.trading.alpaca import AlpacaTrader
 
 
-@pytest.fixture
-def event_loop():
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    yield loop
-    loop.close()
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
@@ -32,7 +38,7 @@ async def test_get_market_industries():
 
     print(industry_list)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -41,7 +47,7 @@ async def test_get_market_sectors():
     sector_list = await get_market_sectors()
     print(sector_list)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -52,7 +58,7 @@ async def test_get_market_sectors_symbols():
     l = await get_sectors_tickers(sector_list)
     print(f"sectors_tickers {l}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -62,7 +68,7 @@ async def test_get_market_industries_symbols():
     l = await get_industries_tickers(industries_list)
     print(l)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -71,7 +77,7 @@ async def test_sp500_historical_constituents():
     sp500_symbols = await sp500_historical_constituents(datetime.now())
     print(sp500_symbols)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -81,7 +87,7 @@ async def test_get_trading_holidays():
 
     print(holidays)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -124,7 +130,7 @@ async def test_get_trading_day():
     if len(_df.index) < 1000 or len(_df.index) > 1001:
         raise AssertionError("expected offset 1000")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -135,7 +141,7 @@ async def test_load_basic_sp500():
 
     print(sp500_symbols)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -145,7 +151,7 @@ async def test_load_sp500_data_w_adjustments():
     sp500_symbols = await sp500_historical_constituents("2019-01-11")
     print(sp500_symbols)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio

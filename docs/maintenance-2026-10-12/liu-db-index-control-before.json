@@ -1,0 +1,23 @@
+{
+  "genuine_source": "original database/liu_dump.sql stock_ohlc COPY rows",
+  "symbol": "A",
+  "rows": 11,
+  "checks": {
+    "symbol_exact": {
+      "pass": false,
+      "error": "Index.get_loc() got an unexpected keyword argument 'method'"
+    },
+    "column_exact": {
+      "pass": false,
+      "error": "Index.get_loc() got an unexpected keyword argument 'method'"
+    },
+    "symbol_ffill": {
+      "pass": false,
+      "error": "Index.get_loc() got an unexpected keyword argument 'method'"
+    },
+    "column_nearest": {
+      "pass": false,
+      "error": "Index.get_loc() got an unexpected keyword argument 'method'"
+    }
+  }
+}

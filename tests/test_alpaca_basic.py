@@ -9,7 +9,7 @@ from liualgotrader.data.alpaca import AlpacaData
 
 
 @pytest.mark.devtest
-def test_alpaca_aapl_data_day() -> bool:
+def test_alpaca_aapl_data_day() -> None:
     alpaca = AlpacaData()
     print(
         alpaca.get_symbol_data(
@@ -19,11 +19,11 @@ def test_alpaca_aapl_data_day() -> bool:
             scale=TimeScale.day,
         )
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_alpaca_aapl_data_min() -> bool:
+def test_alpaca_aapl_data_min() -> None:
     alpaca = AlpacaData()
     print(
         alpaca.get_symbol_data(
@@ -32,11 +32,11 @@ def test_alpaca_aapl_data_min() -> bool:
             date(year=2021, month=2, day=2),
         ).between_time("9:30", "16:00")
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_alpaca_get_symbols() -> bool:
+def test_alpaca_get_symbols() -> None:
     alpaca = AlpacaData()
 
     t0 = time.time()
@@ -45,11 +45,11 @@ def test_alpaca_get_symbols() -> bool:
     print(
         f"{len(symbols)} symbols are retrieved from Alpaca in {t1-t0} seconds"
     )
-    return True
+    return
 
 
 @pytest.mark.asyncio
-async def test_alpaca_get_market_snapshot() -> bool:
+async def test_alpaca_get_market_snapshot() -> None:
     alpaca = AlpacaData()
 
     t0 = time.time()
@@ -58,11 +58,11 @@ async def test_alpaca_get_market_snapshot() -> bool:
     print(
         f"{len(market_snapshots)} tickers of market snapshots are retrieved from Alpaca in {t1-t0} seconds"
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_alpaca_multi_symbols_min() -> bool:
+def test_alpaca_multi_symbols_min() -> None:
     alpaca = AlpacaData()
     print(
         alpaca.get_symbols_data(
@@ -71,11 +71,11 @@ def test_alpaca_multi_symbols_min() -> bool:
             date(year=2021, month=2, day=2),
         )
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_alpaca_multi_symbols_day() -> bool:
+def test_alpaca_multi_symbols_day() -> None:
     alpaca = AlpacaData()
     print(
         alpaca.get_symbols_data(
@@ -85,11 +85,11 @@ def test_alpaca_multi_symbols_day() -> bool:
             TimeScale.day,
         )
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_alpaca_multi_symbols_min_negative() -> bool:
+def test_alpaca_multi_symbols_min_negative() -> None:
     try:
         AlpacaData().get_symbols_data(
             "AAPL",  # type:ignore
@@ -97,6 +97,6 @@ def test_alpaca_multi_symbols_min_negative() -> bool:
             date(year=2021, month=2, day=2),
         )
     except AssertionError:
-        return True
+        return
 
     raise AssertionError("excepted an error")

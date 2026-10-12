@@ -1,6 +1,7 @@
 import asyncio
 
 import pytest
+import pytest_asyncio
 
 from liualgotrader.common import config
 from liualgotrader.common.data_loader import DataLoader  # type: ignore
@@ -10,16 +11,20 @@ from liualgotrader.scanners.momentum import Momentum
 from liualgotrader.trading.trader_factory import trader_factory
 
 
-@pytest.fixture
-def event_loop():
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    yield loop
-    loop.close()
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
-async def test_scanner_alpaca() -> bool:
+async def test_scanner_alpaca() -> None:
     print("test_scanner_alpaca")
 
     config.debug_enabled = False
@@ -41,7 +46,7 @@ async def test_scanner_alpaca() -> bool:
     symbols = await scanner.run()
 
     print(symbols)
-    return True
+    return
 
 
 @pytest.mark.asyncio

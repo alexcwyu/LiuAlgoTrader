@@ -11,7 +11,7 @@ from liualgotrader.common.types import DataConnectorType, TimeScale
 nyc = timezone("America/New_York")
 
 
-def test_stock_price_range_date_min() -> bool:
+def test_stock_price_range_date_min() -> None:
     print("test_stock_price_range_date_min")
     dl = DataLoader(TimeScale.minute, connector=DataConnectorType.alpaca)
 
@@ -41,4 +41,4 @@ def test_stock_price_range_date_min() -> bool:
     if not (0 <= len(price_range_con) - len(price_range) <= 1):
         raise AssertionError("found issue loading data, please investigate")
 
-    return True
+    return

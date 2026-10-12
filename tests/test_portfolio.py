@@ -3,33 +3,39 @@ import uuid
 
 import pandas as pd
 import pytest
+import pytest_asyncio
 
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.common.types import AssetType
 from liualgotrader.models.portfolio import Portfolio
 
 
-@pytest.fixture
-def event_loop():
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    yield loop
-    loop.close()
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_exists_negative() -> bool:
+async def test_exists_negative() -> None:
     result = await Portfolio.exists("1234")
     if result == True:
         raise AssertionError("result should be False")
     print(result)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_exists_positive() -> bool:
+async def test_exists_positive() -> None:
     id: str = str(uuid.uuid4())
     await Portfolio.save(
         id,
@@ -42,12 +48,12 @@ async def test_exists_positive() -> bool:
         raise AssertionError(f"result should be True for {id}")
 
     print(result)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_balance_positive() -> bool:
+async def test_balance_positive() -> None:
     id: str = str(uuid.uuid4())
     await Portfolio.save(
         id,
@@ -60,12 +66,12 @@ async def test_balance_positive() -> bool:
         raise AssertionError("result should be 5000")
 
     print(result)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_get_get_external_account_id_positive() -> bool:
+async def test_get_get_external_account_id_positive() -> None:
     id: str = str(uuid.uuid4())
     x_id: str = str(uuid.uuid4())
     await Portfolio.save(id, 5000, 10, {}, AssetType.CRYPTO, x_id, "ALPACA")
@@ -74,12 +80,12 @@ async def test_get_get_external_account_id_positive() -> bool:
         raise AssertionError("failed to load external_account_id details")
 
     print(external_account_id, broker)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_get_get_external_account_id_positive2() -> bool:
+async def test_get_get_external_account_id_positive2() -> None:
     id: str = str(uuid.uuid4())
     x_id: str = str(uuid.uuid4())
     await Portfolio.save(
@@ -93,12 +99,12 @@ async def test_get_get_external_account_id_positive2() -> bool:
         raise AssertionError("failed to load external_account_id details")
 
     print(external_account_id, broker)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_crypto_1() -> bool:
+async def test_crypto_1() -> None:
     id: str = str(uuid.uuid4())
     await Portfolio.save(id, 5000, 10, {}, asset_type=AssetType.CRYPTO)
     result = await Portfolio.exists(id)
@@ -106,12 +112,12 @@ async def test_crypto_1() -> bool:
         raise AssertionError(f"result should be True for {id}")
 
     print(result)
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_crypto_2() -> bool:
+async def test_crypto_2() -> None:
     id: str = str(uuid.uuid4())
     await Portfolio.save(id, 5000, 10, {}, asset_type=AssetType.CRYPTO)
     result = await Portfolio.exists(id)
@@ -125,4 +131,4 @@ async def test_crypto_2() -> bool:
     if p.portfolio_size != 5000:
         raise AssertionError("wrong size")
 
-    return True
+    return

@@ -3,8 +3,10 @@ import time
 from datetime import date, timedelta
 
 import pytest
+import pytest_asyncio
 
 from liualgotrader.common.data_loader import DataLoader  # type: ignore
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.common.types import DataConnectorType, Order, TimeScale
 from liualgotrader.trading.tradier import TradierTrader
@@ -12,14 +14,18 @@ from liualgotrader.trading.tradier import TradierTrader
 tradier_trader: TradierTrader
 
 
-@pytest.fixture
-def event_loop():
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
     global tradier_trader
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    tradier_trader = TradierTrader()
-    yield loop
-    loop.close()
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        tradier_trader = TradierTrader()
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
@@ -29,7 +35,7 @@ async def test_get_symbols():
     assets = await tradier_trader.get_tradeable_symbols()
     print(assets)
     print(len(assets))
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -39,7 +45,7 @@ async def test_get_shortable_symbols():
     assets = await tradier_trader.get_shortable_symbols()
     print(assets)
     print(len(assets))
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -51,7 +57,7 @@ async def test_is_aapl_shortable():
     if not shortable:
         raise AssertionError("expected AAPL to be shortable")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -65,7 +71,7 @@ async def test_is_fractionable():
     if not aapl_fractionable:
         print("AAPL is not fractionable ")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -75,7 +81,7 @@ async def test_get_market_schedule():
     start, end = tradier_trader.get_market_schedule()
     print(f"market open {start} close {end}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -85,7 +91,7 @@ async def test_is_market_open_today():
     is_open = tradier_trader.is_market_open_today()
     print(f"Market open today {is_open}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -95,7 +101,7 @@ async def test_get_time_market_close():
     when_close = tradier_trader.get_time_market_close()
     print(f"Market close today {when_close}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -118,7 +124,7 @@ async def test_get_trading_days():
         start_date=date.today() - timedelta(days=65), end_date=date.today()
     )
     print(f"trading days {td}")
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -134,7 +140,7 @@ async def test_aapl_order_market_long():
         )
     except ValueError as e:
         print(f"ValueError Exception : {e}")
-        return True
+        return
 
     print("submitted order:", order)
 
@@ -156,7 +162,7 @@ async def test_aapl_order_market_long():
         )
     except ValueError as e:
         print(f"ValueError Exception : {e}")
-        return True
+        return
 
     print("submitted order:", order)
 
@@ -175,7 +181,7 @@ async def test_aapl_order_market_long():
         raise AssertionError(
             "position after buy & sell was supposed to be same as open position"
         )
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -202,7 +208,7 @@ async def test_aapl_order_limit_long():
         )
     except ValueError as e:
         print(f"ValueError Exception : {e}")
-        return True
+        return
     print("submitted order:", order)
     success = False
     for _ in range(5):
@@ -232,7 +238,7 @@ async def test_aapl_order_limit_long():
             )
         except ValueError as e:
             print(f"ValueError Exception : {e}")
-            return True
+            return
 
         print("submitted order:", order)
 
@@ -256,7 +262,7 @@ async def test_aapl_order_limit_long():
                 "position after buy & sell was supposed to be same as open position"
             )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -273,7 +279,7 @@ async def test_tsla_order_market_short():
         )
     except ValueError as e:
         print(f"ValueError Exception : {e}")
-        return True
+        return
     print("submitted order:", order)
 
     sold = False
@@ -302,7 +308,7 @@ async def test_tsla_order_market_short():
             )
         except ValueError as e:
             print(f"ValueError Exception : {e}")
-            return True
+            return
         print("submitted order:", order)
 
         for _ in range(5):
@@ -326,7 +332,7 @@ async def test_tsla_order_market_short():
                 "position after buy & sell to be same as open position"
             )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -340,7 +346,7 @@ async def test_tsla_cancel_order():
         )
     except ValueError as e:
         print(f"ValueError Exception : {e}")
-        return True
+        return
     print("submitted order:", order)
 
     try:
@@ -349,7 +355,7 @@ async def test_tsla_cancel_order():
     except Exception as e:
         print(f"[EXCEPTION] {e}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -387,4 +393,4 @@ async def test_aapl_order_limit_long_websocket():
     await asyncio.sleep(60.0)
     await tradier_trader.close()
 
-    return True
+    return

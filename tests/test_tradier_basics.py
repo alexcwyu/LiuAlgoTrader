@@ -7,7 +7,7 @@ from liualgotrader.data.tradier import TradierData
 
 
 @pytest.mark.devtest
-def test_tradier_aapl_data_day() -> bool:
+def test_tradier_aapl_data_day() -> None:
     tradier = TradierData()
     print(
         tradier.get_symbol_data(
@@ -17,11 +17,11 @@ def test_tradier_aapl_data_day() -> bool:
             scale=TimeScale.day,
         )
     )
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_tradier_aapl_data_min() -> bool:
+def test_tradier_aapl_data_min() -> None:
     tradier = TradierData()
     print(
         tradier.get_symbol_data(
@@ -31,4 +31,4 @@ def test_tradier_aapl_data_min() -> bool:
             scale=TimeScale.minute,
         )
     )
-    return True
+    return

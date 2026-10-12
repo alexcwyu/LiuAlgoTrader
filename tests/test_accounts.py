@@ -1,21 +1,27 @@
 import asyncio
 
 import pytest
+import pytest_asyncio
 
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.models.accounts import Accounts
 
 
-@pytest.fixture
-def event_loop():
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    yield loop
-    loop.close()
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
-async def test_create() -> bool:
+async def test_create() -> None:
     account_id = await Accounts.create(
         balance=1000.0,
         allow_negative=True,
@@ -23,12 +29,12 @@ async def test_create() -> bool:
     )
     print(f"new account_id:{account_id}")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_negative_create() -> bool:
+async def test_negative_create() -> None:
     try:
         await Accounts.create(
             balance=1000.0,
@@ -37,12 +43,12 @@ async def test_negative_create() -> bool:
     except Exception as e:
         print(e)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_balance() -> bool:
+async def test_balance() -> None:
     balance = 1234.0
     account_id = await Accounts.create(
         balance=balance,
@@ -53,12 +59,12 @@ async def test_balance() -> bool:
     if balance != await Accounts.get_balance(account_id):
         raise AssertionError("get_balance() did not return the expect value")
     print(f"balance {balance}")
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_add_transaction() -> bool:
+async def test_add_transaction() -> None:
     balance = 1234.0
     account_id = await Accounts.create(
         balance=balance,
@@ -72,12 +78,12 @@ async def test_add_transaction() -> bool:
             "test_add_transaction(): get_balance() did not return the expect value"
         )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_add_transaction2() -> bool:
+async def test_add_transaction2() -> None:
     balance = 1234.0
     account_id = await Accounts.create(
         balance=balance,
@@ -92,12 +98,12 @@ async def test_add_transaction2() -> bool:
             "test_add_transaction(): get_balance() did not return the expect value"
         )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_add_transaction3() -> bool:
+async def test_add_transaction3() -> None:
     balance = 1234.0
     account_id = await Accounts.create(
         balance=balance,
@@ -111,12 +117,12 @@ async def test_add_transaction3() -> bool:
             "test_add_transaction3(): get_balance() did not return the expect value"
         )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_add_transaction5() -> bool:
+async def test_add_transaction5() -> None:
     balance = 100.0
     account_id = await Accounts.create(
         balance=balance, allow_negative=True, credit_line=5000.0
@@ -128,12 +134,12 @@ async def test_add_transaction5() -> bool:
             "test_add_transaction5(): get_balance() did not return the expect value"
         )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_clear_balance() -> bool:
+async def test_clear_balance() -> None:
     print("test_clear_balance")
     balance = 1234.0
     account_id = await Accounts.create(
@@ -151,12 +157,12 @@ async def test_clear_balance() -> bool:
     if await Accounts.get_balance(account_id) != 0.0:
         raise AssertionError("clear balance failed")
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_clear_transactions() -> bool:
+async def test_clear_transactions() -> None:
     print("test_clear_transactions")
     balance = 100.0
     account_id = await Accounts.create(
@@ -176,12 +182,12 @@ async def test_clear_transactions() -> bool:
             "test_clear_transactions(): failed to clear account_transactions"
         )
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_check_if_enough_balance_positive_1() -> bool:
+async def test_check_if_enough_balance_positive_1() -> None:
     print("test_check_if_enough_balance_positive_1")
 
     balance = 1000.0
@@ -190,7 +196,7 @@ async def test_check_if_enough_balance_positive_1() -> bool:
     )
 
     if await Accounts.check_if_enough_balance_to_withdraw(account_id, 500.0):
-        return True
+        return
     else:
         raise AssertionError(
             "test_check_if_enough_balance_positive_1(): should have had enough balance"
@@ -199,7 +205,7 @@ async def test_check_if_enough_balance_positive_1() -> bool:
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_check_if_enough_balance_positive_2() -> bool:
+async def test_check_if_enough_balance_positive_2() -> None:
     print("test_check_if_enough_balance_positive_2")
 
     balance = 1000.0
@@ -210,7 +216,7 @@ async def test_check_if_enough_balance_positive_2() -> bool:
     if not await Accounts.check_if_enough_balance_to_withdraw(
         account_id, 2000.0
     ):
-        return True
+        return
     else:
         raise AssertionError(
             "test_check_if_enough_balance_positive_2(): should not have had enough balance"
@@ -219,7 +225,7 @@ async def test_check_if_enough_balance_positive_2() -> bool:
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_check_if_enough_balance_positive_3() -> bool:
+async def test_check_if_enough_balance_positive_3() -> None:
     print("test_check_if_enough_balance_positive_3")
 
     balance = 1000.0
@@ -229,7 +235,7 @@ async def test_check_if_enough_balance_positive_3() -> bool:
     await Accounts.add_transaction(account_id, -1100)
 
     if await Accounts.check_if_enough_balance_to_withdraw(account_id, 200.0):
-        return True
+        return
     else:
         raise AssertionError(
             "test_check_if_enough_balance_positive_3(): should  have had enough balance"
@@ -238,7 +244,7 @@ async def test_check_if_enough_balance_positive_3() -> bool:
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_check_if_enough_balance_positive_4() -> bool:
+async def test_check_if_enough_balance_positive_4() -> None:
     print("test_check_if_enough_balance_positive_4")
 
     balance = 1000.0
@@ -250,7 +256,7 @@ async def test_check_if_enough_balance_positive_4() -> bool:
     if not await Accounts.check_if_enough_balance_to_withdraw(
         account_id, 600.0
     ):
-        return True
+        return
     else:
         raise AssertionError(
             "test_check_if_enough_balance_positive_4(): should not have had enough balance"
@@ -259,7 +265,7 @@ async def test_check_if_enough_balance_positive_4() -> bool:
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
-async def test_check_if_enough_balance_negative_1() -> bool:
+async def test_check_if_enough_balance_negative_1() -> None:
     print("test_check_if_enough_balance_negative_1")
 
     balance = 1000.0
@@ -271,7 +277,7 @@ async def test_check_if_enough_balance_negative_1() -> bool:
             account_id, -600.0
         )
     except AssertionError:
-        return True
+        return
 
     raise AssertionError(
         "test_check_if_enough_balance_negative_1(): should have raise exception"

@@ -21,6 +21,15 @@ m_and_a_data = pd.read_csv(
 ).set_index("date")
 
 
+def _get_index_location(labels: pd.Index, key: datetime, method: str) -> int:
+    # Modern pandas exposes approximate lookup through get_indexer. Retain the
+    # old get_loc missing-match exception so callers still fetch missing data.
+    position = labels.get_indexer([key], method=method)[0]
+    if position == -1:
+        raise KeyError(key)
+    return int(position)
+
+
 def _calc_data_to_fetch(s: slice, index: pd.Index) -> List[slice]:
     if index.empty:
         return [s]
@@ -471,8 +480,8 @@ class SymbolData:
 
         def _get_index(self, index: datetime, method: str = "ffill") -> int:
             try:
-                return self.data.symbol_data.index.get_loc(
-                    index, method=method
+                return _get_index_location(
+                    self.data.symbol_data.index, index, method
                 )
             except KeyError:
                 self.data.symbol_data = fetch_data_datetime(
@@ -483,8 +492,8 @@ class SymbolData:
                     d=index,
                     concurrency=self.concurrency,
                 )
-                return self.data.symbol_data.index.get_loc(
-                    index, method="nearest"
+                return _get_index_location(
+                    self.data.symbol_data.index, index, "nearest"
                 )
 
         def __getitem__(self, key):
@@ -565,7 +574,7 @@ class SymbolData:
 
     def _get_index(self, index: datetime, method: str = "ffill") -> int:
         try:
-            return self.symbol_data.index.get_loc(index, method=method)
+            return _get_index_location(self.symbol_data.index, index, method)
         except ValueError:
             tlog(f"[EXCEPTION] ValueError {index},{self.symbol_data.index}")
             raise
@@ -578,7 +587,7 @@ class SymbolData:
                 d=index,
                 concurrency=self.concurrency,
             )
-            return self.data.symbol_data.index.get_loc(index, method="nearest")
+            return _get_index_location(self.symbol_data.index, index, "nearest")
 
     def __getitem__(self, key):
         try:

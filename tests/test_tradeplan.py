@@ -1,8 +1,9 @@
 import asyncio
 import uuid
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 
 import pytest
+import pytest_asyncio
 
 from liualgotrader.common import config
 from liualgotrader.common.data_loader import DataLoader  # type: ignore
@@ -12,13 +13,17 @@ from liualgotrader.models.tradeplan import TradePlan
 from liualgotrader.trading.trader_factory import trader_factory
 
 
-@pytest.fixture
-def event_loop():
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
     config.build_label = "pytest"
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    yield loop
-    loop.close()
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
@@ -29,7 +34,7 @@ async def test_load_trade_plan_from_db():
     for plan in trade_plan:
         print(plan)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -44,21 +49,21 @@ async def test_load_testplan_from_db():
         )
     except FileNotFoundError as e:
         print(f"FileNotFoundError {e}")
-        return True
+        return
 
     print(strategy_list)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
 @pytest.mark.devtest
 async def test_get_new_entries():
     trade_plan = await TradePlan.get_new_entries(
-        since=datetime.utcnow() - timedelta(days=5)
+        since=datetime.now(UTC) - timedelta(days=5)
     )
 
     for plan in trade_plan:
         print(plan)
 
-    return True
+    return

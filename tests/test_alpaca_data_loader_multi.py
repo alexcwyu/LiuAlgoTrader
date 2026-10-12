@@ -13,7 +13,7 @@ nyc = timezone("America/New_York")
 
 
 @pytest.mark.devtest
-def test_multi_date_performance() -> bool:
+def test_multi_date_performance() -> None:
     dl = DataLoader(scale=TimeScale.day, connector=DataConnectorType.alpaca)
 
     t = time.time()
@@ -62,4 +62,4 @@ def test_multi_date_performance() -> bool:
     pref_multi = time.time() - t
     print(f"multi 2 time spent {pref_multi}")
 
-    return True
+    return

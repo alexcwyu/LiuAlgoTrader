@@ -20,4 +20,4 @@ def calc_num_consumer_processes() -> int:
 
     tlog(f"Total CPU Load:{load_pct}, num_cpu:{num_cpu}")
 
-    return int(5.0 * (1 - load_pct / 100.0) * num_cpu)
+    return max(1, int(5.0 * (1 - load_pct / 100.0) * num_cpu))

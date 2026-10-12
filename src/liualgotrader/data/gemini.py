@@ -4,6 +4,7 @@ import concurrent.futures
 import hashlib
 import hmac
 import json
+import math
 import os
 import queue
 import ssl
@@ -72,12 +73,10 @@ class GeminiData(DataAPI):
         end_t = datetime.combine(end, datetime.max.time(), tzinfo=utctz)
 
         minutes = (end_t - start_t).total_seconds() / 60
-        return pd.date_range(
-            start_t,
-            end_t,
-            periods=minutes
-            / (self.datapoints_per_request / self.max_trades_per_minute),
+        intervals = math.ceil(
+            minutes / (self.datapoints_per_request / self.max_trades_per_minute)
         )
+        return pd.date_range(start_t, end_t, periods=intervals + 1)
 
     async def _consolidate_response(self, response, scale) -> pd.DataFrame:
         _df = pd.DataFrame(response.json())
@@ -97,7 +96,7 @@ class GeminiData(DataAPI):
         _df["price"] = pd.to_numeric(_df.price)
         _df = _df[["s", "price", "amount"]].set_index("s")
 
-        rule = "T" if scale == TimeScale.minute else "D"
+        rule = "min" if scale == TimeScale.minute else "D"
         _newdf = _df.resample(rule).first()
         _newdf["high"] = _df.resample(rule).max().price
         _newdf["low"] = _df.resample(rule).min().price

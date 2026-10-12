@@ -35,13 +35,15 @@ class AlpacaTrader(Trader):
         )
 
         self.alpaca_rest_client = REST(
-            base_url=URL(config.alpaca_base_url),
+            **({"base_url": URL(config.alpaca_base_url)}
+               if config.alpaca_base_url else {}),
             key_id=config.alpaca_api_key,
             secret_key=config.alpaca_api_secret,
         )
         if qm:
             self.alpaca_ws_client = Stream(
-                base_url=URL(config.alpaca_base_url),
+                **({"base_url": URL(config.alpaca_base_url)}
+                   if config.alpaca_base_url else {}),
                 key_id=config.alpaca_api_key,
                 secret_key=config.alpaca_api_secret,
             )

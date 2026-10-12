@@ -60,4 +60,4 @@ async def test_crypto_stream():
     stop = True
     running_task.join()
 
-    return True
+    return

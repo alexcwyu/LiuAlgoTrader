@@ -1,0 +1,1191 @@
+{
+  "authoritative_full_snapshot": {
+    "PASSED": 92,
+    "FAILED": 98,
+    "ERROR": 5
+  },
+  "current_source_supplemental_tests": {
+    "PASSED": 16,
+    "FAILED": 7
+  },
+  "composite_not_fresh_full_run": true,
+  "composite_status": {
+    "PASSED": 94,
+    "FAILED": 96,
+    "ERROR": 5
+  },
+  "original_nodes": 195,
+  "wikipedia_five_transport_cases_under_further_repair": true,
+  "cases": [
+    {
+      "node": "tests/test_accounts.py::test_create",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_negative_create",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_balance",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction2",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction3",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_add_transaction5",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_clear_balance",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_clear_transactions",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_1",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_2",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_3",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_positive_4",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_accounts.py::test_check_if_enough_balance_negative_1",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_aapl_data_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_aapl_data_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_get_symbols",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_get_market_snapshot",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_basic.py::test_alpaca_multi_symbols_min_negative",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_brokerage.py::test_sell_apple",
+      "initial_full": "ERROR",
+      "composite": "ERROR",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_brokerage.py::test_buy_apple",
+      "initial_full": "ERROR",
+      "composite": "ERROR",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_crypto_get_symbol",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_btc_data_loader_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_minute_offset",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_length2",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_crypto_data_loader.py::test_eth_data_loader_day_offset",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_create_data_loader_default",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_test1",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_latest_price",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_current_price_range_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_day_num_data_points",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_day_num_data_points_w_date",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_negative_current_price",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_close_price_range_str_minute_int",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_int_min_open",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_int_min_open",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_open",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_open",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_min_mixed",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_range_date_day_mixed",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_range_date_min_mixed",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_str",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_stock_price_open_date",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_get_symbols_alpaca",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader.py::test_apple_update",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_concurrency.py::test_stock_price_range_date_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_multi.py::test_multi_date_performance",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_create_data_loader_default",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range2",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range3",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_data_loader_perf.py::test_apple_stock_range4",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_stream.py::test_crypto_stream",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_get_symbols",
+      "initial_full": "ERROR",
+      "composite": "ERROR",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_get_shortable_symbols",
+      "initial_full": "ERROR",
+      "composite": "ERROR",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpaca_trader.py::test_is_fractionable",
+      "initial_full": "ERROR",
+      "composite": "ERROR",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_alpacadata.py::test_get_trading_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_analysis.py::test_returns",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_analysis.py::test_load_trades_by_portfolio",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_assets.py::test_round_asset",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_backtest.py::test_backtest_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_backtest.py::test_backtest_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_consolidate.py::test_trades",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_cpu_load_avg.py::test_load_cpu_avg",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_cpu_load_avg.py::test_fix_num_consumer_processes",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_cpu_load_avg.py::test_calc_num_consumer_processes",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_create_scanner.py::test_get_scanner",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_alpaca_num_trading_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_alpaca_concurrency_ranges_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_data_date_ranges.py::test_hpy_alpaca_concurrency_ranges_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_db.py::test_db_connectivity",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_decorators.py::test_trader_calendar",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_single_line",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_two_line",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_add_daily_vwap_three_line",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_fincalc_vwap.py::test_anchored_vwap_three_line",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_gemini_basic.py::test_gemini_data_day",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_basic.py::test_gemini_data_min",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_create_data_loader_default",
+      "initial_full": "FAILED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_ethusd_stock_daily_price",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_btc_current_price",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_current_price_range_int_minute",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_negative_current_price",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_day",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_apple_close_price_range_str_minute",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_close_price_range_str_minute_int",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_int_minute",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_int_day",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_day",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_day",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_int_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_int_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_min_mixed",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_range_date_day_mixed",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_range_date_min_mixed",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_str",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_date",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_get_symbols_alpaca",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_data_loader.py::test_stock_price_open_str2",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_stream.py::test_apple_sec_agg",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_symbols",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_shortable_symbols",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_market_buy_order",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_limit_buy_order",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_order_negative",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_order_completed",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_buy_websocket1",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_gemini_trader.py::test_get_position",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_1",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_single",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_param_1_ex",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_int",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_two_int",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_int_float",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_hyperparameters.py::test_hyper_params_float_missing",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_keystore.py::test_load_empty",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_keystore.py::test_insert",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_keystore.py::test_update",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_load_scanner.py::test_get_scanner",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_load_strategy.py::test_get_strategy",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_industries",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_sectors",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_sectors_symbols",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_market_industries_symbols",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_sp500_historical_constituents",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_trading_holidays",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_get_trading_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_basic_sp500",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data_w_adjustments",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_market_data.py::test_load_sp500_data_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_momentum_scanner.py::test_scanner_alpaca",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_exists_negative",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_exists_positive",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_balance_positive",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_get_get_external_account_id_positive",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_get_get_external_account_id_positive2",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_crypto_1",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_portfolio.py::test_crypto_2",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_resample.py::test_resample",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_support_resistance.py::test_get_local_maxima",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_load_trade_plan_from_db",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_load_testplan_from_db",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_tradeplan.py::test_get_new_entries",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_trader_calendar.py::test_trader_calendar",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_tradier_basics.py::test_tradier_aapl_data_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_basics.py::test_tradier_aapl_data_min",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_create_data_loader_default",
+      "initial_full": "FAILED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_latest_price",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_current_price_range_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_day_num_data_points",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_day_num_data_points_w_date",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_negative_current_price",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_close_price_range_str_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_minute",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_int_day",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_range_date_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_data_loader.py::test_apple_stock_price_open_range_date_min_open",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_symbols",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_shortable_symbols",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_aapl_shortable",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_fractionable",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_market_schedule",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_is_market_open_today",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_time_market_close",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_get_trading_days",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_market_long",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_limit_long",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_tsla_order_market_short",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_tsla_cancel_order",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_tradier_trader.py::test_aapl_order_limit_long_websocket",
+      "initial_full": "FAILED",
+      "composite": "FAILED",
+      "superseded_by_current_target": false
+    },
+    {
+      "node": "tests/test_trends.py::test_get_series_trend",
+      "initial_full": "PASSED",
+      "composite": "PASSED",
+      "superseded_by_current_target": true
+    }
+  ]
+}

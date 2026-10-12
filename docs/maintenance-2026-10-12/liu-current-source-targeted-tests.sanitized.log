@@ -1,0 +1,277 @@
+
+tests/test_assets.py::test_round_asset PASSED                            [  4%]
+tests/test_hyperparameters.py::test_hyper_param_1 PASSED                 [  8%]
+tests/test_hyperparameters.py::test_hyper_param_single PASSED            [ 13%]
+tests/test_hyperparameters.py::test_hyper_param_1_ex PASSED              [ 17%]
+tests/test_hyperparameters.py::test_hyper_params_int PASSED              [ 21%]
+tests/test_hyperparameters.py::test_hyper_params_two_int PASSED          [ 26%]
+tests/test_hyperparameters.py::test_hyper_params_int_float PASSED        [ 30%]
+tests/test_hyperparameters.py::test_hyper_params_float_missing PASSED    [ 34%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_single_line PASSED       [ 39%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_two_line PASSED          [ 43%]
+tests/test_fincalc_vwap.py::test_add_daily_vwap_three_line PASSED        [ 47%]
+tests/test_fincalc_vwap.py::test_anchored_vwap_three_line PASSED         [ 52%]
+tests/test_trends.py::test_get_series_trend PASSED                       [ 56%]
+tests/test_db.py::test_db_connectivity PASSED                            [ 60%]
+tests/test_gemini_data_loader.py::test_create_data_loader_default PASSED [ 65%]
+tests/test_tradier_data_loader.py::test_create_data_loader_default PASSED [ 69%]
+tests/test_alpaca_data_loader.py::test_create_data_loader_default FAILED [ 73%]
+tests/test_alpaca_data_loader_perf.py::test_create_data_loader_default FAILED [ 78%]
+tests/test_alpaca_stream.py::test_crypto_stream FAILED                   [ 82%]
+tests/test_decorators.py::test_trader_calendar FAILED                    [ 86%]
+tests/test_market_data.py::test_get_trading_day FAILED                   [ 91%]
+tests/test_tradeplan.py::test_load_testplan_from_db FAILED               [ 95%]
+tests/test_trader_calendar.py::test_trader_calendar FAILED               [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_create_data_loader_default ________________________
+
+    @pytest.mark.devtest
+    def test_create_data_loader_default() -> None:
+>       bool(DataLoader(connector=DataConnectorType.alpaca))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_alpaca_data_loader.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/common/data_loader.py:630: in __init__
+    self.data_api = data_loader_factory(connector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/data/data_factory.py:16: in data_loader_factory
+    return AlpacaData()
+           ^^^^^^^^^^^^
+src/liualgotrader/data/alpaca.py:36: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+_______________________ test_create_data_loader_default ________________________
+
+    @pytest.mark.devtest
+    def test_create_data_loader_default() -> None:
+>       bool(DataLoader(connector=DataConnectorType.alpaca))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_alpaca_data_loader_perf.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/common/data_loader.py:630: in __init__
+    self.data_api = data_loader_factory(connector)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/data/data_factory.py:16: in data_loader_factory
+    return AlpacaData()
+           ^^^^^^^^^^^^
+src/liualgotrader/data/alpaca.py:36: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+______________________________ test_crypto_stream ______________________________
+
+    @pytest.mark.asyncio
+    async def test_crypto_stream():
+        global stop
+        queues = QueueMapper()
+>       alpaca_stream = AlpacaStream(queues)
+                        ^^^^^^^^^^^^^^^^^^^^
+
+tests/test_alpaca_stream.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/data/alpaca.py:431: in __init__
+    self.alpaca_ws_client = Stream(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/stream.py:764: in __init__
+    self._key_id, self._secret_key, _ = get_credentials(key_id, secret_key)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+_____________________________ test_trader_calendar _____________________________
+
+    @pytest.mark.devtest
+    @pytest.mark.asyncio
+    async def test_trader_calendar() -> None:
+>       trader = trader_factory()
+                 ^^^^^^^^^^^^^^^^
+
+tests/test_decorators.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/trading/trader_factory.py:18: in trader_factory
+    traders["ALPACA"] = AlpacaTrader(*args, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/trading/alpaca.py:37: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][46268]2026-10-12 13:21:24.827488:db connection pool initialized
+_____________________________ test_get_trading_day _____________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_get_trading_day():
+>       alpaca = AlpacaTrader()
+                 ^^^^^^^^^^^^^^
+
+tests/test_market_data.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/trading/alpaca.py:37: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][46268]2026-10-12 13:21:24.848754:db connection pool initialized
+__________________________ test_load_testplan_from_db __________________________
+
+    @pytest.mark.asyncio
+    @pytest.mark.devtest
+    async def test_load_testplan_from_db():
+    
+        try:
+            strategy_list = await create_strategies_from_db(
+                batch_id=str(uuid.uuid4()),
+>               trader=trader_factory(),
+                       ^^^^^^^^^^^^^^^^
+                data_loader=DataLoader(),
+            )
+
+tests/test_tradeplan.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/trading/trader_factory.py:18: in trader_factory
+    traders["ALPACA"] = AlpacaTrader(*args, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/trading/alpaca.py:37: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+---------------------------- Captured stdout setup -----------------------------
+[create_db_connection()][46268]2026-10-12 13:21:24.870064:db connection pool initialized
+_____________________________ test_trader_calendar _____________________________
+
+    @pytest.mark.devtest
+    def test_trader_calendar() -> None:
+>       trader = trader_factory()
+                 ^^^^^^^^^^^^^^^^
+
+tests/test_trader_calendar.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/liualgotrader/trading/trader_factory.py:18: in trader_factory
+    traders["ALPACA"] = AlpacaTrader(*args, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/liualgotrader/trading/alpaca.py:37: in __init__
+    self.alpaca_rest_client = REST(
+.venv/lib/python3.13/site-packages/alpaca_trade_api/rest.py:177: in __init__
+    self._key_id, self._secret_key, self._oauth = get_credentials(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+key_id = None, secret_key = '', oauth = None
+
+    def get_credentials(key_id: str = None,
+                        secret_key: str = None,
+                        oauth: str = None) -> Credentials:
+        oauth = oauth or os.environ.get('APCA_API_OAUTH_TOKEN')
+    
+        key_id = key_id or os.environ.get('APCA_API_KEY_ID')
+        if key_id is None and oauth is None:
+>           raise ValueError('Key ID must be given to access Alpaca trade API',
+                             ' (env: APCA_API_KEY_ID)')
+E           ValueError: ('Key ID must be given to access Alpaca trade API', ' (env: APCA_API_KEY_ID)')
+
+.venv/lib/python3.13/site-packages/alpaca_trade_api/common.py:84: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_alpaca_data_loader.py::test_create_data_loader_default - Va...
+FAILED tests/test_alpaca_data_loader_perf.py::test_create_data_loader_default
+FAILED tests/test_alpaca_stream.py::test_crypto_stream - ValueError: ('Key ID...
+FAILED tests/test_decorators.py::test_trader_calendar - ValueError: ('Key ID ...
+FAILED tests/test_market_data.py::test_get_trading_day - ValueError: ('Key ID...
+FAILED tests/test_tradeplan.py::test_load_testplan_from_db - ValueError: ('Ke...
+FAILED tests/test_trader_calendar.py::test_trader_calendar - ValueError: ('Ke...
+========================= 7 failed, 16 passed in 1.79s =========================

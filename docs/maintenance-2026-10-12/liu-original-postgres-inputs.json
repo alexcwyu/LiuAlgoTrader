@@ -1,0 +1,15 @@
+{
+  "schema_sha256": "ae7b723a5553557172a31871ab2731d1087b6135bfe8b510a63923136922d3af",
+  "dump_sha256": "ccffa2a898d8522c578639d1a633c6625dd115d40ab62da00bc723f3375da28c",
+  "original_copy_row_counts": {
+    "algo_run": 12,
+    "new_trades": 206,
+    "stock_ohlc": 66869,
+    "ticker_data": 7312,
+    "trades": 0,
+    "trending_tickers": 0
+  },
+  "data_load_exit": 0,
+  "original_dump_sequence_statements": 6,
+  "sequence_load_exit": 0
+}

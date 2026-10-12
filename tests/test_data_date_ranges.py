@@ -68,7 +68,7 @@ def test_alpaca_num_trading_day():
     ):
         raise AssertionError("expected 0")
 
-    return True
+    return
 
 
 def test_alpaca_concurrency_ranges_min():
@@ -105,7 +105,7 @@ def test_alpaca_concurrency_ranges_min():
         raise AssertionError("expected 2")
     print(time.time() - t)
 
-    return True
+    return
 
 
 @settings(deadline=None, max_examples=100)

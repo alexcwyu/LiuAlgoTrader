@@ -4,6 +4,7 @@ from multiprocessing import Queue
 from threading import Thread
 
 import pytest
+import pytest_asyncio
 
 from liualgotrader.common.types import QueueMapper, WSEventType
 from liualgotrader.data.gemini import GeminiStream
@@ -13,16 +14,20 @@ queues: QueueMapper
 stop: bool = False
 
 
-@pytest.fixture
-def event_loop():
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
     global gemini_stream
     global queues
-    loop = asyncio.new_event_loop()
+    global stop
+    stop = False
     queues = QueueMapper()
     gemini_stream = GeminiStream(queues)
 
-    yield loop
-    loop.close()
+    try:
+        yield
+    finally:
+        stop = True
+        await gemini_stream.close()
 
 
 def listener(q: Queue):
@@ -68,4 +73,4 @@ async def test_apple_sec_agg():
     stop = True
     running_task.join()
 
-    return True
+    return

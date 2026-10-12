@@ -1,21 +1,27 @@
 import asyncio
 
 import pytest
+import pytest_asyncio
 
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.trading.gemini import GeminiTrader
 
 gemini_trader: GeminiTrader
 
 
-@pytest.fixture
-def event_loop():
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
     global gemini_trader
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    gemini_trader = GeminiTrader()
-    yield loop
-    loop.close()
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        gemini_trader = GeminiTrader()
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
@@ -27,7 +33,7 @@ async def test_get_symbols():
     print(assets)
     print(len(assets))
     await asyncio.sleep(1.0)
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -38,7 +44,7 @@ async def test_get_shortable_symbols():
     assets = await gemini_trader.get_shortable_symbols()
     print(assets)
     print(len(assets))
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -57,7 +63,7 @@ async def test_market_buy_order():
             order_type="market",
         )
     except AssertionError:
-        return True
+        return
 
     raise AssertionError("Expected exception")
 
@@ -81,7 +87,7 @@ async def test_limit_buy_order():
     order_status = await gemini_trader.get_order(order.order_id)
     print(order_status)
     await asyncio.sleep(1.0)
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -96,7 +102,7 @@ async def test_order_negative():
         await gemini_trader.get_order("abccccasd")
     except Exception:
         await asyncio.sleep(1.0)
-        return True
+        return
     raise AssertionError("test_order_negative() exe")
 
 
@@ -118,7 +124,7 @@ async def test_order_completed():
     await asyncio.sleep(1.0)
     order_status = await gemini_trader.is_order_completed(order.order_id)
     print(order_status)
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -143,14 +149,14 @@ async def test_buy_websocket1():
         )
     except AssertionError as e:
         print(f"Assertion Error {e}")
-        return True
+        return
 
     await asyncio.sleep(30.0)
     order_status = await gemini_trader.is_order_completed(order)
     print(order_status)
 
     await gemini_trader.close()
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -165,4 +171,4 @@ async def test_get_position():
     position = gemini_trader.get_position("BTC")
     print("BTC=", position)
 
-    return True
+    return

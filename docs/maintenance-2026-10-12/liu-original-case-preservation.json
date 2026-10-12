@@ -1,0 +1,9 @@
+{
+  "original_nodes": 195,
+  "node_inventory_and_order_unchanged": true,
+  "same_interpreter_ast_comparison": true,
+  "all_assertion_raise_condition_asts_unchanged_except_accessor": true,
+  "accessor_only_case": "tests/test_fincalc_vwap.py::test_anchored_vwap_three_line",
+  "accessor_change": "s[-1] -> s.iloc[-1] in condition/message, preserving positional last value and exact25.0",
+  "production_return_index_and_type_unchanged": true
+}

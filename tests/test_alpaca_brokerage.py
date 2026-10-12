@@ -1,7 +1,9 @@
 import asyncio
 
 import pytest
+import pytest_asyncio
 
+from liualgotrader.common import config
 from liualgotrader.common.database import create_db_connection
 from liualgotrader.trading.alpaca import AlpacaTrader
 
@@ -10,14 +12,18 @@ alpaca_trader: AlpacaTrader
 account_id: str = "f6c9596e-e7ce-4ecc-8ed8-fe6c9720e96a"
 
 
-@pytest.fixture
-def event_loop():
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
     global alpaca_trader
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(create_db_connection())
-    alpaca_trader = AlpacaTrader()
-    yield loop
-    loop.close()
+    await create_db_connection()
+    pool = config.db_conn_pool
+    try:
+        alpaca_trader = AlpacaTrader()
+        yield
+    finally:
+        await pool.close()
+        if getattr(config, "db_conn_pool", None) is pool:
+            del config.db_conn_pool
 
 
 @pytest.mark.asyncio
@@ -39,7 +45,7 @@ async def test_sell_apple():
     else:
         print(order)
 
-    return True
+    return
 
 
 @pytest.mark.asyncio
@@ -59,4 +65,4 @@ async def test_buy_apple():
     except Exception as e:
         print(f"EXCEPTION: {e}")
 
-    return True
+    return

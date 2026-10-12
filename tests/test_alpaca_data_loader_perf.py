@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 import pytest
+import pytest_asyncio
 from pytz import timezone
 
 from liualgotrader.common import config
@@ -15,19 +16,18 @@ nyc = timezone("America/New_York")
 
 
 @pytest.mark.devtest
-def test_create_data_loader_default() -> bool:
-    return bool(DataLoader(connector=DataConnectorType.alpaca))
+def test_create_data_loader_default() -> None:
+    bool(DataLoader(connector=DataConnectorType.alpaca))
+    return
 
 
-@pytest.fixture
-def event_loop():
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
+@pytest_asyncio.fixture(autouse=True)
+async def _initialized_resources():
+    yield
 
 
 @pytest.mark.devtest
-def test_apple_stock_range() -> bool:
+def test_apple_stock_range() -> None:
     print("+ test_apple_stock_range()")
     dl = DataLoader(TimeScale.minute, connector=DataConnectorType.alpaca)
 
@@ -41,11 +41,11 @@ def test_apple_stock_range() -> bool:
 
     print("- test_apple_stock_range()")
 
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_apple_stock_range2() -> bool:
+def test_apple_stock_range2() -> None:
     print("+ test_apple_stock_range2()")
     dl = DataLoader(TimeScale.minute, connector=DataConnectorType.alpaca)
 
@@ -64,11 +64,11 @@ def test_apple_stock_range2() -> bool:
 
     print("- test_apple_stock_range2()")
 
-    return True
+    return
 
 
 @pytest.mark.devtest
-def test_apple_stock_range3() -> bool:
+def test_apple_stock_range3() -> None:
     print("+ test_apple_stock_range3()")
     dl = DataLoader(TimeScale.minute, connector=DataConnectorType.alpaca)
 
@@ -88,7 +88,7 @@ def test_apple_stock_range3() -> bool:
 
     print("- test_apple_stock_range3()")
 
-    return True
+    return
 
 
 def load_data_for_symbol(data_loader: DataLoader, symbol: str, now: datetime):
@@ -101,7 +101,7 @@ def load_data_for_symbol(data_loader: DataLoader, symbol: str, now: datetime):
 
 
 @pytest.mark.devtest
-def test_apple_stock_range4() -> bool:
+def test_apple_stock_range4() -> None:
     print("+ test_apple_stock_range4()")
     now = datetime.now(nyc)
     dl = DataLoader(TimeScale.minute, connector=DataConnectorType.alpaca)
@@ -125,4 +125,4 @@ def test_apple_stock_range4() -> bool:
 
     print("- test_apple_stock_range4()")
 
-    return True
+    return

@@ -1,0 +1,170 @@
+{
+  "private_raw_root": "/Users/alex/workspaces/trading/.runtime/maintenance-2026-10-12/liu-private-evidence-d744",
+  "raw_content_not_rewritten": true,
+  "owned_db_password_rotated_after_tests_terminal": true,
+  "old_owned_password_rejected": true,
+  "private_dsn_mode": "0600",
+  "redaction": "owned DB passwords and any long configured API-secret values replaced with <redacted>; published hashes are sanitized-copy hashes",
+  "logs": [
+    {
+      "raw_filename": "liu-build.log",
+      "private_raw_sha256": "2be0332c194b7bd066ed1c301391f964845c54bc97e6ae113414d297cdb77f9e",
+      "sanitized_filename": "liu-build.sanitized.log",
+      "sanitized_sha256": "2be0332c194b7bd066ed1c301391f964845c54bc97e6ae113414d297cdb77f9e",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-factory-existing-tests.log",
+      "private_raw_sha256": "4f18d53f1377e033fc4fb9f009d7cc645e901a356b7f881e9b051a149eb9cac4",
+      "sanitized_filename": "liu-factory-existing-tests.sanitized.log",
+      "sanitized_sha256": "4f18d53f1377e033fc4fb9f009d7cc645e901a356b7f881e9b051a149eb9cac4",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-local-tests.log",
+      "private_raw_sha256": "4573ea5ec5f8413d5c588c8cc33a037cc77fbb97ecb5069169550356d3663bd9",
+      "sanitized_filename": "liu-local-tests.sanitized.log",
+      "sanitized_sha256": "4573ea5ec5f8413d5c588c8cc33a037cc77fbb97ecb5069169550356d3663bd9",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-lock-parser.log",
+      "private_raw_sha256": "ce7170b7990d417c5018d52f485444e11155370a9b69d3d8fd87effecf79940f",
+      "sanitized_filename": "liu-lock-parser.sanitized.log",
+      "sanitized_sha256": "ce7170b7990d417c5018d52f485444e11155370a9b69d3d8fd87effecf79940f",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-full-existing-tests.log",
+      "private_raw_sha256": "ad8c3454ee599726197b97a6db3434f6f037ddaf2cc452b9c782023e0dd427e1",
+      "sanitized_filename": "liu-full-existing-tests.sanitized.log",
+      "sanitized_sha256": "6b90c8bbd1257b5cf9990c15a0711d64ff3130b971b529672c6842cd1dcaf56d",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-original-dump-data-load.log",
+      "private_raw_sha256": "64af43da2989e250fa97d5a163452f222a9e202d0d7a687560117e1c1360d802",
+      "sanitized_filename": "liu-original-dump-data-load.sanitized.log",
+      "sanitized_sha256": "64af43da2989e250fa97d5a163452f222a9e202d0d7a687560117e1c1360d802",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-owned-db-original-tests.log",
+      "private_raw_sha256": "3f7123b44559ace41964764f58f8c73c589a02e25943588780a4abe8cb1949a9",
+      "sanitized_filename": "liu-owned-db-original-tests.sanitized.log",
+      "sanitized_sha256": "ba12fdc789a4d1f32352297f17ad525bb15ed596678ae077827f0bd1f365d2a6",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-original-schema-load.log",
+      "private_raw_sha256": "3e59d37af9cbd41fdf1273c64297e5009a8d61ecb1e03f15200f50daaa36950e",
+      "sanitized_filename": "liu-original-schema-load.sanitized.log",
+      "sanitized_sha256": "3e59d37af9cbd41fdf1273c64297e5009a8d61ecb1e03f15200f50daaa36950e",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-format.log",
+      "private_raw_sha256": "b66a8681c96c519b8bfd65efd139faf77b8e352418ae57d7694cc195b17eed13",
+      "sanitized_filename": "liu-format.sanitized.log",
+      "sanitized_sha256": "b66a8681c96c519b8bfd65efd139faf77b8e352418ae57d7694cc195b17eed13",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-sync.log",
+      "private_raw_sha256": "54fdbf3bfee1d098d2055265fe3cde2ed2d5f2348c3b55112b8d46b66bfc4cd1",
+      "sanitized_filename": "liu-sync.sanitized.log",
+      "sanitized_sha256": "54fdbf3bfee1d098d2055265fe3cde2ed2d5f2348c3b55112b8d46b66bfc4cd1",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-final-nodes.log",
+      "private_raw_sha256": "9a293d8124ce617ec55a887daf21b4db08919ee8f8339f7665fdb2583cec1b0f",
+      "sanitized_filename": "liu-final-nodes.sanitized.log",
+      "sanitized_sha256": "9a293d8124ce617ec55a887daf21b4db08919ee8f8339f7665fdb2583cec1b0f",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-postgres-image.log",
+      "private_raw_sha256": "31df20989711f3100f4cee05f6ce9ab124780743824eae2816a2d335980b97f7",
+      "sanitized_filename": "liu-postgres-image.sanitized.log",
+      "sanitized_sha256": "31df20989711f3100f4cee05f6ce9ab124780743824eae2816a2d335980b97f7",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-original-nodes.log",
+      "private_raw_sha256": "4a37cd0346fa7578b44276845577f571877895f1d56411251e43237c46ec7d4f",
+      "sanitized_filename": "liu-original-nodes.sanitized.log",
+      "sanitized_sha256": "4a37cd0346fa7578b44276845577f571877895f1d56411251e43237c46ec7d4f",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-db-index-current-source.log",
+      "private_raw_sha256": "1529883fbe83b27ffb88fed963b877fe41144558e905ed3339d0680fcc8bc499",
+      "sanitized_filename": "liu-db-index-current-source.sanitized.log",
+      "sanitized_sha256": "1529883fbe83b27ffb88fed963b877fe41144558e905ed3339d0680fcc8bc499",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-compile.log",
+      "private_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sanitized_filename": "liu-compile.sanitized.log",
+      "sanitized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-analysis-original-diagnostic.log",
+      "private_raw_sha256": "b2d584f0d231d0e1544a3f26414320d6b4d3775088e06fc65f9f3659ba7c56e8",
+      "sanitized_filename": "liu-analysis-original-diagnostic.sanitized.log",
+      "sanitized_sha256": "1911fa05cb83e16cd5a4405161cc127b23c7e3d88d47fc49042f0a6766142cff",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-final-local-existing-tests.log",
+      "private_raw_sha256": "6683dd0bd14588d36269e5a3e3372928dc88c06b33e80304866c49559861fcda",
+      "sanitized_filename": "liu-final-local-existing-tests.sanitized.log",
+      "sanitized_sha256": "6683dd0bd14588d36269e5a3e3372928dc88c06b33e80304866c49559861fcda",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-original-sequence-state-load.log",
+      "private_raw_sha256": "23400db0ae2a5d811e81a245e571a16804fbed0d23824bc049df08afcf775831",
+      "sanitized_filename": "liu-original-sequence-state-load.sanitized.log",
+      "sanitized_sha256": "23400db0ae2a5d811e81a245e571a16804fbed0d23824bc049df08afcf775831",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-current-source-targeted-tests.log",
+      "private_raw_sha256": "9e2f4e7026065e763b700e6d23a6ee16d4cb0d0c369eb345a326ebd6c507fa4c",
+      "sanitized_filename": "liu-current-source-targeted-tests.sanitized.log",
+      "sanitized_sha256": "9e2f4e7026065e763b700e6d23a6ee16d4cb0d0c369eb345a326ebd6c507fa4c",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    },
+    {
+      "raw_filename": "liu-updated-nodes.log",
+      "private_raw_sha256": "b43da9e790f7a1417432aac783e55dfbbde7fd3b104aa1ef3862731e881817df",
+      "sanitized_filename": "liu-updated-nodes.sanitized.log",
+      "sanitized_sha256": "b43da9e790f7a1417432aac783e55dfbbde7fd3b104aa1ef3862731e881817df",
+      "raw_retained_private_mode": "0600",
+      "sanitized_is_a_distinct_copy": true
+    }
+  ]
+}
