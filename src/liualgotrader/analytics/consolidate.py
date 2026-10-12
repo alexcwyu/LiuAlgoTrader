@@ -138,7 +138,7 @@ async def trades(batch_id: str) -> None:
                                         )
                                         & (trade_analysis.status == "open"),
                                         "initial_price",
-                                    ]
+                                    ].item()
                                 )
                             )
                             / float(
@@ -150,7 +150,7 @@ async def trades(batch_id: str) -> None:
                                     )
                                     & (trade_analysis.status == "open"),
                                     "r_units",
-                                ]
+                                ].item()
                             )
                         ),
                         2,
@@ -181,13 +181,20 @@ async def trades(batch_id: str) -> None:
             & (gain_loss.algo_run_id == row.algo_run_id),
             "gain_value",
         ].empty:
-            gain_loss = gain_loss.append(
-                {
-                    "symbol": row.symbol,
-                    "algo_run_id": row.algo_run_id,
-                    "gain_value": delta,
-                    "org_price": float(row.price * row.qty),
-                },
+            gain_loss = pd.concat(
+                [
+                    gain_loss,
+                    DataFrame(
+                        [
+                            {
+                                "symbol": row.symbol,
+                                "algo_run_id": row.algo_run_id,
+                                "gain_value": delta,
+                                "org_price": float(row.price * row.qty),
+                            }
+                        ]
+                    ),
+                ],
                 ignore_index=True,
             )
         else:
@@ -197,16 +204,12 @@ async def trades(batch_id: str) -> None:
                 "gain_value",
             ] += delta
 
-        gain_loss["gain_percentage"] = round(
-            100.0 * float(gain_loss["gain_value"] / gain_loss["org_price"]), 2
-        )
-        trade_analysis["gain_percentage"] = round(
-            100.0
-            * float(
-                trade_analysis["gain_value"] / trade_analysis["org_price"]
-            ),
-            2,
-        )
+        gain_loss["gain_percentage"] = (
+            gain_loss["gain_value"] / gain_loss["org_price"]
+        ).map(lambda ratio: round(100.0 * float(ratio), 2))
+        trade_analysis["gain_percentage"] = (
+            trade_analysis["gain_value"] / trade_analysis["org_price"]
+        ).map(lambda ratio: round(100.0 * float(ratio), 2))
 
     await GainLoss.save(gain_loss)
     await TradeAnalysis.save(
